@@ -7,6 +7,8 @@ class_name Player extends CharacterBody3D
 @export var acceleration : float = 5.0
 @export var deceleration : float = 5.0
 
+@export_range(0.1, 1.0, 0.01) var mouse_sensitivity : float = 1.0
+
 # Gets a reference to the camera pivot to apply camera rotation
 @onready var campivot : Node3D = $CameraPivot
 
@@ -18,8 +20,8 @@ func _input(event):
 	
 	# Camera rotation
 	if event is InputEventMouseMotion:
-		campivot.rotation.y -= event.relative.x * 0.001
-		campivot.rotation.x -= event.relative.y * 0.001
+		campivot.rotation.y -= event.relative.x * mouse_sensitivity * 0.001
+		campivot.rotation.x -= event.relative.y * mouse_sensitivity * 0.001
 		campivot.rotation.x  = clamp(campivot.rotation.x, deg_to_rad(-80), deg_to_rad(89.9))
 
 func _ready():
