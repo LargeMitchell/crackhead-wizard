@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody3D
+extends CharacterBody3D
 
 # Basic movement variables
 @export var speed : float = 5.0
@@ -12,17 +12,29 @@ class_name Player extends CharacterBody3D
 # Gets a reference to the camera pivot to apply camera rotation
 @onready var campivot : Node3D = $CameraPivot
 
+
+enum SpellBook {METH, COKE, CRACK, LSD}
+
+@export var current_spell = SpellBook.METH
+
+var can_cast_spell = true
+
 func _input(event):
-	
+
 	# Quits game when escape key is pressed
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
-	
+
 	# Camera rotation
 	if event is InputEventMouseMotion:
 		campivot.rotation.y -= event.relative.x * mouse_sensitivity * 0.001
 		campivot.rotation.x -= event.relative.y * mouse_sensitivity * 0.001
 		campivot.rotation.x  = clamp(campivot.rotation.x, deg_to_rad(-80), deg_to_rad(89.9))
+
+	if Input.is_action_just_pressed("change_spell"):
+		current_spell = Spells.new().SpellBook.COKE
+	if Input.is_action_just_pressed("cast_spell"):
+		cast_spell()
 
 func _ready():
 	# Locks cursor to game screen
@@ -41,7 +53,7 @@ func _physics_process(delta):
 	# Get the input direction and rotate it based on camera rotation
 	var input_dir : Vector2 = Input.get_vector("left", "right", "up", "down")
 	var direction : Vector3 = Vector3(input_dir.x, 0, input_dir.y).normalized().rotated(Vector3.UP, campivot.rotation.y)
-	
+
 	# Apply input diretion as movement
 	if direction:
 		velocity.x = lerpf(velocity.x, direction.x * speed, delta * acceleration)
@@ -53,3 +65,23 @@ func _physics_process(delta):
 	#applies velocity to kinematic body
 	move_and_slide()
 
+func cast_spell(current_spell):
+	if !can_cast_spell:
+		return
+	can_cast_spell = false
+
+	if current_spell == SpellBook.METH:
+		cast_meth_spell()
+	elif current_spell == SpellBook.COKE:
+		print("COKE")
+	elif current_spell == SpellBook.CRACK:
+		print("CRACK")
+	elif current_spell == SpellBook.LSD:
+		print("LSD")
+
+func cast_meth_spell():
+	#$AnimationPlayer.play("cast_spell")
+	#$AnimationPlayer.connect("animation_finished", self, "cast_spell_anim_done")
+
+func cast_spell_anim_done():
+	can_cast_spell = true
