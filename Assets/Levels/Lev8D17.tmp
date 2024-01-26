@@ -39,3 +39,10 @@ data = {
 
 [node name="Enemy" parent="." instance=ExtResource("3_ui4ky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98535, 4.76837e-07, -16.1932)
+health = 100
+move_speed = 1.5
+attack_damage = 10
+attack_range = 10
+notice_range = 20
+player_attack_cd = 2.0
+player_attack_dur = 1.0

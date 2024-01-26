@@ -45,12 +45,14 @@ func _process(delta):
 			if player_state_timer >= player_attack_cd:
 				attack_player()
 				set_state(enemy_state.SHOOTING)
+				$AnimatedSprite3D.play("Shoot")
 				
 		enemy_state.SHOOTING:
 			player_state_timer += delta
 			
 			if player_state_timer >= player_attack_dur:
 				set_state(enemy_state.CHASING)
+				$AnimatedSprite3D.play("Run")
 	
 
 func _physics_process(delta):

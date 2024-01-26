@@ -32,9 +32,11 @@ func _input(event):
 		campivot.rotation.x  = clamp(campivot.rotation.x, deg_to_rad(-80), deg_to_rad(89.9))
 
 	if Input.is_action_just_pressed("change_spell"):
-		current_spell = Spells.new().SpellBook.COKE
+		pass
+		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
-		cast_spell()
+		pass
+		#cast_spell()
 
 func _ready():
 	# Locks cursor to game screen
@@ -80,6 +82,7 @@ func cast_spell(current_spell):
 		print("LSD")
 
 func cast_meth_spell():
+	pass
 	#$AnimationPlayer.play("cast_spell")
 	#$AnimationPlayer.connect("animation_finished", self, "cast_spell_anim_done")
 
