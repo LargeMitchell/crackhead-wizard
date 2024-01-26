@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcr8kjcbxpjhl"]
+
+[ext_resource type="PackedScene" uid="uid://c5h3w6om2k4c" path="res://Assets/Levels/ModularKit/Floor.glb" id="1_rh4m3"]
+[ext_resource type="PackedScene" uid="uid://fgkx7er2xift" path="res://Assets/Levels/ModularKit/FloorWall.glb" id="2_v34lf"]
+[ext_resource type="PackedScene" uid="uid://c18k3kq3vtcgs" path="res://Assets/Levels/ModularKit/WallCorner.glb" id="3_hcogw"]
+
+[node name="Tileset" type="Node3D"]
+
+[node name="Floor" parent="." instance=ExtResource("1_rh4m3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.01086e-05, 1.19209e-07, 0.00327975)
+
+[node name="FloorWall" parent="." instance=ExtResource("2_v34lf")]
+transform = Transform3D(-0.000750466, 0, -1, 0, 1, 0, 1, 0, -0.000750466, 0.00528002, 0, -5.96791)
+
+[node name="WallCorner" parent="." instance=ExtResource("3_hcogw")]
+transform = Transform3D(-0.0123915, 0, -0.999923, 0, 1, 0, 0.999923, 0, -0.0123915, -0.0149987, 0, -10.9865)
