@@ -3,23 +3,73 @@ class_name Enemy extends CharacterBody3D
 @onready var animated_sprite_3d = $AnimatedSprite3D
 
 @export var health: int = 100
-@export var move_speed: int = 100
+@export var move_speed: float = 1.5
 @export var attack_damage: int = 10
 @export var attack_range: int = 10
+@export var notice_range: int = 20
 
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 
-func _physics_process(delta):
-	if health == 0:
+var player_state_timer: float = 0.0
+@export var player_attack_cd: float = 2.0
+@export var player_attack_dur: float = 1.0
+
+enum enemy_state 
+{
+	CHASING,
+	SHOOTING,
+	IDLE
+}
+var state: enemy_state = enemy_state.IDLE
+
+func set_state(new_state: enemy_state):
+	state = new_state
+	player_state_timer = 0.0
+
+func _process(delta):
+	if health <= 0:
 		return
+		
 	if player == null:
 		return
+	
+	match state:
+		enemy_state.IDLE:
+			
+			if global_position.distance_to(player.global_position) <= notice_range:
+				set_state(enemy_state.CHASING)
+			
+		enemy_state.CHASING:
+			player_state_timer += delta
+			
+			if player_state_timer >= player_attack_cd:
+				attack_player()
+				set_state(enemy_state.SHOOTING)
+				
+		enemy_state.SHOOTING:
+			player_state_timer += delta
+			
+			if player_state_timer >= player_attack_dur:
+				set_state(enemy_state.CHASING)
+	
+
+func _physics_process(delta):
+	if health <= 0:
+		return
+		
+	if player == null:
+		return
+		
+	if state != enemy_state.CHASING:
+		return
+		
 	var dir = player.global_position - global_position
 	dir.y = 0.0
 	dir = dir.normalized()
 
 	velocity = dir * move_speed
 	move_and_slide()
+	
 
 func attack_player():
 	var distance_to_player = global_position.distance_to(player.global_position)
@@ -29,8 +79,10 @@ func attack_player():
 	var eye_line = Vector3.UP * 1.5
 	var query = PhysicsRayQueryParameters3D.create(global_position+eye_line, player.global_position+eye_line, 1)
 	var result = get_world_3d().direct_space_state.intersect_ray(query)
+	
 	if result.is_empty():
-		player.take_damage(attack_damage)
+		print("ouch!")
+		# player.take_damage(attack_damage)
 		
 func take_damage(damage_amount:int):
 	health -= damage_amount
