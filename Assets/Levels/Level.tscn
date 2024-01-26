@@ -1,18 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2t5pl0rjx0l"]
+[gd_scene load_steps=9 format=3 uid="uid://b2t5pl0rjx0l"]
 
+[ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
 [ext_resource type="PackedScene" uid="uid://cq66aumdatqdc" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://c18k3kq3vtcgs" path="res://Assets/Levels/ModularKit/tileset.tres" id="2_n8ydl"]
+[ext_resource type="MeshLibrary" uid="uid://c18k3kq3vtcgs" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_yy14j"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t1cgt"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
+noise_type = 2
 
-[sub_resource type="Sky" id="Sky_fcart"]
-sky_material = SubResource("ProceduralSkyMaterial_t1cgt")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vf5ew"]
+seamless = true
+noise = SubResource("FastNoiseLite_6drkm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfqbe"]
+shader = ExtResource("1_exwn4")
+shader_parameter/sky_color = Color(1, 0.461476, 0.888623, 1)
+shader_parameter/horizon_color = Color(0.321569, 0, 0.286275, 1)
+shader_parameter/sky_noise = SubResource("NoiseTexture2D_vf5ew")
+
+[sub_resource type="Sky" id="Sky_exg7v"]
+sky_material = SubResource("ShaderMaterial_nfqbe")
 
 [sub_resource type="Environment" id="Environment_ebqgf"]
 background_mode = 2
-sky = SubResource("Sky_fcart")
+sky = SubResource("Sky_exg7v")
+ambient_light_source = 2
+ambient_light_color = Color(0.698039, 0.698039, 0.698039, 1)
+reflected_light_source = 1
 tonemap_mode = 2
 glow_enabled = true
 
@@ -23,13 +36,14 @@ environment = SubResource("Environment_ebqgf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5.83137, 0)
+visible = false
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_i142k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("2_n8ydl")
+mesh_library = ExtResource("3_yy14j")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
