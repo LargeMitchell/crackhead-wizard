@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8wlpjhn1iigq"
-path.s3tc="res://.godot/imported/character_zombie_sheet.png-0d94eef65956df9ff5d397725ddbdc81.s3tc.ctex"
+uid="uid://bl6nv0vfnsc03"
+path.s3tc="res://.godot/imported/FloorWall_FloorEdge.png-52ab6318b31e666740dad31e3d3ac251.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/Enemies/character_zombie_sheet.png"
-dest_files=["res://.godot/imported/character_zombie_sheet.png-0d94eef65956df9ff5d397725ddbdc81.s3tc.ctex"]
+source_file="res://Assets/Levels/ModularKit/FloorWall_FloorEdge.png"
+dest_files=["res://.godot/imported/FloorWall_FloorEdge.png-52ab6318b31e666740dad31e3d3ac251.s3tc.ctex"]
 
 [params]
 
