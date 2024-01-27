@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://omkrsnjd5at2"
-path.s3tc="res://.godot/imported/Taxi_low poly car texture.png-f7f6e0c14ab4680b20485ec57f8f483e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Taxi_low poly car texture.png-92fbfcb9affa9030de235ad3b6d72aa5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/enemies/Yellow Beast/Taxi_low poly car texture.png"
-dest_files=["res://.godot/imported/Taxi_low poly car texture.png-f7f6e0c14ab4680b20485ec57f8f483e.s3tc.ctex"]
+source_file="res://Assets/Enemies/Yellow Beast/Taxi_low poly car texture.png"
+dest_files=["res://.godot/imported/Taxi_low poly car texture.png-92fbfcb9affa9030de235ad3b6d72aa5.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://uf00li4uxqkt"
-path.s3tc="res://.godot/imported/LeftArm.png-4584a9e4a7e16d1b47c13fcfa9ca92dc.s3tc.ctex"
+path.s3tc="res://.godot/imported/LeftArm.png-35915718b43ff67fadef03fe699347c3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/player/LeftArm.png"
-dest_files=["res://.godot/imported/LeftArm.png-4584a9e4a7e16d1b47c13fcfa9ca92dc.s3tc.ctex"]
+source_file="res://Assets/Player/LeftArm.png"
+dest_files=["res://.godot/imported/LeftArm.png-35915718b43ff67fadef03fe699347c3.s3tc.ctex"]
 
 [params]
 

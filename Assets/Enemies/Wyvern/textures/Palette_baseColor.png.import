@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxjw5ymhc3iru"
-path.s3tc="res://.godot/imported/Palette_baseColor.png-5dbb0aed7157f318401db7955740d41d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Palette_baseColor.png-2e46826b4dbb3b7d635438286da8bfb1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/enemies/Wyvern/textures/Palette_baseColor.png"
-dest_files=["res://.godot/imported/Palette_baseColor.png-5dbb0aed7157f318401db7955740d41d.s3tc.ctex"]
+source_file="res://Assets/Enemies/Wyvern/textures/Palette_baseColor.png"
+dest_files=["res://.godot/imported/Palette_baseColor.png-2e46826b4dbb3b7d635438286da8bfb1.s3tc.ctex"]
 
 [params]
 
