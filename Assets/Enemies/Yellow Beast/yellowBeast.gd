@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var health: int = 300
+@export var health: int = 100
 @export var move_speed: float = 5.5
 @export var attack_damage: int = 10
 @export var attack_range: int = 5
@@ -53,13 +53,14 @@ func _process(delta):
 	if player == null:
 		return
 		
+	$WyvernBody/WyvernWings.rotation += Vector3(0.0, delta * 100.0, 0.0)
+	
 	match state:
 		enemy_state.IDLE:
 			
-			chase_pos = player.global_position
-			
 			$".".look_at(player.global_position, Vector3.UP)
-			$".".global_rotation.z = 0.0
+			
+			chase_pos = player.global_position + Vector3(0.0, rand_height, 0.0)
 			
 			if global_position.distance_to(player.global_position) <= notice_range:
 				set_state(enemy_state.CHASING)
@@ -68,24 +69,46 @@ func _process(delta):
 		enemy_state.CHASING:
 			
 			$".".look_at(player.global_position, Vector3.UP)
-			$".".global_rotation.z = 0.0
 			
 			state_timer += delta
 			
 			chase_pos = player.global_position + Vector3(0.0, rand_height, 0.0)
 			
 			if state_timer >= 1.0:
-				set_state(enemy_state.CHARGING)
-				chase_pos = player.global_position + (player.global_position - global_position).normalized() * 10.0
-				charge_hit_player = false
+				
+				if randi_range(0, 1) == 0:
+					set_state(enemy_state.CHARGING)
+					chase_pos = player.global_position
+					charge_hit_player = false
+				else:
+					set_state(enemy_state.SHOOTING)
+					var nx = sin(PI * 2.0 + rand_rot_offset)
+					var nz = cos(PI * 2.0 + rand_rot_offset)
+					chase_pos = player.global_position + Vector3(nx * rand_dist, rand_height, nz * rand_dist)
 					
-				reroll_point()
+					reroll_point()
 
 		enemy_state.CHARGING:
 			state_timer += delta
 			
 			if state_timer >= 1.0:	
 				set_state(enemy_state.CHASING)
+				
+		enemy_state.SHOOTING:
+			state_timer += delta
+			shot_timer += delta
+			
+			if shot_timer >= shot_time:
+				
+				shot_timer -= shot_time
+				
+				var p = bullet.instantiate()
+				add_child(p)
+				p.global_transform.origin = global_transform.origin + Vector3.UP
+				p.direction = Vector3((player.global_position + (-Vector3.UP)) - global_position) + Vector3(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+				p.direction = p.direction.normalized()
+							
+			$".".look_at(player.global_position, Vector3.UP)
 			
 			if state_timer >= 2.5:
 				set_state(enemy_state.CHASING)
@@ -105,11 +128,9 @@ func _physics_process(delta):
 			charge_hit_player = true
 	
 	var dir = chase_pos - global_position
-	dir.y = 0.0
 	dir = dir.normalized()
 
 	velocity = dir * move_speed
-	if state == enemy_state.CHARGING: velocity *= 1.5
 	move_and_slide()
 		
 		
