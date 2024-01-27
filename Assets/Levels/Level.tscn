@@ -2,11 +2,11 @@
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
 [ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_a0xqn"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_tgivg"]
 [ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
 [ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
 [ext_resource type="PackedScene" uid="uid://cj0sa8u7b841q" path="res://Assets/Pick-ups/Evil-Elf-Leaf.tscn" id="6_p7pr7"]
-[ext_resource type="PackedScene" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
+[ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
 noise_type = 2
@@ -17,8 +17,6 @@ noise = SubResource("FastNoiseLite_6drkm")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nfqbe"]
 shader = ExtResource("1_exwn4")
-shader_parameter/sky_color = Color(1, 0.461476, 0.888623, 1)
-shader_parameter/horizon_color = Color(0.321569, 0, 0.286275, 1)
 shader_parameter/sky_noise = SubResource("NoiseTexture2D_vf5ew")
 
 [sub_resource type="Sky" id="Sky_exg7v"]
@@ -27,7 +25,7 @@ sky_material = SubResource("ShaderMaterial_nfqbe")
 [sub_resource type="Environment" id="Environment_ebqgf"]
 background_mode = 2
 sky = SubResource("Sky_exg7v")
-ambient_light_source = 2
+ambient_light_source = 3
 ambient_light_color = Color(0.698039, 0.698039, 0.698039, 1)
 reflected_light_source = 1
 tonemap_mode = 2
@@ -38,16 +36,11 @@ glow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ebqgf")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5.83137, 0)
-visible = false
-shadow_enabled = true
-
 [node name="Player" parent="." instance=ExtResource("2_i142k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_a0xqn")
+mesh_library = ExtResource("3_tgivg")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
