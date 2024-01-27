@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2t5pl0rjx0l"]
+[gd_scene load_steps=13 format=3 uid="uid://b2t5pl0rjx0l"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
 [ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_8tr2l"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_a0xqn"]
 [ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
 [ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
 [ext_resource type="PackedScene" uid="uid://cj0sa8u7b841q" path="res://Assets/Pick-ups/Evil-Elf-Leaf.tscn" id="6_p7pr7"]
+[ext_resource type="PackedScene" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
 noise_type = 2
@@ -46,7 +47,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_8tr2l")
+mesh_library = ExtResource("3_a0xqn")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
@@ -62,3 +63,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5269, 0.510501, -82.2787)
 
 [node name="Pick-up2" parent="." instance=ExtResource("6_p7pr7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8243, 0.538173, -78.4325)
+
+[node name="Skyscrapers" type="Node" parent="."]
+
+[node name="Skyscraper" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4496, -8.53165, 6.5932)
+
+[node name="Skyscraper2" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14371, 2.17977, 13.3913)
+
+[node name="Skyscraper3" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0618, -12.0393, 11.6305)
+
+[node name="Skyscraper4" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8708, 3.8147e-06, -129.724)
+
+[node name="Skyscraper5" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.7861, -7.62939e-06, -144.612)
+
+[node name="Skyscraper6" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3603, -10.7791, -68.7211)
+
+[node name="Skyscraper7" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8495, -29.8085, -127.106)
+
+[node name="Skyscraper8" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3568, -9.17832, -186.016)
