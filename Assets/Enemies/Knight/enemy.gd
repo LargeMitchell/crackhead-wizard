@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var bullet : PackedScene = preload("res://Assets/Projectiles/Bullet.tscn")
 
 var state_timer: float = 0.0
+var grabbed : bool = false
 @export var attack_cd: float = 1.0
 
 enum enemy_state
@@ -55,28 +56,31 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if health <= 0:
-		return
+	if !grabbed:
+		if health <= 0:
+			return
 
-	if player == null:
-		return
+		if player == null:
+			return
 
-	if state != enemy_state.CHASING:
-		return
+		if state != enemy_state.CHASING:
+			return
 
-	var dir = player.global_position - global_position
-	dir.y = 0.0
-	dir = dir.normalized()
+		var dir = player.global_position - global_position
+		dir.y = 0.0
+		dir = dir.normalized()
 
-	velocity = dir * move_speed
+		velocity = dir * move_speed
+
 	move_and_slide()
 
 
 func attack_player():
-	var p = bullet.instantiate()
-	add_child(p)
-	p.global_transform.origin = global_transform.origin + Vector3.UP
-	p.direction = Vector3((player.global_position + (-Vector3.UP)) - global_position).normalized()
+	if !grabbed:
+		var p = bullet.instantiate()
+		add_child(p)
+		p.global_transform.origin = global_transform.origin + Vector3.UP
+		p.direction = Vector3((player.global_position + (-Vector3.UP)) - global_position).normalized()
 
 func take_damage(damage_amount:float):
 	health -= damage_amount

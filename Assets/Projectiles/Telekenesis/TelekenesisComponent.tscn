@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c628spjccw3fi"]
+
+[ext_resource type="Script" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.gd" id="1_bvvc6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eq5nr"]
+
+[node name="TelekenesisComponent" type="Node3D"]
+script = ExtResource("1_bvvc6")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+shape = SubResource("SphereShape3D_eq5nr")
+target_position = Vector3(0, 0, 0)
