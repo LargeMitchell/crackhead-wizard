@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bopoft1kv0pic"]
 
 [ext_resource type="Script" path="res://assets/copcar/copcar.gd" id="1_6hy6p"]
-[ext_resource type="PackedScene" uid="uid://bog0io6eramho" path="res://assets/copcar/Police Car.glb" id="1_qij11"]
+[ext_resource type="PackedScene" uid="uid://bog0io6eramho" path="res://Assets/copcar/Police Car.glb" id="1_qij11"]
 
 [node name="copcar" type="CharacterBody3D"]
 script = ExtResource("1_6hy6p")

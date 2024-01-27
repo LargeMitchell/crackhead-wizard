@@ -1,4 +1,4 @@
-class_name Enemy extends CharacterBody3D
+extends CharacterBody3D
 
 @onready var animated_sprite_3d = $AnimatedSprite3D
 
@@ -14,7 +14,7 @@ class_name Enemy extends CharacterBody3D
 var state_timer: float = 0.0
 @export var attack_cd: float = 1.0
 
-enum enemy_state 
+enum enemy_state
 {
 	CHASING,
 	SHOOTING,
@@ -74,7 +74,7 @@ func _physics_process(delta):
 
 func attack_player():
 	var p = bullet.instantiate()
-	owner.add_child(p)
+	add_child(p)
 	p.transform = global_transform
 	p.direction = Vector3(player.global_position - global_position).normalized()
 
