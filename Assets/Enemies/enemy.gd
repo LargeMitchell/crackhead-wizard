@@ -11,8 +11,7 @@ class_name Enemy extends CharacterBody3D
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 
 var player_state_timer: float = 0.0
-@export var player_attack_cd: float = 2.0
-@export var player_attack_dur: float = 1.0
+@export var player_attack_cd: float = 1.0
 
 enum enemy_state 
 {
@@ -42,15 +41,14 @@ func _process(delta):
 		enemy_state.CHASING:
 			player_state_timer += delta
 			
-			if player_state_timer >= player_attack_cd:
+			if player_state_timer >= player_attack_cd || global_position.distance_to(player.global_position) <= attack_range:
 				attack_player()
 				set_state(enemy_state.SHOOTING)
 				$AnimatedSprite3D.play("Shoot")
 				
 		enemy_state.SHOOTING:
-			player_state_timer += delta
 			
-			if player_state_timer >= player_attack_dur:
+			if $AnimatedSprite3D.frame >= 3: # hard coded to make him only shoot once
 				set_state(enemy_state.CHASING)
 				$AnimatedSprite3D.play("Run")
 	
@@ -74,10 +72,6 @@ func _physics_process(delta):
 	
 
 func attack_player():
-	var distance_to_player = global_position.distance_to(player.global_position)
-	if distance_to_player > attack_range:
-		return
-
 	var eye_line = Vector3.UP * 1.5
 	var query = PhysicsRayQueryParameters3D.create(global_position+eye_line, player.global_position+eye_line, 1)
 	var result = get_world_3d().direct_space_state.intersect_ray(query)
