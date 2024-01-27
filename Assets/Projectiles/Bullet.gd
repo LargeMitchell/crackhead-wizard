@@ -8,7 +8,7 @@ var timer : float = 0.0
 
 func _physics_process(delta):
 	
-	position += direction * projectile_speed * delta
+	global_position += direction * projectile_speed * delta
 	
 	# bullet timer
 	timer += delta

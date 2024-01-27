@@ -75,8 +75,8 @@ func _physics_process(delta):
 func attack_player():
 	var p = bullet.instantiate()
 	add_child(p)
-	p.transform = global_transform
-	p.direction = Vector3(player.global_position - global_position).normalized()
+	p.global_transform.origin = global_transform.origin + Vector3.UP
+	p.direction = Vector3((player.global_position + (-Vector3.UP)) - global_position).normalized()
 
 func take_damage(damage_amount:float):
 	health -= damage_amount
