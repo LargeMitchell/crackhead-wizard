@@ -5,10 +5,13 @@ class_name Projectile extends Area3D
 
 var direction : Vector3
 var timer : float = 0.0
+var charge_value : float = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	position += direction * projectile_speed * delta
+	
+	scale = scale * remap(charge_value, 0.0, 1.0, 1.0, 2.0)
 	
 	# bullet timer
 	timer += delta
