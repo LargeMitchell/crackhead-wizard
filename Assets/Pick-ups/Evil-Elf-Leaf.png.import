@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmekhay8rxwpm"
-path.s3tc="res://.godot/imported/Elf-Leaf.png-7dde2ffe1bc3db60fba15c50ccdb3515.s3tc.ctex"
+uid="uid://c5ajgfymjsgok"
+path.s3tc="res://.godot/imported/Evil-Elf-Leaf.png-3380f67f4303708a9853232a928ba3b0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Pick-ups/Elf-Leaf.png"
-dest_files=["res://.godot/imported/Elf-Leaf.png-7dde2ffe1bc3db60fba15c50ccdb3515.s3tc.ctex"]
+source_file="res://Assets/Pick-ups/Evil-Elf-Leaf.png"
+dest_files=["res://.godot/imported/Evil-Elf-Leaf.png-3380f67f4303708a9853232a928ba3b0.s3tc.ctex"]
 
 [params]
 

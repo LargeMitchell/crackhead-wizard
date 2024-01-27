@@ -23,7 +23,7 @@ enum SpellBook {METH, COKE, CRACK, LSD}
 @export var health : float = 100.0
 @export var max_health : float = 100.0
 @export var mana : float = 100.0
-@export var max_mana : float = 100.0
+@export var max_mana : float = 200.0
 
 var can_cast_spell = true
 var cast_charge_timer = 999.0
