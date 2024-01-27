@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum SpellBook {METH, COKE, LSD}
+enum SpellBook { METH = 0, COKE = 1, LSD = 2 }
 
 # Basic movement variables
 @export var speed : float = 8.0
@@ -33,7 +33,7 @@ var cast_charge_dur = 3.0
 
 var killed_enemy = false
 
-var buffs : Dictionary = {}
+var buffs : Dictionary = { SpellBook.METH:{"duration":10.0,"doses":1} }
 
 func _input(event):
 
@@ -48,7 +48,9 @@ func _input(event):
 		campivot.rotation.x  = clamp(campivot.rotation.x, deg_to_rad(-80), deg_to_rad(89.9))
 
 	if Input.is_action_just_pressed("change_spell"):
-		pass
+		current_spell += 1
+		current_spell %= 3
+		print(current_spell)
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
 		cast_charge_timer = 0.0
@@ -126,7 +128,9 @@ func die():
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
 		return
-
+	
+	print("")
+	
 	match spell:
 		SpellBook.METH:
 			cast_meth_spell(charge)
@@ -138,7 +142,6 @@ func cast_spell(spell, charge: float):
 			cast_lsd_spell()
 
 func cast_meth_spell(charge: float):
-
 	spawn_projectile(fireball, charge)
 	
 func cast_coke_spell():
