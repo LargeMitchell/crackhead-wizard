@@ -1,4 +1,4 @@
-class_name Enemy extends CharacterBody3D
+class_name Wyvern extends CharacterBody3D
 
 @onready var animated_sprite_3d = $AnimatedSprite3D
 
@@ -31,6 +31,9 @@ func _process(delta):
 		
 	if player == null:
 		return
+		
+	$WyvernBody/WyvernWings.rotation += Vector3(0.0, delta * 100.0, 0.0)
+	$".".look_at(player.global_position, Vector3.UP)
 	
 	match state:
 		enemy_state.IDLE:
@@ -44,13 +47,13 @@ func _process(delta):
 			if state_timer >= attack_cd || global_position.distance_to(player.global_position) <= attack_range:
 				attack_player()
 				set_state(enemy_state.SHOOTING)
-				$AnimatedSprite3D.play("Shoot")
+				
 				
 		enemy_state.SHOOTING:
 			
-			if $AnimatedSprite3D.frame >= 3: # hard coded to make him only shoot once
+			#if $AnimatedSprite3D.frame >= 3: # hard coded to make him only shoot once
 				set_state(enemy_state.CHASING)
-				$AnimatedSprite3D.play("Run")
+				
 	
 
 func _physics_process(delta):
