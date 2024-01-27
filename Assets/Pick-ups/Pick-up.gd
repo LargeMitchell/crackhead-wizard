@@ -1,4 +1,4 @@
-class_name PickUp extends Area3D
+extends Area3D
 
 # Called when the node enters the scene tree for the first time.
 @export var mana: float

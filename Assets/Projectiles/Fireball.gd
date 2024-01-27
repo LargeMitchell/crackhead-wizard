@@ -1,4 +1,4 @@
-class_name Fireball extends Area3D
+extends Area3D
 
 @export var projectile_speed : float = 10.0
 @export var lifetime : float = 2.0

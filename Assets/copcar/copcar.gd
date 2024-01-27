@@ -1,4 +1,4 @@
-class_name Copcar extends CharacterBody3D
+extends CharacterBody3D
 
 @onready var node3D = $Node3D
 @onready var origin: Marker3D = $Origin
@@ -10,7 +10,7 @@ class_name Copcar extends CharacterBody3D
 @export var enemies_to_spawn: int = 3
 var spawned_enemies: int = 0
 # Want them to spawn around the cop car in a somewhat belivable way
-var enemy_offset: Array = [Vector3(1, 0, 0), Vector3(0, 0, 1), Vector3(-1, 0, 0)]
+var enemy_offset: Array = [Vector3(1, 0, 0), Vector3(0, 0, 0), Vector3(-1, 0, 0)]
 
 @onready var enemy : PackedScene = preload("res://assets/enemies/Knight/enemy.tscn")
 @onready var timer : Timer = $Timer
@@ -61,6 +61,6 @@ func _on_timer_timeout():
 
 func spawn_enemy():
 	var e = enemy.instantiate()
-	owner.add_child(e)
+	add_child(e)
 	enemy_offset.shuffle()
 	e.global_position = global_position + enemy_offset[0]
