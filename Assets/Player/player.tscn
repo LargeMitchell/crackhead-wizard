@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ceb568srikvhy"]
+[gd_scene load_steps=42 format=3 uid="uid://ceb568srikvhy"]
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxcdqim5h4uqn" path="res://Assets/Player/Face.png" id="5_6hlbd"]
 [ext_resource type="Script" path="res://Assets/Player/HeadAnim.gd" id="6_u877w"]
 [ext_resource type="Texture2D" uid="uid://dyeob7f7q3t61" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
+[ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -316,3 +317,5 @@ z_index = -1
 position = Vector2(105.5, 95.5)
 scale = Vector2(2.6125, 2.32927)
 texture = ExtResource("7_8nu1n")
+
+[node name="TelekenesisComponent" parent="." instance=ExtResource("9_6eowr")]
