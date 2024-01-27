@@ -15,3 +15,7 @@ shape = SubResource("CylinderShape3D_v8j3f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+fov = 100.0
+
+[node name="SpellSpawn" type="Marker3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642169, -0.517421, -1.01358)

@@ -1,21 +1,22 @@
 extends CharacterBody3D
 
+enum SpellBook {METH, COKE, CRACK, LSD}
+
 # Basic movement variables
-@export var speed : float = 5.0
-@export var jump_velocity : float = 4.5
-@export var gravity : float = 9.8
-@export var acceleration : float = 5.0
-@export var deceleration : float = 5.0
+@export var speed : float = 8.0
+@export var jump_velocity : float = 6.0
+@export var gravity : float = 15.0
+@export var acceleration : float = 8.0
+@export var deceleration : float = 8.0
+
+@export var current_spell = SpellBook.METH
 
 @export_range(0.1, 1.0, 0.01) var mouse_sensitivity : float = 1.0
 
 # Gets a reference to the camera pivot to apply camera rotation
 @onready var campivot : Node3D = $CameraPivot
-
-
-enum SpellBook {METH, COKE, CRACK, LSD}
-
-@export var current_spell = SpellBook.METH
+@onready var bulletorigin : Marker3D = $CameraPivot/SpellSpawn
+@onready var projectile : PackedScene = preload("res://Assets/Projectiles/Projectile.tscn")
 
 var can_cast_spell = true
 
@@ -35,8 +36,7 @@ func _input(event):
 		pass
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
-		pass
-		#cast_spell()
+		cast_spell(current_spell)
 
 func _ready():
 	# Locks cursor to game screen
@@ -67,24 +67,41 @@ func _physics_process(delta):
 	#applies velocity to kinematic body
 	move_and_slide()
 
-func cast_spell(current_spell):
+func cast_spell(spell):
 	if !can_cast_spell:
 		return
-	can_cast_spell = false
+	#can_cast_spell = false
 
-	if current_spell == SpellBook.METH:
-		cast_meth_spell()
-	elif current_spell == SpellBook.COKE:
-		print("COKE")
-	elif current_spell == SpellBook.CRACK:
-		print("CRACK")
-	elif current_spell == SpellBook.LSD:
-		print("LSD")
+	match spell:
+		SpellBook.METH:
+			cast_meth_spell()
+		
+		SpellBook.COKE:
+			pass
+		
+		SpellBook.CRACK:
+			pass
+		
+		SpellBook.LSD:
+			pass
 
 func cast_meth_spell():
-	pass
+	
+	spawn_projectile(projectile)
+	
 	#$AnimationPlayer.play("cast_spell")
 	#$AnimationPlayer.connect("animation_finished", self, "cast_spell_anim_done")
 
 func cast_spell_anim_done():
 	can_cast_spell = true
+
+func spawn_projectile(proj: PackedScene):
+	
+	# instantiates and spawn projectile
+	var p = proj.instantiate()
+	owner.add_child(p)
+	
+	# sets projectile position and launch direction
+	p.transform = bulletorigin.global_transform
+	p.direction = -campivot.transform.basis.z
+
