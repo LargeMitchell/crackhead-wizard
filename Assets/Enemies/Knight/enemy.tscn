@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://bc4ws14wke85l"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Knight/enemy.gd" id="1_q0wr6"]
-[ext_resource type="Texture2D" uid="uid://wq621ndkt2kf" path="res://assets/enemies/Knight/PoliceSprite.png" id="2_2aprj"]
-[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://assets/enemies/Knight/explode.wav" id="2_8jh2m"]
+[ext_resource type="Texture2D" uid="uid://wq621ndkt2kf" path="res://Assets/Enemies/Knight/PoliceSprite.png" id="2_2aprj"]
+[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://Assets/Enemies/Knight/explode.wav" id="2_8jh2m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j60oq"]
 
