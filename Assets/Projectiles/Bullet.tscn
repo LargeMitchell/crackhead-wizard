@@ -1,10 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://1kaihru4p5sq"]
+[gd_scene load_steps=10 format=3 uid="uid://1kaihru4p5sq"]
 
 [ext_resource type="Script" path="res://Assets/Projectiles/Bullet.gd" id="1_6ld1s"]
-[ext_resource type="Texture2D" uid="uid://dyvg3754pn820" path="res://icon.svg" id="1_cahjt"]
+[ext_resource type="Texture2D" uid="uid://barg7pyyargrq" path="res://Assets/Projectiles/EnemyFireballProj.png" id="2_0nnio"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_17ytn"]
 size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dmyo"]
+atlas = ExtResource("2_0nnio")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twq1m"]
+atlas = ExtResource("2_0nnio")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wx08"]
+atlas = ExtResource("2_0nnio")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q2j8"]
+atlas = ExtResource("2_0nnio")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u42y1"]
+atlas = ExtResource("2_0nnio")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1w51r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dmyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twq1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wx08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q2j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u42y1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [node name="Bullet" type="Area3D"]
 script = ExtResource("1_6ld1s")
@@ -12,9 +55,10 @@ script = ExtResource("1_6ld1s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_17ytn")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-pixel_size = 0.0045
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 1
-texture = ExtResource("1_cahjt")
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_1w51r")
+frame_progress = 0.442147
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
