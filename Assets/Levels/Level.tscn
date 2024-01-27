@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2t5pl0rjx0l"]
+[gd_scene load_steps=8 format=3 uid="uid://b2t5pl0rjx0l"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
-[ext_resource type="PackedScene" uid="uid://cq66aumdatqdc" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://c18k3kq3vtcgs" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_yy14j"]
+[ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
 noise_type = 2
@@ -43,7 +42,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_yy14j")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
