@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wq621ndkt2kf"
-path.s3tc="res://.godot/imported/PoliceSprite.png-3d1b607949b43025f46f4547703aeb63.s3tc.ctex"
+path.s3tc="res://.godot/imported/PoliceSprite.png-7e5629fdd641ada80fcd9a98f9ad9d0c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/enemies/Knight/PoliceSprite.png"
-dest_files=["res://.godot/imported/PoliceSprite.png-3d1b607949b43025f46f4547703aeb63.s3tc.ctex"]
+source_file="res://Assets/Enemies/Knight/PoliceSprite.png"
+dest_files=["res://.godot/imported/PoliceSprite.png-7e5629fdd641ada80fcd9a98f9ad9d0c.s3tc.ctex"]
 
 [params]
 

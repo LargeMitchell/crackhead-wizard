@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dq7366ysdq865"
-path="res://.godot/imported/WyvernWings.glb-ce0edffd2d28084c13f142d3fd24f276.scn"
+path="res://.godot/imported/WyvernWings.glb-f19b7feb07df4da5451c26fe98d8eaae.scn"
 
 [deps]
 
-source_file="res://Assets/enemies/Wyvern/WyvernWings.glb"
-dest_files=["res://.godot/imported/WyvernWings.glb-ce0edffd2d28084c13f142d3fd24f276.scn"]
+source_file="res://Assets/Enemies/Wyvern/WyvernWings.glb"
+dest_files=["res://.godot/imported/WyvernWings.glb-f19b7feb07df4da5451c26fe98d8eaae.scn"]
 
 [params]
 

@@ -16,8 +16,14 @@ enum SpellBook {METH, COKE, CRACK, LSD}
 # Gets a reference to the camera pivot to apply camera rotation
 @onready var campivot : Node3D = $CameraPivot
 @onready var bulletorigin : Marker3D = $CameraPivot/SpellSpawn
-@onready var projectile : PackedScene = preload("res://Assets/Projectiles/Projectile.tscn")
+@onready var fireball : PackedScene = preload("res://Assets/Projectiles/Fireball.tscn")
 @onready var animated_sprite : AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
+
+# Player Attributes
+@export var health : float = 100.0
+@export var max_health : float = 100.0
+@export var mana : float = 100.0
+@export var max_mana : float = 100.0
 
 var can_cast_spell = true
 var cast_charge_timer = 999.0
@@ -40,9 +46,8 @@ func _input(event):
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
 		cast_charge_timer = 0.0
-		
+
 	if Input.is_action_just_released("cast_spell"):
-		print(cast_charge_timer)
 		cast_spell(current_spell, cast_charge_timer)
 
 func _ready():
@@ -101,6 +106,16 @@ func _physics_process(delta):
 	#applies velocity to kinematic body
 	move_and_slide()
 
+func take_damage(damage: float):
+	print('health', health)
+	health -= damage
+	if health <= 0:
+		health = 0
+		die()
+
+func die():
+	pass
+
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
 		return
@@ -117,15 +132,14 @@ func cast_spell(spell, charge: float):
 			pass
 		
 		SpellBook.LSD:
-			pass
+			cast_lsd_spell()
 
 func cast_meth_spell(charge: float):
 	
-	
-	spawn_projectile(projectile, charge)
-	
-	#$AnimationPlayer.play("cast_spell")
-	#$AnimationPlayer.connect("animation_finished", self, "cast_spell_anim_done")
+	spawn_projectile(fireball, charge)
+
+func cast_lsd_spell():
+	print("lsd")
 
 func cast_spell_anim_done():
 	can_cast_spell = true

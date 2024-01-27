@@ -78,7 +78,7 @@ func attack_player():
 
 	if result.is_empty():
 		print("ouch!")
-		# player.take_damage(attack_damage)
+		player.take_damage(attack_damage)
 
 func take_damage(damage_amount:float):
 	health -= damage_amount
