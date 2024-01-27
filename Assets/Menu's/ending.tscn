@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://chqls0wpyest7"]
+
+[ext_resource type="Script" path="res://Assets/Menu's/ending.gd" id="1_ruugh"]
+[ext_resource type="FontFile" uid="uid://csab5ljxsrqh1" path="res://Assets/Menu's/font/LadyRadical2Regular-0yAz.ttf" id="2_2ed7m"]
+
+[sub_resource type="Theme" id="Theme_gsl5j"]
+default_font = ExtResource("2_2ed7m")
+default_font_size = 0
+
+[sub_resource type="Theme" id="Theme_e53s7"]
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ruugh")
+
+[node name="TextEnding" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 259.0
+offset_top = 132.0
+offset_right = -215.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_gsl5j")
+text = "Thou hath completed thine quest for freedom and escapeth from the swines
+
+Thou got past the bridge troll and can now flee to the promised land of Mexico.
+
+Enjoy your valor and splendor!
+
+GGJ 2024
+Jack Jadoenath, Ozan Romeo Somak, Falco van Hout, Eric Nicholas"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 489.0
+offset_top = 499.0
+offset_right = -447.0
+offset_bottom = -99.0
+theme = SubResource("Theme_e53s7")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.94902, 0.94902, 0, 1)
+theme_override_fonts/font = ExtResource("2_2ed7m")
+text = "End The Quest"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="TextEnding" method="_on_button_pressed"]
