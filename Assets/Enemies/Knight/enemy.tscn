@@ -1,23 +1,26 @@
 [gd_scene load_steps=17 format=3 uid="uid://bc4ws14wke85l"]
 
-[ext_resource type="Texture2D" uid="uid://b8wlpjhn1iigq" path="res://Assets/Enemies/Knight/character_zombie_sheet.png" id="1_lv3d1"]
 [ext_resource type="Script" path="res://Assets/Enemies/Knight/enemy.gd" id="1_q0wr6"]
-[ext_resource type="Texture2D" uid="uid://wq621ndkt2kf" path="res://Assets/Enemies/Knight/PoliceSprite.png" id="2_2aprj"]
-[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://Assets/Enemies/Knight/explode.wav" id="2_8jh2m"]
+[ext_resource type="Texture2D" uid="uid://wq621ndkt2kf" path="res://assets/enemies/Knight/PoliceSprite.png" id="2_2aprj"]
+[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://assets/enemies/Knight/explode.wav" id="2_8jh2m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j60oq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s1lu8"]
-atlas = ExtResource("1_lv3d1")
-region = Rect2(384, 0, 96, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq4sr"]
+atlas = ExtResource("2_2aprj")
+region = Rect2(320, 0, 64, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5diwo"]
-atlas = ExtResource("1_lv3d1")
-region = Rect2(288, 384, 96, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tgy2"]
+atlas = ExtResource("2_2aprj")
+region = Rect2(256, 0, 64, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dr7l6"]
-atlas = ExtResource("1_lv3d1")
-region = Rect2(384, 384, 96, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_utxon"]
+atlas = ExtResource("2_2aprj")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy1fp"]
+atlas = ExtResource("2_2aprj")
+region = Rect2(448, 0, 64, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bg01t"]
 atlas = ExtResource("2_2aprj")
@@ -50,14 +53,23 @@ region = Rect2(64, 0, 64, 128)
 [sub_resource type="SpriteFrames" id="SpriteFrames_myogn"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s1lu8")
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_yq4sr")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_2tgy2")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_yq4sr")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_2tgy2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5diwo")
+"texture": SubResource("AtlasTexture_utxon")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dr7l6")
+"texture": SubResource("AtlasTexture_hy1fp")
 }],
 "loop": false,
 "name": &"Death",
@@ -114,7 +126,7 @@ transform = Transform3D(1.54232, 0, 0, 0, 1.48357, 0, 0, 0, 1, 5.96046e-08, 0.96
 billboard = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_myogn")
-animation = &"Shoot"
+animation = &"Death"
 autoplay = "Run"
 speed_scale = 1.5
 

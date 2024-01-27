@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cy25w6h68xf3s"
-path="res://.godot/imported/explode.wav-98a65d05fffa8d61bcb7aaa487901cc9.sample"
+path="res://.godot/imported/explode.wav-c02bc05a97fa846fbc5b8b836d8403cf.sample"
 
 [deps]
 
-source_file="res://Assets/Enemies/Knight/explode.wav"
-dest_files=["res://.godot/imported/explode.wav-98a65d05fffa8d61bcb7aaa487901cc9.sample"]
+source_file="res://Assets/enemies/Knight/explode.wav"
+dest_files=["res://.godot/imported/explode.wav-c02bc05a97fa846fbc5b8b836d8403cf.sample"]
 
 [params]
 

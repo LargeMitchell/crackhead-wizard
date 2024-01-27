@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://Assets/Player/handframes.tres" id="2_rhil4"]
+[ext_resource type="Texture2D" uid="uid://srcbeibpvyjs" path="res://assets/player/RightArm.png" id="2_xkpyg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 

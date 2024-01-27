@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://7p3vtrwb8dkt"
-path="res://.godot/imported/scene.gltf-4c67809e9d7d054e38f4b6087207ba48.scn"
+path="res://.godot/imported/scene.gltf-bc5f0701680d8937a4370f2617f880e7.scn"
 
 [deps]
 
-source_file="res://Assets/Enemies/Wyvern/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-4c67809e9d7d054e38f4b6087207ba48.scn"]
+source_file="res://Assets/enemies/Wyvern/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-bc5f0701680d8937a4370f2617f880e7.scn"]
 
 [params]
 

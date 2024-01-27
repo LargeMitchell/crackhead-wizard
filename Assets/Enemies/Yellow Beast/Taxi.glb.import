@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://tetjiuy80tpc"
-path="res://.godot/imported/Taxi.glb-92077bae1a67cce5b9c56b8447d211e2.scn"
+path="res://.godot/imported/Taxi.glb-17c8ae3f742bcb14d64abadaffb06a0a.scn"
 
 [deps]
 
-source_file="res://Assets/Enemies/Yellow Beast/Taxi.glb"
-dest_files=["res://.godot/imported/Taxi.glb-92077bae1a67cce5b9c56b8447d211e2.scn"]
+source_file="res://Assets/enemies/Yellow Beast/Taxi.glb"
+dest_files=["res://.godot/imported/Taxi.glb-17c8ae3f742bcb14d64abadaffb06a0a.scn"]
 
 [params]
 

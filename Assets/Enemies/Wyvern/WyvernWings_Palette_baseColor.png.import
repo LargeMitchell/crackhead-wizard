@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fm3wq7ag6li3"
-path.s3tc="res://.godot/imported/WyvernWings_Palette_baseColor.png-de0e9a6365bd9105d7aa8bf374322e29.s3tc.ctex"
+path.s3tc="res://.godot/imported/WyvernWings_Palette_baseColor.png-edf78ffc61d094060945b05ae41dc91c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/Enemies/Wyvern/WyvernWings_Palette_baseColor.png"
-dest_files=["res://.godot/imported/WyvernWings_Palette_baseColor.png-de0e9a6365bd9105d7aa8bf374322e29.s3tc.ctex"]
+source_file="res://Assets/enemies/Wyvern/WyvernWings_Palette_baseColor.png"
+dest_files=["res://.godot/imported/WyvernWings_Palette_baseColor.png-edf78ffc61d094060945b05ae41dc91c.s3tc.ctex"]
 
 [params]
 

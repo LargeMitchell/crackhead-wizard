@@ -2,6 +2,7 @@ class_name Projectile extends Area3D
 
 @export var projectile_speed : float = 10.0
 @export var lifetime : float = 2.0
+@export var damage : float = 25.0
 
 var direction : Vector3
 var timer : float = 0.0
@@ -29,7 +30,7 @@ func set_charge_scale():
 
 func _on_body_entered(body):
 	if body is Enemy:
-		print("enemy hit")
+		body.take_damage(damage)
 		queue_free()
 	elif body is GridMap:
 		print("wall hit")
