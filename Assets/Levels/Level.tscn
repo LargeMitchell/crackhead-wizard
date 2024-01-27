@@ -1,18 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2t5pl0rjx0l"]
+[gd_scene load_steps=19 format=3 uid="uid://b2t5pl0rjx0l"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
 [ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_av44g"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_l5qd3"]
 [ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
 [ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
-[ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://assets/pick-ups/LSD.tscn" id="6_p7pr7"]
 [ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
-[ext_resource type="PackedScene" uid="uid://bnaf4btwd1d1o" path="res://Assets/pick-ups/Coke.tscn" id="9_53cpw"]
-[ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://Assets/pick-ups/LSD.tscn" id="9_ja6qo"]
-[ext_resource type="PackedScene" uid="uid://bo2mprfi51622" path="res://Assets/pick-ups/Meth.tscn" id="10_yxp0f"]
 [ext_resource type="PackedScene" uid="uid://bopoft1kv0pic" path="res://Assets/copcar/copcar.tscn" id="11_my1wo"]
 [ext_resource type="PackedScene" uid="uid://bmjao113dpmbo" path="res://Assets/Enemies/EnemySpawner/EnemySpawner.tscn" id="12_uclf2"]
-[ext_resource type="PackedScene" uid="uid://bfynvrp0ynb1d" path="res://Assets/Enemies/Wyvern/wyvern.tscn" id="13_yc4pk"]
+[ext_resource type="PackedScene" uid="uid://b5l7mqjiqy8lu" path="res://Assets/Enemies/Wyvern/wyvern.tscn" id="13_yc4pk"]
 [ext_resource type="PackedScene" uid="uid://ctcmfknl5d24o" path="res://Assets/Enemies/Yellow Beast/yellowBeast.tscn" id="14_4md1f"]
 [ext_resource type="PackedScene" uid="uid://bnaf4btwd1d1o" path="res://Assets/Pick-ups/Coke.tscn" id="15_o14pc"]
 [ext_resource type="PackedScene" uid="uid://bo2mprfi51622" path="res://Assets/Pick-ups/Meth.tscn" id="16_01ct2"]
@@ -50,7 +46,7 @@ environment = SubResource("Environment_ebqgf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_av44g")
+mesh_library = ExtResource("3_l5qd3")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
@@ -61,10 +57,10 @@ script = ExtResource("4_ii3x8")
 [node name="Enemy" parent="." instance=ExtResource("5_5tw0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24469, 4.76837e-07, -22.4004)
 
-[node name="Pick-up" parent="." instance=ExtResource("6_p7pr7")]
+[node name="Pick-up" parent="." instance=ExtResource("17_0jkb6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5269, 0.510501, -82.2787)
 
-[node name="Pick-up2" parent="." instance=ExtResource("6_p7pr7")]
+[node name="Pick-up2" parent="." instance=ExtResource("17_0jkb6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8243, 0.538173, -78.4325)
 
 [node name="Skyscrapers" type="Node" parent="."]
@@ -93,16 +89,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8495, -29.8085, -127.106)
 [node name="Skyscraper8" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3568, -9.17832, -186.016)
 
-[node name="Pick-up3" parent="." instance=ExtResource("9_53cpw")]
+[node name="Pick-up3" parent="." instance=ExtResource("15_o14pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11737, 0, -10.1844)
 
-[node name="Pick-up4" parent="." instance=ExtResource("9_ja6qo")]
+[node name="Pick-up4" parent="." instance=ExtResource("17_0jkb6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.795728, 0, -9.44535)
 
-[node name="Pick-up5" parent="." instance=ExtResource("9_53cpw")]
+[node name="Pick-up5" parent="." instance=ExtResource("15_o14pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58633, 0, -13.1259)
 
-[node name="Pick-up6" parent="." instance=ExtResource("10_yxp0f")]
+[node name="Pick-up6" parent="." instance=ExtResource("16_01ct2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55357, 0, -12.9541)
 
 [node name="copcar" parent="." instance=ExtResource("11_my1wo")]
