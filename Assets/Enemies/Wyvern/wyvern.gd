@@ -21,6 +21,8 @@ var shot_time: float = 0.05
 var shot_timer: float = 0.0
 var rng = RandomNumberGenerator.new()
 
+var grabbed : bool = false
+
 func reroll_point():
 	rand_height = rng.randf_range(3.0, 5.0)
 	rand_dist = rng.randf_range(7.5, 12.5)
@@ -92,24 +94,25 @@ func _process(delta):
 				
 
 func _physics_process(delta):
-	if health <= 0:
-		return
+	if !grabbed:
+		if health <= 0:
+			return
 		
-	if player == null:
-		return
+		if player == null:
+			return
 		
-	if state == enemy_state.CHARGING && !charge_hit_player:
+		if state == enemy_state.CHARGING && !charge_hit_player:
 		
-		if global_position.distance_to(player.global_position) <= 5.0:
-			player.take_damage(attack_damage)
-			charge_hit_player = true
+			if global_position.distance_to(player.global_position) <= 5.0:
+				player.take_damage(attack_damage)
+				charge_hit_player = true
 	
-	var dir = chase_pos - global_position
-	dir.y = 0.0
-	dir = dir.normalized()
+		var dir = chase_pos - global_position
+		dir.y = 0.0
+		dir = dir.normalized()
 
-	velocity = dir * move_speed
-	if state == enemy_state.CHARGING: velocity *= 1.5
+		velocity = dir * move_speed
+		if state == enemy_state.CHARGING: velocity *= 1.5
 	move_and_slide()
 		
 		
