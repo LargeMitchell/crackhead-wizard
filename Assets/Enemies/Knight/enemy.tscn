@@ -115,7 +115,6 @@ animations = [{
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_q0wr6")
 move_speed = 5.0
-attack_range = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01022, 0)

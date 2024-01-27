@@ -19,6 +19,12 @@ enum SpellBook {METH, COKE, CRACK, LSD}
 @onready var fireball : PackedScene = preload("res://Assets/Projectiles/Fireball.tscn")
 @onready var animated_sprite : AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
 
+# Player Attributes
+@export var health : float = 100.0
+@export var max_health : float = 100.0
+@export var mana : float = 100.0
+@export var max_mana : float = 100.0
+
 var can_cast_spell = true
 var cast_charge_timer = 999.0
 var cast_charge_dur = 3.0
@@ -40,7 +46,7 @@ func _input(event):
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
 		cast_charge_timer = 0.0
-		
+
 	if Input.is_action_just_released("cast_spell"):
 		cast_spell(current_spell, cast_charge_timer)
 
@@ -99,6 +105,16 @@ func _physics_process(delta):
 
 	#applies velocity to kinematic body
 	move_and_slide()
+
+func take_damage(damage: float):
+	print('health', health)
+	health -= damage
+	if health <= 0:
+		health = 0
+		die()
+
+func die():
+	pass
 
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
