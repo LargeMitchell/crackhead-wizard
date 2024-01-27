@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum SpellBook {METH, COKE, CRACK, LSD}
+enum SpellBook {METH, COKE, LSD}
 
 # Basic movement variables
 @export var speed : float = 8.0
@@ -31,6 +31,8 @@ var cast_charge_dur = 3.0
 
 var killed_enemy = false
 
+var buffs : Dictionary = {}
+
 func _input(event):
 
 	# Quits game when escape key is pressed
@@ -60,23 +62,23 @@ var fire_anim_state: int = 0;
 
 func _process(delta):
 	cast_charge_timer += delta
-	
+
 	if Input.is_action_just_pressed("cast_spell"):
 		fire_anim_state = 1
 		animated_sprite.frame = 0
-		
+
 	match fire_anim_state:
-		0: 
+		0:
 			animated_sprite.play("Idle")
-		1: 
+		1:
 			animated_sprite.play("GearingUp")
-			
+
 			if animated_sprite.frame >= 3:
 				if Input.is_action_pressed("cast_spell"):
 					fire_anim_state = 2
 				else:
 					fire_anim_state = 0
-		2: 
+		2:
 			animated_sprite.play("Firing")
 			if animated_sprite.frame >= 5:
 				if !Input.is_action_pressed("cast_spell"):
@@ -125,34 +127,47 @@ func cast_spell(spell, charge: float):
 	match spell:
 		SpellBook.METH:
 			cast_meth_spell(charge)
-		
+
 		SpellBook.COKE:
 			pass
-		
-		SpellBook.CRACK:
-			pass
-		
+
 		SpellBook.LSD:
 			cast_lsd_spell()
 
 func cast_meth_spell(charge: float):
-	
+
 	spawn_projectile(fireball, charge)
 
 func cast_lsd_spell():
 	print("lsd")
 
+func add_to_buffs(buff: int, duration: float):
+	if buffs.has(buff):
+		buffs[buff]['doses'] += 1
+		buffs[buff]['duration'] += duration / buffs[buff]['doses']
+	else:
+		buffs[buff]['duration'] = duration
+		buffs[buff]['doses'] = 1
+
+func manage_buffs(delta):
+	for key in buffs:
+		print (SpellBook[key], buffs[key]['duration'])
+		buffs[key]['duration'] -= delta
+		if buffs[key]['duration'] <= 0:
+			buffs.erase(key)
+
+
 func cast_spell_anim_done():
 	can_cast_spell = true
 
 func spawn_projectile(proj: PackedScene, charge: float):
-	
+
 	# instantiates and spawn projectile
 	var p = proj.instantiate()
 	p.charge_value = charge
 	owner.add_child(p)
 	p.set_charge_scale()
-	
+
 	# sets projectile position and launch direction
 	p.transform = bulletorigin.global_transform
 	p.direction = -campivot.transform.basis.z
