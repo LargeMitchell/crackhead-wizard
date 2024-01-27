@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcr8kjcbxpjhl"]
+[gd_scene load_steps=5 format=3 uid="uid://dccf0qli5eqin"]
 
 [ext_resource type="PackedScene" uid="uid://c5h3w6om2k4c" path="res://Assets/Levels/ModularKit/Floor.glb" id="1_rh4m3"]
 [ext_resource type="PackedScene" uid="uid://fgkx7er2xift" path="res://Assets/Levels/ModularKit/FloorWall.glb" id="2_v34lf"]
 [ext_resource type="PackedScene" uid="uid://c18k3kq3vtcgs" path="res://Assets/Levels/ModularKit/WallCorner.glb" id="3_hcogw"]
-[ext_resource type="PackedScene" path="res://Assets/Levels/ModularKit/TrueCorner.glb" id="4_ddt2s"]
+[ext_resource type="PackedScene" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/TrueCorner.glb" id="4_ddt2s"]
 
 [node name="Tileset" type="Node3D"]
 
