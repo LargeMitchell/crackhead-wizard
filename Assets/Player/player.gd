@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum SpellBook {METH, COKE, LSD, PCP}
+enum SpellBook {METH = 0, COKE = 1, LSD = 2, PCP = 3}
 
 # Basic movement variables
 @export var speed : float = 8.0
@@ -49,7 +49,7 @@ func _input(event):
 
 	if Input.is_action_just_pressed("change_spell"):
 		current_spell += 1
-		current_spell %= 3
+		current_spell %= 4
 		print(current_spell)
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
