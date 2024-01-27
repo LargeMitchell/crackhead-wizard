@@ -1,6 +1,6 @@
 extends Control
 
-@export var first_level : PackedScene = preload("res://Assets/Levels/Level.tscn")
+@export var first_level : PackedScene = preload("res://Assets/Menu's/opening.tscn")
 
 func _on_start_button_down():
 	get_tree().change_scene_to_packed(first_level)
