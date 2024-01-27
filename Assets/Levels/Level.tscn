@@ -1,17 +1,15 @@
 [gd_scene load_steps=19 format=3 uid="uid://b2t5pl0rjx0l"]
 
-[ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_l5qd3"]
-[ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
-[ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://assets/enemies/Knight/enemy.tscn" id="5_5tw0y"]
 [ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://assets/pick-ups/LSD.tscn" id="6_p7pr7"]
-[ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
 [ext_resource type="PackedScene" uid="uid://bnaf4btwd1d1o" path="res://Assets/pick-ups/Coke.tscn" id="9_53cpw"]
 [ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://Assets/pick-ups/LSD.tscn" id="9_ja6qo"]
 [ext_resource type="PackedScene" uid="uid://bo2mprfi51622" path="res://Assets/pick-ups/Meth.tscn" id="10_yxp0f"]
->>>>>>> 386a555 (book icons with shaders)
+[ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
+[ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_l5qd3"]
+[ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
+[ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
+[ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
 [ext_resource type="PackedScene" uid="uid://bopoft1kv0pic" path="res://Assets/copcar/copcar.tscn" id="11_my1wo"]
 [ext_resource type="PackedScene" uid="uid://bmjao113dpmbo" path="res://Assets/Enemies/EnemySpawner/EnemySpawner.tscn" id="12_uclf2"]
 [ext_resource type="PackedScene" uid="uid://b5l7mqjiqy8lu" path="res://Assets/Enemies/Wyvern/wyvern.tscn" id="13_yc4pk"]
@@ -19,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bnaf4btwd1d1o" path="res://Assets/Pick-ups/Coke.tscn" id="15_o14pc"]
 [ext_resource type="PackedScene" uid="uid://bo2mprfi51622" path="res://Assets/Pick-ups/Meth.tscn" id="16_01ct2"]
 [ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://Assets/Pick-ups/LSD.tscn" id="17_0jkb6"]
+
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
 noise_type = 2
