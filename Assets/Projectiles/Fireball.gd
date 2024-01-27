@@ -30,7 +30,6 @@ func set_charge_scale():
 	collision.size.x = collision.size.x * scaling_value
 	collision.size.y = collision.size.y * scaling_value
 
-
 func _on_body_entered(body):
 	
 	var explodeanim = explosion.instantiate()
