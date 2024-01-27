@@ -1,16 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5l7mqjiqy8lu"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Wyvern/wyvern.gd" id="1_8saou"]
-[ext_resource type="PackedScene" uid="uid://dcvyxi6qsfohh" path="res://assets/Enemies/Wyvern/WyvernBody.glb" id="3_ivxih"]
-[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://assets/Enemies/Knight/explode.wav" id="4_2hoen"]
-[ext_resource type="PackedScene" uid="uid://dq7366ysdq865" path="res://assets/Enemies/Wyvern/WyvernWings.glb" id="4_abusn"]
+[ext_resource type="PackedScene" uid="uid://dcvyxi6qsfohh" path="res://Assets/Enemies/Wyvern/WyvernBody.glb" id="3_ivxih"]
+[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://Assets/Enemies/Knight/explode.wav" id="4_2hoen"]
+[ext_resource type="PackedScene" uid="uid://dq7366ysdq865" path="res://Assets/Enemies/Wyvern/WyvernWings.glb" id="4_abusn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j60oq"]
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_8saou")
-move_speed = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.4, -6.39032e-09, 1.09105e-07, -1.09105e-07, -0.280177, 2.38359, 6.39032e-09, -2.38359, -0.280177, -1.6473e-08, -0.057215, 0.376859)
