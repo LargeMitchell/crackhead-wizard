@@ -29,6 +29,8 @@ var can_cast_spell = true
 var cast_charge_timer = 999.0
 var cast_charge_dur = 3.0
 
+var killed_enemy = false
+
 func _input(event):
 
 	# Quits game when escape key is pressed
@@ -57,7 +59,6 @@ func _ready():
 var fire_anim_state: int = 0;
 
 func _process(delta):
-	
 	cast_charge_timer += delta
 	
 	if Input.is_action_just_pressed("cast_spell"):

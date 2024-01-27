@@ -177,6 +177,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8fj2f")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_aw7jy")
 }, {
 "duration": 1.0,
@@ -217,10 +225,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xir4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xir4o")
 }],
 "loop": true,
 "name": &"Smoked",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -288,7 +299,7 @@ texture = ExtResource("4_lj3qa")
 position = Vector2(101.725, 94.56)
 scale = Vector2(2.355, 2.355)
 sprite_frames = SubResource("SpriteFrames_mxi3g")
-animation = &"Angry"
+animation = &"Smoked"
 script = ExtResource("6_u877w")
 
 [node name="UiBack" type="Sprite2D" parent="SubViewportContainer/SubViewport"]

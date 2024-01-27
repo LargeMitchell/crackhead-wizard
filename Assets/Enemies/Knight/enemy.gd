@@ -87,5 +87,6 @@ func take_damage(damage_amount:float):
 		animated_sprite_3d.play("Death")
 		$DeathSound.play()
 		$CollisionShape3D.disabled = true
+		player.killed_enemy = true
 
 
