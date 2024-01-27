@@ -23,8 +23,10 @@ func _physics_process(delta):
 				raycast_hit()
 				print("enemy grabbed")
 				
-		else:
-			print("launch enemy")
+	
+	if Input.is_action_just_released("cast_spell"):
+		print("launch enemy")
+		if grabbed_enemy:
 			grabbed_enemy.reparent(old_parent)
 			launch_enemy()
 
