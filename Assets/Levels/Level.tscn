@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2t5pl0rjx0l"]
+[gd_scene load_steps=16 format=3 uid="uid://b2t5pl0rjx0l"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
-[ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_tgivg"]
+[ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/player/player.tscn" id="2_i142k"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_tdh6k"]
 [ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
-[ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
-[ext_resource type="PackedScene" uid="uid://cj0sa8u7b841q" path="res://Assets/Pick-ups/Evil-Elf-Leaf.tscn" id="6_p7pr7"]
-[ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
+[ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://assets/enemies/Knight/enemy.tscn" id="5_5tw0y"]
+[ext_resource type="PackedScene" uid="uid://cj0sa8u7b841q" path="res://assets/pick-ups/LSD.tscn" id="6_p7pr7"]
+[ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
+[ext_resource type="PackedScene" uid="uid://bnaf4btwd1d1o" path="res://Assets/pick-ups/Coke.tscn" id="9_53cpw"]
+[ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://Assets/pick-ups/LSD.tscn" id="9_ja6qo"]
+[ext_resource type="PackedScene" uid="uid://bo2mprfi51622" path="res://Assets/pick-ups/Meth.tscn" id="10_yxp0f"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
 noise_type = 2
@@ -40,7 +43,7 @@ environment = SubResource("Environment_ebqgf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_tgivg")
+mesh_library = ExtResource("3_tdh6k")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
@@ -82,3 +85,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8495, -29.8085, -127.106)
 
 [node name="Skyscraper8" parent="Skyscrapers" instance=ExtResource("7_aqk6j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3568, -9.17832, -186.016)
+
+[node name="Pick-up3" parent="." instance=ExtResource("9_53cpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11737, 0, -10.1844)
+
+[node name="Pick-up4" parent="." instance=ExtResource("9_ja6qo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.795728, 0, -9.44535)
+
+[node name="Pick-up5" parent="." instance=ExtResource("9_53cpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58633, 0, -13.1259)
+
+[node name="Pick-up6" parent="." instance=ExtResource("10_yxp0f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55357, 0, -12.9541)

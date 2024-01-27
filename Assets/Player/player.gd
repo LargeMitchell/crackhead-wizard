@@ -62,7 +62,8 @@ var fire_anim_state: int = 0;
 
 func _process(delta):
 	cast_charge_timer += delta
-
+	manage_buffs(delta)
+	
 	if Input.is_action_just_pressed("cast_spell"):
 		fire_anim_state = 1
 		animated_sprite.frame = 0
@@ -83,6 +84,7 @@ func _process(delta):
 			if animated_sprite.frame >= 5:
 				if !Input.is_action_pressed("cast_spell"):
 					fire_anim_state = 0
+	
 
 func _physics_process(delta):
 
@@ -122,7 +124,6 @@ func die():
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
 		return
-	#can_cast_spell = false
 
 	match spell:
 		SpellBook.METH:
@@ -146,12 +147,15 @@ func add_to_buffs(buff: int, duration: float):
 		buffs[buff]['doses'] += 1
 		buffs[buff]['duration'] += duration / buffs[buff]['doses']
 	else:
-		buffs[buff]['duration'] = duration
-		buffs[buff]['doses'] = 1
+		buffs[buff] = {'duration': duration, 'doses': 1}
 
 func manage_buffs(delta):
+	if buffs.is_empty():
+		can_cast_spell = false
+		return
+	can_cast_spell = true
 	for key in buffs:
-		print (SpellBook[key], buffs[key]['duration'])
+		print (key," - ", buffs[key]['duration'])
 		buffs[key]['duration'] -= delta
 		if buffs[key]['duration'] <= 0:
 			buffs.erase(key)

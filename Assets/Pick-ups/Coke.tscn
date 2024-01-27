@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4oqhh5cc0k6t"]
+[gd_scene load_steps=3 format=3 uid="uid://bnaf4btwd1d1o"]
 
-[ext_resource type="PackedScene" uid="uid://dipidwfs2en8m" path="res://Assets/pick-ups/pick-up.tscn" id="1_0sf1j"]
-[ext_resource type="Texture2D" uid="uid://bl0me1avrme3f" path="res://assets/pick-ups/Coke.png" id="2_jrwff"]
+[ext_resource type="PackedScene" uid="uid://bmsktdmdbi6vx" path="res://Assets/pick-ups/pick-up.tscn" id="1_0sf1j"]
+[ext_resource type="Texture2D" uid="uid://bl0me1avrme3f" path="res://Assets/Pick-ups/Pixie-Dust.png" id="2_jrwff"]
 
 [node name="Pick-up" instance=ExtResource("1_0sf1j")]
-mana = 30.0
+duration = 10.0
+drug_type = 1
 
 [node name="Sprite3D" parent="." index="0"]
 texture = ExtResource("2_jrwff")
