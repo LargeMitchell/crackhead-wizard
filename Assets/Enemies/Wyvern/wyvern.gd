@@ -42,9 +42,9 @@ func _process(delta):
 		enemy_state.CHASING:
 			state_timer += delta
 			
-			if state_timer >= attack_cd || global_position.distance_to(player.global_position) <= attack_range:
-				attack_player()
-				set_state(enemy_state.SHOOTING)
+			#if state_timer >= attack_cd || global_position.distance_to(player.global_position) <= attack_range:
+				#attack_player()
+				#set_state(enemy_state.SHOOTING)
 				
 				
 		enemy_state.SHOOTING:
