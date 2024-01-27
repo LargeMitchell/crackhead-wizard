@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dccf0qli5eqin"]
+[gd_scene load_steps=6 format=3 uid="uid://dccf0qli5eqin"]
 
 [ext_resource type="PackedScene" uid="uid://c5h3w6om2k4c" path="res://Assets/Levels/ModularKit/Floor.glb" id="1_rh4m3"]
 [ext_resource type="PackedScene" uid="uid://fgkx7er2xift" path="res://Assets/Levels/ModularKit/FloorWall.glb" id="2_v34lf"]
 [ext_resource type="PackedScene" uid="uid://c18k3kq3vtcgs" path="res://Assets/Levels/ModularKit/WallCorner.glb" id="3_hcogw"]
 [ext_resource type="PackedScene" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/TrueCorner.glb" id="4_ddt2s"]
+[ext_resource type="PackedScene" uid="uid://ujfs2cnu4onn" path="res://Assets/Levels/ModularKit/Pillar.glb" id="5_opmbs"]
 
 [node name="Tileset" type="Node3D"]
 
@@ -18,3 +19,6 @@ transform = Transform3D(-0.0123915, 0, -0.999923, 0, 1, 0, 0.999923, 0, -0.01239
 
 [node name="TrueCorner" parent="." instance=ExtResource("4_ddt2s")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -16.2213)
+
+[node name="Pillar" parent="." instance=ExtResource("5_opmbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0473633, 9.53674e-07, -22.6423)

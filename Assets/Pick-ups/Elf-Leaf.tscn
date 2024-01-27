@@ -1,9 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://hjttghnj7pi2"]
+[gd_scene load_steps=2 format=3 uid="uid://hjttghnj7pi2"]
 
 [ext_resource type="PackedScene" uid="uid://dipidwfs2en8m" path="res://Assets/Pick-ups/Pick-up.tscn" id="1_ny0vh"]
-[ext_resource type="Texture2D" uid="uid://c5ajgfymjsgok" path="res://Assets/Pick-ups/Evil-Elf-Leaf.png" id="2_o7gqh"]
 
 [node name="Pick-up" instance=ExtResource("1_ny0vh")]
-
-[node name="Sprite3D" parent="." index="0"]
-texture = ExtResource("2_o7gqh")
