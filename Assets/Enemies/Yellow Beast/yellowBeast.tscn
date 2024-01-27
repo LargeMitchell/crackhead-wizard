@@ -9,6 +9,7 @@
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_fqg6b")
+move_speed = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.4, -5.67907e-09, 9.56763e-08, -9.5605e-08, 0.0274826, 2.39984, -6.77428e-09, -2.39984, 0.0274826, 0, 1.034, 0.13)

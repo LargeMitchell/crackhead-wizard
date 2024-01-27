@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-enum SpellBook { METH = 0, COKE = 1, LSD = 2 }
+enum SpellBook {METH = 0, COKE = 1, LSD = 2, PCP = 3}
 
 # Basic movement variables
 @export var speed : float = 8.0
@@ -49,7 +49,7 @@ func _input(event):
 
 	if Input.is_action_just_pressed("change_spell"):
 		current_spell += 1
-		current_spell %= 3
+		current_spell %= 4
 		print(current_spell)
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
@@ -95,10 +95,15 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+		if buffs.has(SpellBook.LSD):
+			velocity.y = clamp(velocity.y, -1.0, 10000.0)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+		if buffs.has(SpellBook.LSD):
+			velocity.y = jump_velocity * 2.0
+		else:
+			velocity.y = jump_velocity
 
 	# Get the input direction and rotate it based on camera rotation
 	var input_dir : Vector2 = Input.get_vector("left", "right", "up", "down")

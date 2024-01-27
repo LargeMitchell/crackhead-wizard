@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://csab5ljxsrqh1"
-path="res://.godot/imported/LadyRadical2Regular-0yAz.ttf-0f15caf96ea24efc11bb107b9575d71f.fontdata"
+path="res://.godot/imported/LadyRadical2Regular-0yAz.ttf-6815a7fff1e0753f1b5933da9a9b13be.fontdata"
 
 [deps]
 
-source_file="res://Assets/Menu's/font/LadyRadical2Regular-0yAz.ttf"
-dest_files=["res://.godot/imported/LadyRadical2Regular-0yAz.ttf-0f15caf96ea24efc11bb107b9575d71f.fontdata"]
+source_file="res://assets/Menu's/font/LadyRadical2Regular-0yAz.ttf"
+dest_files=["res://.godot/imported/LadyRadical2Regular-0yAz.ttf-6815a7fff1e0753f1b5933da9a9b13be.fontdata"]
 
 [params]
 

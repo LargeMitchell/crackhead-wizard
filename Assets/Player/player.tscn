@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ceb568srikvhy"]
+[gd_scene load_steps=42 format=3 uid="uid://ceb568srikvhy"]
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxcdqim5h4uqn" path="res://Assets/Player/Face.png" id="5_6hlbd"]
 [ext_resource type="Script" path="res://Assets/Player/HeadAnim.gd" id="6_u877w"]
 [ext_resource type="Texture2D" uid="uid://dyeob7f7q3t61" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
+[ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -267,6 +268,9 @@ fov = 100.0
 
 [node name="SpellSpawn" type="Marker3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642169, -0.517421, -1.01358)
+
+[node name="TelekenesisComponent" parent="." instance=ExtResource("9_6eowr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
