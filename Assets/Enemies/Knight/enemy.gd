@@ -80,6 +80,7 @@ func attack_player():
 
 func take_damage(damage_amount:float):
 	health -= damage_amount
+	
 	if health <= 0:
 		print("dead knight!")
 		animated_sprite_3d.play("Death")
