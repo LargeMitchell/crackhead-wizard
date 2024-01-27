@@ -37,7 +37,7 @@ func _on_body_entered(body):
 	explodeanim.global_position = global_position
 	explodeanim.scale = explodeanim.scale * scaling_value
 	
-	if body is Enemy:
+	if body.is_in_group("Enemy"):
 		body.take_damage(damage)
 	
 	queue_free()
