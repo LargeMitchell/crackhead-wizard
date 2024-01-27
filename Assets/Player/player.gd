@@ -42,7 +42,7 @@ func _input(event):
 		
 	if Input.is_action_just_released("cast_spell"):
 		print(cast_charge_timer)
-		cast_spell(current_spell)
+		cast_spell(current_spell, cast_charge_timer)
 
 func _ready():
 	# Locks cursor to game screen
@@ -100,7 +100,7 @@ func _physics_process(delta):
 	#applies velocity to kinematic body
 	move_and_slide()
 
-func cast_spell(spell, charge: float = 0.0):
+func cast_spell(spell, charge: float):
 	if !can_cast_spell:
 		return
 	#can_cast_spell = false
@@ -118,7 +118,7 @@ func cast_spell(spell, charge: float = 0.0):
 		SpellBook.LSD:
 			pass
 
-func cast_meth_spell(charge: float = 0.0):
+func cast_meth_spell(charge: float):
 	
 	
 	spawn_projectile(projectile, charge)
@@ -129,12 +129,13 @@ func cast_meth_spell(charge: float = 0.0):
 func cast_spell_anim_done():
 	can_cast_spell = true
 
-func spawn_projectile(proj: PackedScene, charge: float = 0.0):
+func spawn_projectile(proj: PackedScene, charge: float):
 	
 	# instantiates and spawn projectile
 	var p = proj.instantiate()
 	p.charge_value = charge
 	owner.add_child(p)
+	p.set_charge_scale()
 	
 	# sets projectile position and launch direction
 	p.transform = bulletorigin.global_transform
