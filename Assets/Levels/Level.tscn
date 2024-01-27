@@ -1,15 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2t5pl0rjx0l"]
+[gd_scene load_steps=23 format=3 uid="uid://b2t5pl0rjx0l"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
-[ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_tdh6k"]
+[ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_wewje"]
 [ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
-[ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://assets/enemies/Knight/enemy.tscn" id="5_5tw0y"]
-[ext_resource type="PackedScene" uid="uid://cj0sa8u7b841q" path="res://assets/pick-ups/LSD.tscn" id="6_p7pr7"]
-[ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
-[ext_resource type="PackedScene" uid="uid://bnaf4btwd1d1o" path="res://Assets/pick-ups/Coke.tscn" id="9_53cpw"]
-[ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://Assets/pick-ups/LSD.tscn" id="9_ja6qo"]
-[ext_resource type="PackedScene" uid="uid://bo2mprfi51622" path="res://Assets/pick-ups/Meth.tscn" id="10_yxp0f"]
+[ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
+[ext_resource type="PackedScene" path="res://assets/pick-ups/LSD.tscn" id="6_p7pr7"]
+[ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
+[ext_resource type="PackedScene" path="res://Assets/pick-ups/Coke.tscn" id="9_53cpw"]
+[ext_resource type="PackedScene" path="res://Assets/pick-ups/LSD.tscn" id="9_ja6qo"]
+[ext_resource type="PackedScene" path="res://Assets/pick-ups/Meth.tscn" id="10_yxp0f"]
+[ext_resource type="PackedScene" uid="uid://bopoft1kv0pic" path="res://Assets/copcar/copcar.tscn" id="11_my1wo"]
+[ext_resource type="PackedScene" uid="uid://bmjao113dpmbo" path="res://Assets/Enemies/EnemySpawner/EnemySpawner.tscn" id="12_uclf2"]
+[ext_resource type="PackedScene" uid="uid://b5l7mqjiqy8lu" path="res://Assets/Enemies/Wyvern/wyvern.tscn" id="13_yc4pk"]
+[ext_resource type="PackedScene" uid="uid://ctcmfknl5d24o" path="res://Assets/Enemies/Yellow Beast/yellowBeast.tscn" id="14_4md1f"]
+[ext_resource type="PackedScene" path="res://Assets/Pick-ups/Coke.tscn" id="15_o14pc"]
+[ext_resource type="PackedScene" uid="uid://2dmxpammbrfb" path="res://Assets/Pick-ups/Meth.tscn" id="16_01ct2"]
+[ext_resource type="PackedScene" path="res://Assets/Pick-ups/LSD.tscn" id="17_0jkb6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
 noise_type = 2
@@ -43,7 +50,7 @@ environment = SubResource("Environment_ebqgf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_tdh6k")
+mesh_library = ExtResource("3_wewje")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
@@ -97,3 +104,84 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58633, 0, -13.1259)
 
 [node name="Pick-up6" parent="." instance=ExtResource("10_yxp0f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55357, 0, -12.9541)
+
+[node name="copcar" parent="." instance=ExtResource("11_my1wo")]
+transform = Transform3D(0.867349, 0, 0.497701, 0, 1, 0, -0.497701, 0, 0.867349, -4.10738, 2.86102e-06, -63.6589)
+
+[node name="Node3D" parent="." instance=ExtResource("12_uclf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9267, -1.90735e-06, -137.995)
+
+[node name="Enemy2" parent="." instance=ExtResource("13_yc4pk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50.1602, 4.62025, -145.212)
+
+[node name="Enemy3" parent="." instance=ExtResource("14_4md1f")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.096, -9.53674e-07, -159.443)
+
+[node name="Enemy4" parent="." instance=ExtResource("5_5tw0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2484, 0, -114.552)
+
+[node name="Enemy5" parent="." instance=ExtResource("5_5tw0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7832, 0, -114.235)
+
+[node name="Enemy6" parent="." instance=ExtResource("5_5tw0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1507, 0, -110.026)
+
+[node name="Enemy7" parent="." instance=ExtResource("5_5tw0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19874, 1.90735e-06, -139.876)
+
+[node name="Enemy8" parent="." instance=ExtResource("5_5tw0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91019, 1.90735e-06, -160.672)
+
+[node name="Enemy9" parent="." instance=ExtResource("5_5tw0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.88571, 0, -174.437)
+
+[node name="Pick-up7" parent="." instance=ExtResource("15_o14pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3047, 0.591062, -174.556)
+
+[node name="Pick-up8" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78282, 0.477982, -175.969)
+
+[node name="Pick-up9" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.92606, 0.428925, -172.396)
+
+[node name="Pick-up10" parent="." instance=ExtResource("15_o14pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.5018, 0.535286, -156.509)
+
+[node name="Pick-up11" parent="." instance=ExtResource("15_o14pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.7511, 0.527819, -135.634)
+
+[node name="Pick-up12" parent="." instance=ExtResource("17_0jkb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.5593, 0.573117, -143.837)
+
+[node name="Pick-up13" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.0854, 0.544488, -145.012)
+
+[node name="Pick-up14" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.972, 0.634712, -97.6077)
+
+[node name="Pick-up15" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38315, 0.754767, -142.679)
+
+[node name="Pick-up16" parent="." instance=ExtResource("17_0jkb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8608, 0.607618, -79.5214)
+
+[node name="Pick-up17" parent="." instance=ExtResource("15_o14pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4474, 0.535146, -122.947)
+
+[node name="Pick-up18" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2173, 0.677929, -171.845)
+
+[node name="Pick-up19" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3219, 0.525599, -168.359)
+
+[node name="Pick-up20" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82356, 0.585791, -60.2706)
+
+[node name="Pick-up21" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20862, 0.551274, -62.4795)
+
+[node name="Pick-up22" parent="." instance=ExtResource("16_01ct2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.247076, 0.551751, -60.8383)
+
+[node name="Pick-up23" parent="." instance=ExtResource("15_o14pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.67767, 0.636105, -36.4643)
