@@ -1,4 +1,4 @@
-class_name Projectile extends Area3D
+class_name Fireball extends Area3D
 
 @export var projectile_speed : float = 10.0
 @export var lifetime : float = 2.0
@@ -23,14 +23,14 @@ func _physics_process(delta):
 func set_charge_scale():
 	var scaling_value : float = remap(clamp(charge_value, 0.0, 1.0), 0.0, 1.0, 1.0, 4.0)
 	
-	print(scaling_value)
-	
 	sprite.pixel_size = sprite.pixel_size * scaling_value
-	collision.size = collision.size * scaling_value
+	collision.size = Vector3(0.5,0.5,0.5)
+	collision.size.x = collision.size.x * scaling_value
+	collision.size.y = collision.size.y * scaling_value
+
 
 func _on_body_entered(body):
 	if body is Enemy:
 		body.take_damage(damage)
 		queue_free()
-	elif body is GridMap:
-		print("wall hit")
+

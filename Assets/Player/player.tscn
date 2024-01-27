@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://Assets/Player/handframes.tres" id="2_rhil4"]
-[ext_resource type="Texture2D" uid="uid://srcbeibpvyjs" path="res://assets/player/RightArm.png" id="2_xkpyg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -34,8 +33,10 @@ grow_vertical = 0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
+handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size_2d_override_stretch = true
+render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport"]
 scale = Vector2(4, 4)

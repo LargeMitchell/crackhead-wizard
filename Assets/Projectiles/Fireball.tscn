@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfl0qpv1c8ord"]
 
-[ext_resource type="Script" path="res://Assets/Projectiles/Projectile.gd" id="1_1a33x"]
-[ext_resource type="Texture2D" uid="uid://dyvg3754pn820" path="res://icon.svg" id="1_n0324"]
+[ext_resource type="Script" path="res://Assets/Projectiles/Fireball.gd" id="1_q6kng"]
+[ext_resource type="Texture2D" uid="uid://dyvg3754pn820" path="res://icon.svg" id="2_pskkc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oirng"]
 size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Projectile" type="Area3D"]
-script = ExtResource("1_1a33x")
+script = ExtResource("1_q6kng")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_oirng")
@@ -15,6 +15,6 @@ shape = SubResource("BoxShape3D_oirng")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.005
 billboard = 1
-texture = ExtResource("1_n0324")
+texture = ExtResource("2_pskkc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
