@@ -9,6 +9,7 @@ class_name Enemy extends CharacterBody3D
 @export var notice_range: float = 20.0
 
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
+@onready var bullet : PackedScene = preload("res://Assets/Projectiles/Bullet.tscn")
 
 var state_timer: float = 0.0
 @export var attack_cd: float = 1.0
@@ -72,13 +73,10 @@ func _physics_process(delta):
 
 
 func attack_player():
-	var eye_line = Vector3.UP * 1.5
-	var query = PhysicsRayQueryParameters3D.create(global_position+eye_line, player.global_position+eye_line, 1)
-	var result = get_world_3d().direct_space_state.intersect_ray(query)
-
-	if result.is_empty():
-		print("ouch!")
-		player.take_damage(attack_damage)
+	var p = bullet.instantiate()
+	owner.add_child(p)
+	p.transform = global_transform
+	p.direction = Vector3(player.global_position - global_position).normalized()
 
 func take_damage(damage_amount:float):
 	health -= damage_amount
