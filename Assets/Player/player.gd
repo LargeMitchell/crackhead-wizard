@@ -33,7 +33,11 @@ var cast_charge_dur = 3.0
 
 var killed_enemy = false
 
-var buffs : Dictionary = { SpellBook.METH:{"duration":10.0,"doses":1} }
+var buffs : Dictionary = { SpellBook.METH:{"duration":20.0,"doses":1} }
+@onready var meth_icon_book : Sprite2D = $SubViewportContainer/SubViewport/LeftArm/meth
+@onready var coke_icon_book : Sprite2D = $SubViewportContainer/SubViewport/LeftArm/coke
+@onready var lsd_icon_book : Sprite2D = $SubViewportContainer/SubViewport/LeftArm/lsd
+@onready var pcp_icon_book : Sprite2D = $SubViewportContainer/SubViewport/LeftArm/pcp
 
 func _input(event):
 
@@ -67,7 +71,7 @@ var fire_anim_state: int = 0;
 func _process(delta):
 	cast_charge_timer += delta
 	manage_buffs(delta)
-	
+
 	if Input.is_action_just_pressed("cast_spell"):
 		fire_anim_state = 1
 		animated_sprite.frame = 0
@@ -88,7 +92,7 @@ func _process(delta):
 			if animated_sprite.frame >= 5:
 				if !Input.is_action_pressed("cast_spell"):
 					fire_anim_state = 0
-	
+
 
 func _physics_process(delta):
 
@@ -133,9 +137,9 @@ func die():
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
 		return
-	
+
 	print("")
-	
+
 	match spell:
 		SpellBook.METH:
 			cast_meth_spell(charge)
@@ -148,15 +152,15 @@ func cast_spell(spell, charge: float):
 
 func cast_meth_spell(charge: float):
 	spawn_projectile(fireball, charge)
-	
+
 func cast_coke_spell():
 	spawn_projectile(lightning, 0)
-	
+
 
 func cast_lsd_spell():
 	print("lsd")
 
-func add_to_buffs(buff: int, duration: float):
+func add_to_buffs(buff: int, duration: float, max_duration: float):
 	if buffs.has(buff):
 		buffs[buff]['doses'] += 1
 		buffs[buff]['duration'] += duration / buffs[buff]['doses']
@@ -171,6 +175,7 @@ func manage_buffs(delta):
 	for key in buffs:
 		#print (key," - ", buffs[key]['duration'])
 		buffs[key]['duration'] -= delta
+		meth_icon_book.material.set_shader_parameter("threshhold", remap(buffs[key]['duration'], 0.0, 30.0, 0.0, 1.0))
 		if buffs[key]['duration'] <= 0:
 			buffs.erase(key)
 
