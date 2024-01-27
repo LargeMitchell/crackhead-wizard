@@ -6,8 +6,9 @@ extends GridMap
 func _ready():
 	if Engine.is_editor_hint():
 		mesh_library=load("res://Assets/Levels/ModularKit/tileset.tres")
-
-
+	
+	else:
+		mesh_library=load("res://Assets/Levels/ModularKit/tileset.tres")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
