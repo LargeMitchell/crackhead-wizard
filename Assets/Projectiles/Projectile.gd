@@ -20,7 +20,9 @@ func _physics_process(delta):
 		queue_free()
 
 func set_charge_scale():
-	var scaling_value : float = remap(charge_value, 0.0, 1.0, 1.0, 4.0)
+	var scaling_value : float = remap(clamp(charge_value, 0.0, 1.0), 0.0, 1.0, 1.0, 4.0)
+	
+	print(scaling_value)
 	
 	sprite.pixel_size = sprite.pixel_size * scaling_value
 	collision.size = collision.size * scaling_value

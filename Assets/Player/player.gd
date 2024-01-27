@@ -17,6 +17,7 @@ enum SpellBook {METH, COKE, CRACK, LSD}
 @onready var campivot : Node3D = $CameraPivot
 @onready var bulletorigin : Marker3D = $CameraPivot/SpellSpawn
 @onready var projectile : PackedScene = preload("res://Assets/Projectiles/Projectile.tscn")
+@onready var animated_sprite : AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
 
 var can_cast_spell = true
 var cast_charge_timer = 999.0
@@ -56,22 +57,22 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("cast_spell"):
 		fire_anim_state = 1
-		$CameraPivot/AnimatedSprite3D.frame = 0
+		animated_sprite.frame = 0
 		
 	match fire_anim_state:
 		0: 
-			$CameraPivot/AnimatedSprite3D.play("Idle")
+			animated_sprite.play("Idle")
 		1: 
-			$CameraPivot/AnimatedSprite3D.play("GearingUp")
+			animated_sprite.play("GearingUp")
 			
-			if $CameraPivot/AnimatedSprite3D.frame >= 3:
+			if animated_sprite.frame >= 3:
 				if Input.is_action_pressed("cast_spell"):
 					fire_anim_state = 2
 				else:
 					fire_anim_state = 0
 		2: 
-			$CameraPivot/AnimatedSprite3D.play("Firing")
-			if $CameraPivot/AnimatedSprite3D.frame >= 5:
+			animated_sprite.play("Firing")
+			if animated_sprite.frame >= 5:
 				if !Input.is_action_pressed("cast_spell"):
 					fire_anim_state = 0
 
