@@ -8,7 +8,7 @@ var direction : Vector3
 var timer : float = 0.0
 var charge_value : float = 0.0
 
-@onready var sprite : Sprite3D = $Sprite3D
+@onready var sprite : AnimatedSprite3D = $AnimatedSprite3D
 @onready var collision : BoxShape3D = $CollisionShape3D.shape
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
