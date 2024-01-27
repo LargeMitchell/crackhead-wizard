@@ -3,7 +3,6 @@ extends Node3D
 @export var telekenesis_range : float = 20.0
 @export var telekenesis_force : float = 100.0
 
-var active : bool = true
 var grabbed_enemy : Node3D
 var old_parent : Node3D
 var is_grabbing : bool = false
@@ -15,7 +14,7 @@ func _physics_process(delta):
 	
 	raycast.target_position = -player.campivot.transform.basis.z * telekenesis_range
 	
-	if Input.is_action_just_pressed("cast_spell") && player.current_spell == player.SpellBook.LSD:
+	if Input.is_action_just_pressed("cast_spell") && player.current_spell == player.SpellBook.PCP:
 		if !is_grabbing:
 			if !raycast.is_colliding():
 				return
