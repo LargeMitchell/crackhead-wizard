@@ -17,6 +17,8 @@ enum SpellBook {METH, COKE, LSD}
 @onready var campivot : Node3D = $CameraPivot
 @onready var bulletorigin : Marker3D = $CameraPivot/SpellSpawn
 @onready var fireball : PackedScene = preload("res://Assets/Projectiles/Fireball.tscn")
+@onready var lightning : PackedScene = preload("res://Assets/Projectiles/Lightning.tscn")
+
 @onready var animated_sprite : AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
 
 # Player Attributes
@@ -130,7 +132,7 @@ func cast_spell(spell, charge: float):
 			cast_meth_spell(charge)
 
 		SpellBook.COKE:
-			pass
+			cast_coke_spell()
 
 		SpellBook.LSD:
 			cast_lsd_spell()
@@ -138,6 +140,10 @@ func cast_spell(spell, charge: float):
 func cast_meth_spell(charge: float):
 
 	spawn_projectile(fireball, charge)
+	
+func cast_coke_spell():
+	spawn_projectile(lightning, 0)
+	
 
 func cast_lsd_spell():
 	print("lsd")
@@ -155,7 +161,7 @@ func manage_buffs(delta):
 		return
 	can_cast_spell = true
 	for key in buffs:
-		print (key," - ", buffs[key]['duration'])
+		#print (key," - ", buffs[key]['duration'])
 		buffs[key]['duration'] -= delta
 		if buffs[key]['duration'] <= 0:
 			buffs.erase(key)
