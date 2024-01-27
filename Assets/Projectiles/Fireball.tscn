@@ -1,10 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfl0qpv1c8ord"]
+[gd_scene load_steps=10 format=3 uid="uid://dfl0qpv1c8ord"]
 
 [ext_resource type="Script" path="res://Assets/Projectiles/Fireball.gd" id="1_q6kng"]
-[ext_resource type="Texture2D" uid="uid://dyvg3754pn820" path="res://icon.svg" id="2_pskkc"]
+[ext_resource type="Texture2D" uid="uid://bqevtywwn312x" path="res://Assets/Projectiles/PlayerFireballProj.png" id="2_mnxm2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oirng"]
 size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nfjd"]
+atlas = ExtResource("2_mnxm2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18pjh"]
+atlas = ExtResource("2_mnxm2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f50e1"]
+atlas = ExtResource("2_mnxm2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnwfo"]
+atlas = ExtResource("2_mnxm2")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d86e3"]
+atlas = ExtResource("2_mnxm2")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iu171"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nfjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18pjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f50e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnwfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d86e3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
 
 [node name="Projectile" type="Area3D"]
 script = ExtResource("1_q6kng")
@@ -12,9 +55,10 @@ script = ExtResource("1_q6kng")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_oirng")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-pixel_size = 0.005
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 1
-texture = ExtResource("2_pskkc")
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_iu171")
+autoplay = "default"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

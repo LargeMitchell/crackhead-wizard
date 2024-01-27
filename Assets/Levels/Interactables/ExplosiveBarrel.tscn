@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsud71yo853gr"]
+
+[ext_resource type="Script" path="res://Assets/Levels/Interactables/ExplosiveBarrel.gd" id="1_asp25"]
+[ext_resource type="Texture2D" uid="uid://d2subh3v6rcic" path="res://Assets/Levels/Interactables/barrel.png" id="2_rpcyh"]
+[ext_resource type="SpriteFrames" uid="uid://cyrh2p7nma7ex" path="res://Assets/VFX/Explosion/explosionframes.tres" id="3_y2keo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjh0x"]
+
+[node name="ExplosiveBarrel" type="Area3D"]
+script = ExtResource("1_asp25")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_kjh0x")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.25, 0, 0, 0, 1, 0, 0, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_rpcyh")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.2, 0)
+visible = false
+billboard = 1
+texture_filter = 0
+sprite_frames = ExtResource("3_y2keo")
+frame = 16
+frame_progress = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
