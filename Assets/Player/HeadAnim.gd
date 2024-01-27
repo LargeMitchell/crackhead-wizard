@@ -31,6 +31,7 @@ func _process(delta):
 		
 	if player.killed_enemy:
 		wiz_state = wizard_state.SMOKING
+		player.killed_enemy = false
 		
 	match wiz_state:
 		wizard_state.GRIMACE:
@@ -45,6 +46,8 @@ func _process(delta):
 		wizard_state.SMOKING:
 			$".".play("Smoked")
 			
+			if $".".frame >= 13:
+				wiz_state = wizard_state.IDLE
 		wizard_state.DEAD:
 			$".".play("Death")
 			pass
