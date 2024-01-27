@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkkasm5s4gsur"]
+
+[ext_resource type="SpriteFrames" uid="uid://cyrh2p7nma7ex" path="res://Assets/VFX/Explosion/explosionframes.tres" id="1_wveg2"]
+
+[sub_resource type="GDScript" id="GDScript_av7gm"]
+script/source = "extends AnimatedSprite3D
+
+func _ready():
+	play(\"default\")
+	await animation_finished
+	queue_free()
+"
+
+[node name="Explosion" type="AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+sprite_frames = ExtResource("1_wveg2")
+frame = 16
+frame_progress = 1.0
+script = SubResource("GDScript_av7gm")
