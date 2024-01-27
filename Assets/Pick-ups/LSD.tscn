@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://w0yye50ny4jt"]
+
+[ext_resource type="PackedScene" uid="uid://bmsktdmdbi6vx" path="res://Assets/pick-ups/pick-up.tscn" id="1_k4851"]
+[ext_resource type="Texture2D" uid="uid://c5ajgfymjsgok" path="res://assets/pick-ups/LSD.png" id="2_hv0oq"]
+
+[node name="Pick-up" instance=ExtResource("1_k4851")]
+duration = 10.0
+drug_type = 2
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("2_hv0oq")

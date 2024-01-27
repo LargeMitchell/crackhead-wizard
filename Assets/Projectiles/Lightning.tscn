@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://k4j8tbowhixb"]
+
+[ext_resource type="Texture2D" uid="uid://btl8kp16ofod8" path="res://Assets/Projectiles/LightningSpriteSheet.png" id="1_akdds"]
+[ext_resource type="Script" path="res://Assets/Projectiles/Lightning.gd" id="1_wcccy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3cc6"]
+size = Vector3(2.50252, 21.4027, 2.68295)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0u3r"]
+atlas = ExtResource("1_akdds")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v5ca"]
+atlas = ExtResource("1_akdds")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj1m5"]
+atlas = ExtResource("1_akdds")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imxth"]
+atlas = ExtResource("1_akdds")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p618o"]
+atlas = ExtResource("1_akdds")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hpeem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0u3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v5ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj1m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imxth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj1m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0u3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v5ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imxth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p618o")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Lightning" type="Area3D"]
+script = ExtResource("1_wcccy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105419, 10.2048, -0.00129509)
+shape = SubResource("BoxShape3D_y3cc6")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38755, 0)
+pixel_size = 0.029
+billboard = 1
+double_sided = false
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_hpeem")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

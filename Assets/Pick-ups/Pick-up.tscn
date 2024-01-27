@@ -1,17 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dipidwfs2en8m"]
+[gd_scene load_steps=4 format=3 uid="uid://bmsktdmdbi6vx"]
 
 [ext_resource type="Script" path="res://Assets/Pick-ups/Pick-up.gd" id="1_fa32r"]
-[ext_resource type="Texture2D" uid="uid://bmekhay8rxwpm" path="res://Assets/Pick-ups/Elf-Leaf.png" id="2_ktgmv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gf3cg"]
+load_path = "res://.godot/imported/Elf-Leaf.png-6a140ea402bc75d1e7843a79a0f4eca6.s3tc.ctex"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyfvg"]
 
 [node name="Pick-up" type="Area3D"]
 script = ExtResource("1_fa32r")
-mana = 5.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1
-texture = ExtResource("2_ktgmv")
+texture = SubResource("CompressedTexture2D_gf3cg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_jyfvg")

@@ -116,7 +116,7 @@ animations = [{
 script = ExtResource("1_q0wr6")
 move_speed = 5.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01022, 0)
 shape = SubResource("CapsuleShape3D_j60oq")
 

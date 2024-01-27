@@ -1,4 +1,4 @@
-class_name Bullet extends Area3D
+extends Area3D
 
 var projectile_speed : float = 15.0
 var lifetime : float = 5.0
