@@ -1,7 +1,5 @@
 class_name Wyvern extends CharacterBody3D
 
-@onready var animated_sprite_3d = $AnimatedSprite3D
-
 @export var health: int = 100
 @export var move_speed: float = 1.5
 @export var attack_damage: int = 10
@@ -86,7 +84,6 @@ func attack_player():
 func take_damage(damage_amount:int):
 	health -= damage_amount
 	if health <= 0:
-		animated_sprite_3d.play("Death")
 		$DeathSound.play()
 		$CollisionShape3D.disabled = true
 

@@ -75,13 +75,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wlnba")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wlnba")
 }],
 "loop": true,
 "name": &"GearingUp",
-"speed": 16.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -109,7 +106,7 @@ fov = 100.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642169, -0.517421, -1.01358)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CameraPivot"]
-transform = Transform3D(1.44597, 0, 0, 0, 1.60852, 0, 0, 0, 1, 1.40265, -0.517421, -1.07684)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642169, -0.517421, -1.01358)
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_o8idb")
-animation = &"Firing"
+animation = &"Idle"

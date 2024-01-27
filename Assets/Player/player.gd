@@ -42,6 +42,31 @@ func _ready():
 	# Locks cursor to game screen
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+var fire_anim_state: int = 0;
+
+func _process(delta):
+	
+	if Input.is_action_just_pressed("cast_spell"):
+		fire_anim_state = 1
+		$CameraPivot/AnimatedSprite3D.frame = 0
+		
+	match fire_anim_state:
+		0: 
+			$CameraPivot/AnimatedSprite3D.play("Idle")
+		1: 
+			$CameraPivot/AnimatedSprite3D.play("GearingUp")
+			
+			if $CameraPivot/AnimatedSprite3D.frame >= 3:
+				if Input.is_action_pressed("cast_spell"):
+					fire_anim_state = 2
+				else:
+					fire_anim_state = 0
+		2: 
+			$CameraPivot/AnimatedSprite3D.play("Firing")
+			if $CameraPivot/AnimatedSprite3D.frame >= 5:
+				if !Input.is_action_pressed("cast_spell"):
+					fire_anim_state = 0
+
 func _physics_process(delta):
 
 	# Add the gravity.
