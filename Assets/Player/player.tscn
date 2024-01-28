@@ -1,28 +1,29 @@
-[gd_scene load_steps=85 format=3 uid="uid://ceb568srikvhy"]
+[gd_scene load_steps=86 format=3 uid="uid://ceb568srikvhy"]
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
-[ext_resource type="SpriteFrames" uid="uid://bqxt6vt3lce4t" path="res://assets/player/handframes.tres" id="2_rhil4"]
-[ext_resource type="Texture2D" uid="uid://djb3iija3nd4k" path="res://assets/player/LeftArm.png" id="3_cisjl"]
-[ext_resource type="PackedScene" uid="uid://bogcjojn7811k" path="res://assets/projectiles/Laser/LaserComponent.tscn" id="3_q0f0h"]
-[ext_resource type="Texture2D" uid="uid://d4ipl6gbifeip" path="res://assets/player/UI.png" id="4_lj3qa"]
-[ext_resource type="Texture2D" uid="uid://tdndjt2kai5e" path="res://assets/player/Face.png" id="5_6hlbd"]
+[ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://assets/player/handframes.tres" id="2_rhil4"]
+[ext_resource type="Texture2D" uid="uid://bq3qc41goyidy" path="res://Assets/Player/LeftArm.png" id="3_cisjl"]
+[ext_resource type="PackedScene" uid="uid://bogcjojn7811k" path="res://Assets/Projectiles/Laser/LaserComponent.tscn" id="3_q0f0h"]
+[ext_resource type="Texture2D" uid="uid://blr60d1i8xpy6" path="res://Assets/Player/UI.png" id="4_lj3qa"]
+[ext_resource type="Texture2D" uid="uid://dqilhuld1q5iq" path="res://Assets/Player/Face.png" id="5_6hlbd"]
 [ext_resource type="Shader" path="res://assets/shaders/handbobbing_with_color.gdshader" id="5_lviqv"]
-[ext_resource type="Texture2D" uid="uid://dsvwf7ukpw1ih" path="res://assets/player/meth_pipe.png" id="6_66mqc"]
+[ext_resource type="Texture2D" uid="uid://cimelteogijpa" path="res://Assets/Player/meth_pipe.png" id="6_66mqc"]
 [ext_resource type="Script" path="res://Assets/Player/HeadAnim.gd" id="6_u877w"]
-[ext_resource type="Texture2D" uid="uid://dcqbg2fipxe1p" path="res://assets/player/coke.png" id="7_3b3qg"]
-[ext_resource type="Texture2D" uid="uid://40uftv7l86op" path="res://assets/player/UIBack.png" id="7_8nu1n"]
-[ext_resource type="Texture2D" uid="uid://dawcevp7dtomv" path="res://assets/player/lsd.png" id="8_fjgny"]
-[ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://assets/projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
-[ext_resource type="Texture2D" uid="uid://6k13t1v7b18b" path="res://assets/player/pcp.png" id="9_hq8uu"]
+[ext_resource type="Texture2D" uid="uid://1cu68pir5qcg" path="res://Assets/Player/coke.png" id="7_3b3qg"]
+[ext_resource type="Texture2D" uid="uid://bbn1mr3ue77hr" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
+[ext_resource type="Texture2D" uid="uid://go3jomx2fup" path="res://Assets/Player/lsd.png" id="8_fjgny"]
+[ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
+[ext_resource type="Texture2D" uid="uid://pb38y78iuo23" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
 [ext_resource type="Shader" path="res://assets/shaders/handbobbing.gdshader" id="12_xr32j"]
-[ext_resource type="Texture2D" uid="uid://wvcefo2b7dfl" path="res://assets/player/sparkle.png" id="13_7ludb"]
-[ext_resource type="Texture2D" uid="uid://cia655bxtauam" path="res://assets/player/telekinesis.png" id="15_0ypeh"]
+[ext_resource type="Texture2D" uid="uid://c6sx8cgaebpko" path="res://Assets/Player/sparkle.png" id="13_7ludb"]
+[ext_resource type="Texture2D" uid="uid://qgc5lq26olex" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
 [ext_resource type="Script" path="res://Assets/Player/Telekinesis.gd" id="16_5g2g6"]
-[ext_resource type="Texture2D" uid="uid://b1wlv4ktkimsh" path="res://assets/player/Reticle.png" id="17_er1xk"]
-[ext_resource type="Texture2D" uid="uid://dh24gggfmla5y" path="res://assets/player/Approach.png" id="21_m7mdh"]
-[ext_resource type="Texture2D" uid="uid://baqb5b5nkv3y6" path="res://assets/player/ApproachTroll.png" id="22_03k5h"]
-[ext_resource type="Texture2D" uid="uid://c5guymhxw2cyt" path="res://assets/player/ApproachWyvern.png" id="23_5k40v"]
+[ext_resource type="Texture2D" uid="uid://c3r7dy8lvf1fk" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
+[ext_resource type="Texture2D" uid="uid://oiv8rs8rwpbl" path="res://Assets/Player/Approach.png" id="21_m7mdh"]
+[ext_resource type="Texture2D" uid="uid://d1jsgmeg1aqci" path="res://Assets/Player/ApproachTroll.png" id="22_03k5h"]
+[ext_resource type="Texture2D" uid="uid://c5vgfgulnd7mm" path="res://Assets/Player/ApproachWyvern.png" id="23_5k40v"]
+[ext_resource type="PackedScene" uid="uid://cy7pm8lny6x5k" path="res://Assets/Menu's/healthbar/healthbar.tscn" id="24_8p7r3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -592,3 +593,10 @@ texture = ExtResource("22_03k5h")
 [node name="ApproachWyvern" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
 position = Vector2(579, 324)
 texture = ExtResource("23_5k40v")
+
+[node name="TextureProgressBar" parent="SubViewportContainer/SubViewport" instance=ExtResource("24_8p7r3")]
+offset_left = 1115.0
+offset_top = 648.0
+offset_right = 1763.0
+offset_bottom = 685.0
+rotation = -1.5708

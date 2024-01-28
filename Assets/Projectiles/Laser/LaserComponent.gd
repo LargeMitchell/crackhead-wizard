@@ -25,6 +25,8 @@ func _physics_process(delta):
 		laser.look_at(ray_hit_pos)
 		laser.rotation_degrees.x += 90.0
 		
+		$laseraudio.play()
+		
 		if raycast.get_collider().is_in_group("Enemy"):
 			var enemy = raycast.get_collider()
 			

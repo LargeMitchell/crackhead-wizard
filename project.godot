@@ -15,6 +15,10 @@ run/main_scene="res://Assets/Levels/Level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="Crackheadwizard"
