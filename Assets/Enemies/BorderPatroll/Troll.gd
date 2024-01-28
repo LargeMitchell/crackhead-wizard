@@ -2,8 +2,8 @@ extends CharacterBody3D
 
 @onready var animated_sprite_3d = $AnimatedSprite3D
 
-@export var health: float = 100.0
-@export var move_speed: float = 1.5
+@export var health: float = 450.0
+@export var move_speed: float = 7.5
 @export var attack_damage: float = 10.0
 @export var attack_range: float = 10.0
 @export var notice_range: float = 20.0
@@ -35,6 +35,9 @@ func set_state(new_state: enemy_state):
 	state = new_state
 	state_timer = 0.0
 
+var shot_time: float = 0.25
+var shot_timer: float = 0.0
+
 func _process(delta):
 	if health <= 0:
 		return
@@ -52,12 +55,20 @@ func _process(delta):
 			state_timer += delta
 
 			if state_timer >= attack_cd || global_position.distance_to(player.global_position) <= attack_range:
-				attack_player()
+				
 				set_state(enemy_state.SHOOTING)
 				$AnimatedSprite3D.play("Shoot")
 
 		enemy_state.SHOOTING:
-
+			
+			shot_timer += delta
+			
+			if shot_timer >= shot_time:
+				
+				shot_timer -= shot_time
+				
+				attack_player()
+			
 			if $AnimatedSprite3D.frame >= 3: # hard coded to make him only shoot once
 				set_state(enemy_state.CHASING)
 				$AnimatedSprite3D.play("Run")
@@ -87,8 +98,8 @@ func attack_player():
 	if !grabbed:
 		var p = bullet.instantiate()
 		add_child(p)
-		p.global_transform.origin = global_transform.origin + Vector3.UP
-		p.direction = Vector3((player.global_position + (-Vector3.UP)) - global_position).normalized()
+		p.global_transform.origin = global_transform.origin + (Vector3.UP * 5.0)
+		p.direction = (player.global_position - p.global_transform.origin).normalized()
 
 func take_damage(damage_amount:float):
 	health -= damage_amount
