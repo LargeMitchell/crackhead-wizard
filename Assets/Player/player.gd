@@ -175,7 +175,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-		if buffs.has(SpellBook.LSD):
+		if buffs.has(SpellBook.LSD) && Input.is_action_pressed("jump"):
 			velocity.y = clamp(velocity.y, -1.0, 10000.0)
 
 	# Handle jump.

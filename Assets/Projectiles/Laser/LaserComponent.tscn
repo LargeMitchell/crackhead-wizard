@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bogcjojn7811k"]
 
 [ext_resource type="Script" path="res://Assets/Projectiles/Laser/LaserComponent.gd" id="1_4hd2j"]
-[ext_resource type="AudioStream" uid="uid://xtqlkgwc4xre" path="res://Assets/Projectiles/Laser/laser.mp3" id="2_q0c1n"]
+[ext_resource type="AudioStream" uid="uid://cc1c2kh08ntd3" path="res://Assets/Projectiles/Laser/laser.mp3" id="2_q0c1n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0agau"]
 albedo_color = Color(1, 0, 0, 1)
@@ -10,8 +10,8 @@ emission = Color(1, 0, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_voj66"]
 material = SubResource("StandardMaterial3D_0agau")
-top_radius = 0.025
-bottom_radius = 0.025
+top_radius = 0.05
+bottom_radius = 0.05
 radial_segments = 12
 rings = 1
 
