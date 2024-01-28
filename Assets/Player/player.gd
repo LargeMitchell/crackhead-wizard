@@ -36,7 +36,12 @@ var cast_range : float = 40.0
 
 var killed_enemy = false
 
-var buffs : Dictionary = { SpellBook.METH:{"duration":20.0,"doses":1} }
+var buffs : Dictionary = {
+	SpellBook.METH:{"duration":30.0,"doses":1},
+	SpellBook.COKE:{"duration":30.0,"doses":1},
+	SpellBook.LSD:{"duration":30.0,"doses":1},
+	SpellBook.PCP:{"duration":30.0,"doses":1}
+}
 @onready var book_icons: Dictionary = {
 	SpellBook.METH: $SubViewportContainer/SubViewport/LeftArm/meth,
 	SpellBook.COKE: $SubViewportContainer/SubViewport/LeftArm/coke,
@@ -186,7 +191,7 @@ func manage_buffs(delta):
 		return
 	can_cast_spell = true
 	for key in buffs:
-		print (key," - ", buffs[key]['duration'])
+		#print (key," - ", buffs[key]['duration'])
 		buffs[key]['duration'] -= delta
 		book_icons[key].material.set_shader_parameter("threshhold", remap(buffs[key]['duration'], 0.0, 30.0, 0.0, 1.0))
 		if buffs[key]['duration'] <= 0:
