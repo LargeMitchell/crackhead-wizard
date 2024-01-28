@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo2mprfi51622"]
+[gd_scene load_steps=3 format=3 uid="uid://bo2mprfi51622"]
 
-[ext_resource type="PackedScene" uid="uid://bmsktdmdbi6vx" path="res://assets/pick-ups/Pick-up.tscn" id="1_ny0vh"]
+[ext_resource type="PackedScene" uid="uid://bmsktdmdbi6vx" path="res://Assets/Pick-ups/Pick-up.tscn" id="1_ny0vh"]
+[ext_resource type="Texture2D" uid="uid://bvn5l4btg61oc" path="res://Assets/Pick-ups/Meth.png" id="2_ovmkg"]
 
 [node name="Pick-up" instance=ExtResource("1_ny0vh")]
 collision_mask = 4
+
+[node name="Sprite3D" parent="." index="0"]
+texture = ExtResource("2_ovmkg")
