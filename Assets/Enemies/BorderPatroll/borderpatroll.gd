@@ -8,6 +8,7 @@ extends CharacterBody3D
 
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 @onready var bullet : PackedScene = preload("res://Assets/Projectiles/Bullet.tscn")
+@onready var enemy : PackedScene = preload("res://Assets/Enemies/Knight/enemy.tscn")
 
 var state_timer: float = 0.0
 @export var attack_cd: float = 2.0
@@ -17,8 +18,12 @@ var chase_pos: Vector3 = Vector3(0.0, 0.0, 0.0)
 var rand_height: float = 0.0
 var rand_dist: float = 10.0
 var rand_rot_offset: float = 90.0
-var shot_time: float = 0.5
+var shot_time: float = 0.25
 var shot_timer: float = 0.0
+
+var spawn_time: float = 0.5
+var spawn_timer: float = 0.0
+
 var rng = RandomNumberGenerator.new()
 
 var grabbed : bool = false
@@ -33,12 +38,12 @@ func _enter_tree():
 
 enum enemy_state 
 {
-	CHASING,
+	SPAWNING,
 	SHOOTING,
 	IDLE,
-	CHARGING
+	CRASHING
 }
-var state: enemy_state = enemy_state.IDLE
+var state: enemy_state = enemy_state.CRASHING
 
 func set_state(new_state: enemy_state):
 	state = new_state
@@ -58,9 +63,9 @@ func _process(delta):
 	match state:
 		enemy_state.IDLE:
 			if global_position.distance_to(player.global_position) <= notice_range:
-				set_state(enemy_state.CHASING)
+				set_state(enemy_state.SHOOTING)
 		
-		enemy_state.CHASING:
+		enemy_state.SHOOTING:
 			shot_timer += delta
 			
 			if shot_timer >= shot_time:
@@ -77,14 +82,35 @@ func _process(delta):
 			
 			chase_pos = player.global_position + Vector3(0.0, rand_height, 0.0)
 			
-			if state_timer >= 1.0:
-				set_state(enemy_state.CHARGING)
+			if state_timer >= 1.6:
+				set_state(enemy_state.SPAWNING)
 
-		enemy_state.CHARGING:
+		enemy_state.SPAWNING:
 			state_timer += delta
 			
+			spawn_timer += delta
+			
+			if spawn_timer >= spawn_time:
+				spawn_timer -= spawn_time
+				var e = enemy.instantiate()
+				owner.add_child(e)
+				var offset = (player.global_position - global_position)
+				offset.y = 0.0
+				offset = offset.normalized() * 4.0
+				
+				e.global_position = global_position + offset
 			if state_timer >= 1.0:	
-				set_state(enemy_state.CHASING)
+				if randi_range(0, 1) == 0:
+					set_state(enemy_state.SHOOTING)
+				else:
+					set_state(enemy_state.CRASHING)
+		
+		enemy_state.CRASHING:
+			state_timer += delta
+			
+			$CSGBox3D.rotate(Vector3(1.0, 0.0, 0.0), -delta * 5.0)
+			
+			
 				
 
 func _physics_process(delta):
