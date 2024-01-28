@@ -8,16 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://dw41fgo3i2qxn" path="res://Assets/Player/UI.png" id="4_lj3qa"]
 [ext_resource type="Texture2D" uid="uid://bxcdqim5h4uqn" path="res://Assets/Player/Face.png" id="5_6hlbd"]
 [ext_resource type="Shader" path="res://assets/shaders/handbobbing_with_color.gdshader" id="5_lviqv"]
-[ext_resource type="Texture2D" uid="uid://1hjcprfxth6u" path="res://Assets/Player/meth_pipe.png" id="6_66mqc"]
 [ext_resource type="Script" path="res://Assets/Player/HeadAnim.gd" id="6_u877w"]
-[ext_resource type="Texture2D" uid="uid://c6nf2b5553brg" path="res://Assets/Player/coke.png" id="7_3b3qg"]
 [ext_resource type="Texture2D" uid="uid://dyeob7f7q3t61" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
-[ext_resource type="Texture2D" uid="uid://c80vrske667jv" path="res://Assets/Player/lsd.png" id="8_fjgny"]
 [ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
-[ext_resource type="Texture2D" uid="uid://30eo28iaq3o5" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
 [ext_resource type="Texture2D" uid="uid://oq1b74q8ske4" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
+[ext_resource type="Texture2D" uid="uid://dsvwf7ukpw1ih" path="res://assets/player/meth_pipe.png" id="6_66mqc"]
+[ext_resource type="Texture2D" uid="uid://dcqbg2fipxe1p" path="res://assets/player/coke.png" id="7_3b3qg"]
+[ext_resource type="Texture2D" uid="uid://dawcevp7dtomv" path="res://assets/player/lsd.png" id="8_fjgny"]
+[ext_resource type="Texture2D" uid="uid://6k13t1v7b18b" path="res://assets/player/pcp.png" id="9_hq8uu"]
 [ext_resource type="Script" path="res://Assets/Player/Telekinesis.gd" id="16_5g2g6"]
-[ext_resource type="Texture2D" uid="uid://b77dkvyr4akcc" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
+[ext_resource type="Texture2D" uid="uid://b1wlv4ktkimsh" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -354,9 +354,8 @@ collision_mask = 3
 [node name="TelekenesisComponent" parent="." instance=ExtResource("9_6eowr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="LaserComponent" parent="." node_paths=PackedStringArray("raycast") instance=ExtResource("3_q0f0h")]
+[node name="LaserComponent" parent="." instance=ExtResource("3_q0f0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-raycast = NodePath("../AimCast")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1

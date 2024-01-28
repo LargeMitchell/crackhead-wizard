@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://w0yye50ny4jt"]
 
 [ext_resource type="PackedScene" uid="uid://bmsktdmdbi6vx" path="res://assets/pick-ups/Pick-up.tscn" id="1_k4851"]
-[ext_resource type="Texture2D" uid="uid://c5ajgfymjsgok" path="res://assets/pick-ups/Evil-Elf-Leaf.png" id="2_m8ag8"]
+[ext_resource type="Texture2D" uid="uid://1feu6iwh225b" path="res://assets/pick-ups/LSD.png" id="2_m8ag8"]
 
 [node name="Pick-up" instance=ExtResource("1_k4851")]
 collision_mask = 4
