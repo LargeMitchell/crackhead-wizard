@@ -1,11 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://b2t5pl0rjx0l"]
+[gd_scene load_steps=27 format=3 uid="uid://b2t5pl0rjx0l"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
 [ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_avq7o"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_xa3fa"]
 [ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
 [ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
-[ext_resource type="PackedScene" uid="uid://bqutjxd42dp3k" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
+[ext_resource type="PackedScene" uid="uid://che6rjl0qyyk2" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
 [ext_resource type="PackedScene" uid="uid://bopoft1kv0pic" path="res://Assets/copcar/copcar.tscn" id="11_my1wo"]
 [ext_resource type="PackedScene" uid="uid://bmjao113dpmbo" path="res://Assets/Enemies/EnemySpawner/EnemySpawner.tscn" id="12_uclf2"]
 [ext_resource type="PackedScene" uid="uid://ctcmfknl5d24o" path="res://Assets/Enemies/Yellow Beast/yellowBeast.tscn" id="14_4md1f"]
@@ -18,8 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://Assets/Pick-ups/LSD.tscn" id="17_0jkb6"]
 [ext_resource type="PackedScene" uid="uid://hu1f5h2bd4se" path="res://Assets/Pick-ups/PCP.tscn" id="17_6svl5"]
 [ext_resource type="PackedScene" uid="uid://ricjbgig76hu" path="res://Assets/cutsceneStarter/cutscene_starter.tscn" id="18_bfw57"]
-[ext_resource type="PackedScene" uid="uid://cqeieb48ln5px" path="res://Assets/Enemies/EyeBuilding/EyeBuilding.glb" id="19_oac0c"]
-[ext_resource type="AudioStream" uid="uid://cwsglth7cvv4g" path="res://Assets/ost.ogg" id="21_2s6yx"]
+[ext_resource type="PackedScene" uid="uid://dumu47hylh2ec" path="res://Assets/Enemies/EyeBuilding/EyeBuilding.glb" id="19_oac0c"]
+[ext_resource type="AudioStream" uid="uid://bjs0q03ppive0" path="res://Assets/ost.ogg" id="21_2s6yx"]
+[ext_resource type="PackedScene" uid="uid://brx1ldn02r8h" path="res://Assets/Pick-ups/Smokewatch.tscn" id="21_jugec"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
 noise_type = 2
@@ -54,7 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 current_spell = 2
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_avq7o")
+mesh_library = ExtResource("3_xa3fa")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
@@ -340,3 +341,108 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59994, 9.53674e-07, -125.73
 [node name="ost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_2s6yx")
 autoplay = true
+
+[node name="Smokewatch" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7711, 0.532025, -13.3776)
+
+[node name="Smokewatch2" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50974, 0.539351, -36.8582)
+
+[node name="Smokewatch3" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66481, 0.478229, -53.1412)
+
+[node name="Smokewatch4" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1993, 0.46773, -62.605)
+
+[node name="Smokewatch5" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6511, 0.485429, -66.9597)
+
+[node name="Smokewatch6" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.4208, 0.48246, -105.207)
+
+[node name="Smokewatch7" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19615, 0.471689, -113.379)
+
+[node name="Smokewatch8" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.754787, 0.516011, -145.807)
+
+[node name="Smokewatch9" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3856, 0.443957, -145.757)
+
+[node name="Smokewatch10" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5853, 0.475837, -152.075)
+
+[node name="Smokewatch11" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.06551, 0.246145, -151.87)
+
+[node name="Smokewatch12" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.496, 0.558817, -177.049)
+
+[node name="Smokewatch13" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0864, 0.549972, -172.479)
+
+[node name="Smokewatch14" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.1018, 0.516175, -158.433)
+
+[node name="Smokewatch15" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.8791, 0.427539, -153.909)
+
+[node name="Smokewatch16" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.0555, 0.497736, -149.227)
+
+[node name="Smokewatch17" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.0314, 0.460506, -141.543)
+
+[node name="Smokewatch18" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.8778, 0.504282, -137.083)
+
+[node name="Smokewatch19" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.4407, 0.533134, -152.786)
+
+[node name="Smokewatch20" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.0454, 0.664003, -160.813)
+
+[node name="Smokewatch21" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.2486, 0.559894, -160.257)
+
+[node name="Smokewatch22" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.7196, 0.476571, -129.711)
+
+[node name="Smokewatch23" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.6401, 0.470615, -129.471)
+
+[node name="Smokewatch24" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.102, 0.52343, -157.363)
+
+[node name="Smokewatch25" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.195, 0.466007, -141.604)
+
+[node name="Smokewatch26" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.941, 0.487151, -115.722)
+
+[node name="Smokewatch27" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.764, 0.498716, -114.497)
+
+[node name="Smokewatch28" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.41468, 0.537728, -86.4556)
+
+[node name="Smokewatch29" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.31, 0.438736, -81.2048)
+
+[node name="Smokewatch30" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.56897, 0.483997, -85.2777)
+
+[node name="Smokewatch31" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.83983, 0.484037, -87.9234)
+
+[node name="Smokewatch32" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.14712, 0.458938, -76.5542)
+
+[node name="Smokewatch33" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.28539, 0.534945, -64.5019)
+
+[node name="Smokewatch34" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80285, 0.438999, -2.62396)
+
+[node name="Smokewatch35" parent="." instance=ExtResource("21_jugec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.11693, 0.515821, -2.34284)
