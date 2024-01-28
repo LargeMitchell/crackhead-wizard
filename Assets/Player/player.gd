@@ -46,11 +46,13 @@ var buffs : Dictionary = {
 	SpellBook.PCP:{"duration":30.0,"doses":1}
 }
 @onready var book_icons: Dictionary = {
-	SpellBook.METH: $SubViewportContainer/SubViewport/LeftArm/meth,
-	SpellBook.COKE: $SubViewportContainer/SubViewport/LeftArm/coke,
-	SpellBook.LSD: $SubViewportContainer/SubViewport/LeftArm/lsd,
-	SpellBook.PCP: $SubViewportContainer/SubViewport/LeftArm/pcp
+	SpellBook.METH: {"node": $SubViewportContainer/SubViewport/LeftArm/meth, "offset": Vector2(-4,-29)},
+	SpellBook.COKE: {"node": $SubViewportContainer/SubViewport/LeftArm/coke, "offset": Vector2(-64,-39)},
+	SpellBook.LSD: {"node": $SubViewportContainer/SubViewport/LeftArm/lsd, "offset": Vector2(-53,26)},
+	SpellBook.PCP: {"node": $SubViewportContainer/SubViewport/LeftArm/pcp, "offset": Vector2(12,15)}
 }
+@onready var selected_spell_sparkle: AnimatedSprite2D = $SubViewportContainer/SubViewport/LeftArm/selected_spell
+
 
 func _input(event):
 
@@ -68,7 +70,9 @@ func _input(event):
 		current_spell += 1
 		if current_spell >= buffs.size():
 			current_spell = 0
+
 		print(current_spell, buffs.has(current_spell))
+		selected_spell_sparkle.offset = book_icons[current_spell]["offset"]
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
 		cast_charge_timer = 0.0
@@ -84,28 +88,28 @@ func _ready():
 	current_spell = 0
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$SubViewportContainer/SubViewport/Telekinesis.hide()
-	
 	$SubViewportContainer/SubViewport/Approach.hide()
 	$SubViewportContainer/SubViewport/ApproachWyvern.hide()
 	$SubViewportContainer/SubViewport/ApproachTroll.hide()
+	selected_spell_sparkle.offset = book_icons[current_spell]["offset"]
 
 var fire_anim_state: int = 0;
 var cutscene_timer = 0.0
 var reset = false
 
 func play_cutscene(i : int):
-	
+
 	reset = false
-	
+
 	print(i)
 	match i:
-		0: 
+		0:
 			$SubViewportContainer/SubViewport/Approach.show()
 			cutscene_timer = 4.0
-		1: 
+		1:
 			$SubViewportContainer/SubViewport/ApproachWyvern.show()
 			cutscene_timer = 4.0
-		2: 
+		2:
 			$SubViewportContainer/SubViewport/ApproachTroll.show()
 			cutscene_timer = 4.0
 
@@ -113,7 +117,7 @@ func _process(delta):
 	cast_charge_timer += delta
 	manage_buffs(delta)
 
-	
+
 	cutscene_timer -= delta
 	if cutscene_timer <= 0.0 && !reset:
 		$SubViewportContainer/SubViewport/Approach.hide()
@@ -231,7 +235,7 @@ func manage_buffs(delta):
 	for key in buffs:
 		#print (key," - ", buffs[key]['duration'])
 		buffs[key]['duration'] -= delta
-		book_icons[key].material.set_shader_parameter("threshhold", remap(buffs[key]['duration'], 0.0, 30.0, 0.0, 1.0))
+		book_icons[key]["node"].material.set_shader_parameter("threshhold", remap(buffs[key]['duration'], 0.0, 30.0, 0.0, 1.0))
 		if buffs[key]['duration'] <= 0:
 			buffs.erase(key)
 
@@ -260,7 +264,7 @@ func spawn_lightning():
 		l.transform.origin = raycast.get_collision_point()
 	else:
 		l.transform.origin = bulletorigin.global_position
-	
+
 	l.scale = l.scale * 3.0
 
 func weapon_cooldown(delta):
@@ -272,8 +276,8 @@ func weapon_cooldown(delta):
 				else:
 					fire_timer = 0.0
 					can_cast_spell = true
-			
-			
+
+
 			SpellBook.COKE:
 				if fire_timer < coke_fire_rate:
 					fire_timer += delta

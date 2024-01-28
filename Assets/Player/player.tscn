@@ -1,23 +1,24 @@
-[gd_scene load_steps=65 format=3 uid="uid://ceb568srikvhy"]
-
+[gd_scene load_steps=82 format=3 uid="uid://ceb568srikvhy"]
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
-[ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://Assets/Player/handframes.tres" id="2_rhil4"]
-[ext_resource type="Texture2D" uid="uid://dlhmrivp1yw7f" path="res://Assets/Player/LeftArm.png" id="3_cisjl"]
-[ext_resource type="PackedScene" uid="uid://bogcjojn7811k" path="res://Assets/Projectiles/Laser/LaserComponent.tscn" id="3_q0f0h"]
-[ext_resource type="Texture2D" uid="uid://cfdp1camcy1ta" path="res://Assets/Player/UI.png" id="4_lj3qa"]
-[ext_resource type="Texture2D" uid="uid://ccu245li55t4h" path="res://Assets/Player/Face.png" id="5_6hlbd"]
+[ext_resource type="SpriteFrames" uid="uid://bqxt6vt3lce4t" path="res://assets/player/handframes.tres" id="2_rhil4"]
+[ext_resource type="Texture2D" uid="uid://djb3iija3nd4k" path="res://assets/player/LeftArm.png" id="3_cisjl"]
+[ext_resource type="PackedScene" uid="uid://bogcjojn7811k" path="res://assets/projectiles/Laser/LaserComponent.tscn" id="3_q0f0h"]
+[ext_resource type="Texture2D" uid="uid://d4ipl6gbifeip" path="res://assets/player/UI.png" id="4_lj3qa"]
+[ext_resource type="Texture2D" uid="uid://tdndjt2kai5e" path="res://assets/player/Face.png" id="5_6hlbd"]
 [ext_resource type="Shader" path="res://assets/shaders/handbobbing_with_color.gdshader" id="5_lviqv"]
-[ext_resource type="Texture2D" uid="uid://c53i62rqi4h1q" path="res://Assets/Player/meth_pipe.png" id="6_66mqc"]
+[ext_resource type="Texture2D" uid="uid://dsvwf7ukpw1ih" path="res://assets/player/meth_pipe.png" id="6_66mqc"]
 [ext_resource type="Script" path="res://Assets/Player/HeadAnim.gd" id="6_u877w"]
-[ext_resource type="Texture2D" uid="uid://bkpnjqhcb75y1" path="res://Assets/Player/coke.png" id="7_3b3qg"]
-[ext_resource type="Texture2D" uid="uid://b04x5re0fjot7" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
-[ext_resource type="Texture2D" uid="uid://w8bek7e4ek4d" path="res://Assets/Player/lsd.png" id="8_fjgny"]
-[ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
-[ext_resource type="Texture2D" uid="uid://c1e4au710s5wf" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
-[ext_resource type="Texture2D" uid="uid://di08usyupcy0t" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
+[ext_resource type="Texture2D" uid="uid://dcqbg2fipxe1p" path="res://assets/player/coke.png" id="7_3b3qg"]
+[ext_resource type="Texture2D" uid="uid://40uftv7l86op" path="res://assets/player/UIBack.png" id="7_8nu1n"]
+[ext_resource type="Texture2D" uid="uid://dawcevp7dtomv" path="res://assets/player/lsd.png" id="8_fjgny"]
+[ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://assets/projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
+[ext_resource type="Texture2D" uid="uid://6k13t1v7b18b" path="res://assets/player/pcp.png" id="9_hq8uu"]
+[ext_resource type="Shader" path="res://assets/shaders/handbobbing.gdshader" id="12_xr32j"]
+[ext_resource type="Texture2D" uid="uid://wvcefo2b7dfl" path="res://assets/player/sparkle.png" id="13_7ludb"]
+[ext_resource type="Texture2D" uid="uid://cia655bxtauam" path="res://assets/player/telekinesis.png" id="15_0ypeh"]
 [ext_resource type="Script" path="res://Assets/Player/Telekinesis.gd" id="16_5g2g6"]
-[ext_resource type="Texture2D" uid="uid://bwy33exopyj71" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
+[ext_resource type="Texture2D" uid="uid://b1wlv4ktkimsh" path="res://assets/player/Reticle.png" id="17_er1xk"]
 [ext_resource type="Texture2D" uid="uid://dblqlkdb0mtur" path="res://Assets/Player/Approach.png" id="19_la5j8"]
 [ext_resource type="Texture2D" uid="uid://hmi8aiyysy86" path="res://Assets/Player/ApproachWyvern.png" id="20_w20tp"]
 [ext_resource type="Texture2D" uid="uid://dbr5m7qa47hdk" path="res://Assets/Player/ApproachTroll.png" id="21_pppha"]
@@ -47,6 +48,129 @@ shader_parameter/threshhold = null
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4tv15"]
 shader = ExtResource("5_lviqv")
 shader_parameter/threshhold = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcdvq"]
+shader = ExtResource("12_xr32j")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrii8"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ppdt"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqb6a"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8fjg"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wl78"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xqq8"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76c01"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yc02"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auis3"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0ita"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxw10"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gahon"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsq0p"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dxba"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mk41"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r0ht"]
+atlas = ExtResource("13_7ludb")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kyfmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrii8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ppdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqb6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8fjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wl78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xqq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76c01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yc02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auis3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0ita")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxw10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gahon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsq0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dxba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mk41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r0ht")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5k1eq"]
 atlas = ExtResource("5_6hlbd")
@@ -395,25 +519,38 @@ scale = Vector2(2.2551, 2.2551)
 texture = ExtResource("3_cisjl")
 
 [node name="meth" type="Sprite2D" parent="SubViewportContainer/SubViewport/LeftArm"]
+z_index = 5
 material = SubResource("ShaderMaterial_ka76y")
 position = Vector2(17.18, 2.08165e-12)
 texture = ExtResource("6_66mqc")
 
 [node name="coke" type="Sprite2D" parent="SubViewportContainer/SubViewport/LeftArm"]
+z_index = 5
 material = SubResource("ShaderMaterial_lmkek")
 position = Vector2(-40, -15)
 texture = ExtResource("7_3b3qg")
 
 [node name="lsd" type="Sprite2D" parent="SubViewportContainer/SubViewport/LeftArm"]
+z_index = 5
 material = SubResource("ShaderMaterial_8wdqo")
 texture = ExtResource("8_fjgny")
 centered = false
 offset = Vector2(-54, 10)
 
 [node name="pcp" type="Sprite2D" parent="SubViewportContainer/SubViewport/LeftArm"]
+z_index = 5
 material = SubResource("ShaderMaterial_4tv15")
 texture = ExtResource("9_hq8uu")
-offset = Vector2(16, 26)
+offset = Vector2(16, 36)
+
+[node name="selected_spell" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport/LeftArm"]
+material = SubResource("ShaderMaterial_vcdvq")
+sprite_frames = SubResource("SpriteFrames_kyfmj")
+animation = &"selected"
+autoplay = "selected"
+frame_progress = 0.775663
+centered = false
+offset = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="Ui" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
 position = Vector2(579, 321.5)
