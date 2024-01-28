@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://b2t5pl0rjx0l"]
+[gd_scene load_steps=26 format=3 uid="uid://b2t5pl0rjx0l"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
 [ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_vfr3i"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_ktweu"]
 [ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
 [ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
 [ext_resource type="PackedScene" uid="uid://bopoft1kv0pic" path="res://Assets/copcar/copcar.tscn" id="11_my1wo"]
@@ -17,7 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://w0yye50ny4jt" path="res://Assets/Pick-ups/LSD.tscn" id="17_0jkb6"]
 [ext_resource type="PackedScene" uid="uid://hu1f5h2bd4se" path="res://Assets/Pick-ups/PCP.tscn" id="17_6svl5"]
 [ext_resource type="PackedScene" uid="uid://ricjbgig76hu" path="res://Assets/cutsceneStarter/cutscene_starter.tscn" id="18_bfw57"]
-[ext_resource type="AudioStream" uid="uid://cyur8euuadxok" path="res://Assets/ost.ogg" id="21_2s6yx"]
+[ext_resource type="PackedScene" uid="uid://brx1ldn02r8h" path="res://Assets/Pick-ups/Smokewatch.tscn" id="19_euhpr"]
+[ext_resource type="PackedScene" uid="uid://dxr8yia0pjgur" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="20_gilcs"]
+[ext_resource type="AudioStream" uid="uid://bqdcylrfgdy7f" path="res://Assets/ost.ogg" id="21_2s6yx"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6drkm"]
 noise_type = 2
@@ -52,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 current_spell = 2
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_vfr3i")
+mesh_library = ExtResource("3_ktweu")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
@@ -338,3 +340,138 @@ autoplay = true
 
 [node name="Enemy2" parent="." instance=ExtResource("14_4md1f")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.1774, 1.20679, -158.043)
+
+[node name="Smokewatch" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77681, 0.550001, -16.8856)
+
+[node name="Smokewatch2" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77681, 0.550001, -4.27057)
+
+[node name="Smokewatch3" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44409, 0.550001, -4.27057)
+
+[node name="Smokewatch4" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44409, 0.550001, -15.9675)
+
+[node name="Smokewatch5" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77681, 0.550001, -54.5994)
+
+[node name="Smokewatch6" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77681, 0.550001, -41.9844)
+
+[node name="Smokewatch7" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44409, 0.550001, -41.9844)
+
+[node name="Smokewatch8" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44409, 0.550001, -53.6813)
+
+[node name="Smokewatch9" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77681, 0.550001, -140.883)
+
+[node name="Smokewatch10" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77681, 0.550001, -128.268)
+
+[node name="Smokewatch11" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44409, 0.550001, -128.268)
+
+[node name="Smokewatch12" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44409, 0.550001, -139.964)
+
+[node name="Smokewatch13" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5833, 0.550001, -148.704)
+
+[node name="Smokewatch14" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5833, 0.550001, -136.089)
+
+[node name="Smokewatch15" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8042, 0.550001, -136.089)
+
+[node name="Smokewatch16" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8042, 0.550001, -147.786)
+
+[node name="Smokewatch17" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.9412, 0.550001, -152.825)
+
+[node name="Smokewatch18" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.9412, 0.550001, -140.21)
+
+[node name="Smokewatch19" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.162, 0.550001, -140.21)
+
+[node name="Smokewatch20" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.162, 0.550001, -151.907)
+
+[node name="Smokewatch21" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.585, 0.550001, -128.489)
+
+[node name="Smokewatch22" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.585, 0.550001, -115.874)
+
+[node name="Smokewatch23" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.806, 0.550001, -115.874)
+
+[node name="Smokewatch24" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.806, 0.550001, -127.571)
+
+[node name="Smokewatch25" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22672, 0.550004, -122.619)
+
+[node name="Smokewatch26" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.22672, 0.550004, -110.004)
+
+[node name="Smokewatch27" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99417, 0.550004, -110.004)
+
+[node name="Smokewatch28" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99417, 0.550004, -121.701)
+
+[node name="Smokewatch29" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0502, 0.550004, -101.267)
+
+[node name="Smokewatch30" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0502, 0.550004, -88.6519)
+
+[node name="Smokewatch31" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2711, 0.550004, -88.6519)
+
+[node name="Smokewatch32" parent="." instance=ExtResource("19_euhpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2711, 0.550004, -100.349)
+
+[node name="Skyscraper" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6494, -9.10376, -42.2929)
+
+[node name="Skyscraper2" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4286, -9.10376, -22.8283)
+
+[node name="Skyscraper3" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6693, -9.10376, 12.1758)
+
+[node name="Skyscraper4" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6499, -9.10376, -6.09314)
+
+[node name="Skyscraper5" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.4177, -9.10376, -117.203)
+
+[node name="Skyscraper13" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.4177, -0.0967064, -145.988)
+
+[node name="Skyscraper6" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.3397, -9.10376, -97.7382)
+
+[node name="Skyscraper7" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.099, -9.10376, -62.734)
+
+[node name="Skyscraper8" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.4183, -9.10376, -81.003)
+
+[node name="Skyscraper9" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.511, -9.10376, -117.203)
+
+[node name="Skyscraper10" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.433, -9.10376, -97.7382)
+
+[node name="Skyscraper11" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.192, -9.10376, -62.734)
+
+[node name="Skyscraper12" parent="." instance=ExtResource("20_gilcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.512, -9.10376, -81.003)
