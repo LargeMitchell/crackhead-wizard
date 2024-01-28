@@ -1,23 +1,26 @@
-[gd_scene load_steps=62 format=3 uid="uid://ceb568srikvhy"]
+[gd_scene load_steps=65 format=3 uid="uid://ceb568srikvhy"]
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
 [ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://Assets/Player/handframes.tres" id="2_rhil4"]
-[ext_resource type="Texture2D" uid="uid://bj6mkq88b48dg" path="res://Assets/Player/LeftArm.png" id="3_cisjl"]
+[ext_resource type="Texture2D" uid="uid://dlhmrivp1yw7f" path="res://Assets/Player/LeftArm.png" id="3_cisjl"]
 [ext_resource type="PackedScene" uid="uid://bogcjojn7811k" path="res://Assets/Projectiles/Laser/LaserComponent.tscn" id="3_q0f0h"]
-[ext_resource type="Texture2D" uid="uid://cvqi1iyp1ywsr" path="res://Assets/Player/UI.png" id="4_lj3qa"]
-[ext_resource type="Texture2D" uid="uid://cgwsi1wufunx3" path="res://Assets/Player/Face.png" id="5_6hlbd"]
+[ext_resource type="Texture2D" uid="uid://cfdp1camcy1ta" path="res://Assets/Player/UI.png" id="4_lj3qa"]
+[ext_resource type="Texture2D" uid="uid://ccu245li55t4h" path="res://Assets/Player/Face.png" id="5_6hlbd"]
 [ext_resource type="Shader" path="res://assets/shaders/handbobbing_with_color.gdshader" id="5_lviqv"]
+[ext_resource type="Texture2D" uid="uid://c53i62rqi4h1q" path="res://Assets/Player/meth_pipe.png" id="6_66mqc"]
 [ext_resource type="Script" path="res://Assets/Player/HeadAnim.gd" id="6_u877w"]
-[ext_resource type="Texture2D" uid="uid://qmwakc8ojdyu" path="res://Assets/Player/meth_pipe.png" id="6_66mqc"]
-[ext_resource type="Texture2D" uid="uid://djcmp0w3uwa3i" path="res://Assets/Player/coke.png" id="7_3b3qg"]
-[ext_resource type="Texture2D" uid="uid://cwxqv6objvpfc" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
-[ext_resource type="Texture2D" uid="uid://kluvv48dlp47" path="res://Assets/Player/lsd.png" id="8_fjgny"]
+[ext_resource type="Texture2D" uid="uid://bkpnjqhcb75y1" path="res://Assets/Player/coke.png" id="7_3b3qg"]
+[ext_resource type="Texture2D" uid="uid://b04x5re0fjot7" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
+[ext_resource type="Texture2D" uid="uid://w8bek7e4ek4d" path="res://Assets/Player/lsd.png" id="8_fjgny"]
 [ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
-[ext_resource type="Texture2D" uid="uid://b410qvfyv12ol" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
-[ext_resource type="Texture2D" uid="uid://661ib26ceyxj" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
+[ext_resource type="Texture2D" uid="uid://c1e4au710s5wf" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
+[ext_resource type="Texture2D" uid="uid://di08usyupcy0t" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
 [ext_resource type="Script" path="res://Assets/Player/Telekinesis.gd" id="16_5g2g6"]
-[ext_resource type="Texture2D" uid="uid://1tcflw6fjq4w" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
+[ext_resource type="Texture2D" uid="uid://bwy33exopyj71" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
+[ext_resource type="Texture2D" uid="uid://dblqlkdb0mtur" path="res://Assets/Player/Approach.png" id="19_la5j8"]
+[ext_resource type="Texture2D" uid="uid://hmi8aiyysy86" path="res://Assets/Player/ApproachWyvern.png" id="20_w20tp"]
+[ext_resource type="Texture2D" uid="uid://dbr5m7qa47hdk" path="res://Assets/Player/ApproachTroll.png" id="21_pppha"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -354,15 +357,18 @@ collision_mask = 3
 [node name="TelekenesisComponent" parent="." instance=ExtResource("9_6eowr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="LaserComponent" parent="." instance=ExtResource("3_q0f0h")]
+[node name="LaserComponent" parent="." node_paths=PackedStringArray("raycast") instance=ExtResource("3_q0f0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+raycast = NodePath("../AimCast")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
+offset_left = -1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
@@ -371,7 +377,7 @@ stretch = true
 transparent_bg = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(1154, 648)
+size = Vector2i(1153, 648)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
@@ -438,3 +444,16 @@ script = ExtResource("16_5g2g6")
 position = Vector2(577, 324)
 scale = Vector2(3.14, 3.14)
 texture = ExtResource("17_er1xk")
+
+[node name="Approach" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(578.02, 325)
+scale = Vector2(1.006, 1.005)
+texture = ExtResource("19_la5j8")
+
+[node name="ApproachWyvern" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(576, 322)
+texture = ExtResource("20_w20tp")
+
+[node name="ApproachTroll" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(577, 324)
+texture = ExtResource("21_pppha")

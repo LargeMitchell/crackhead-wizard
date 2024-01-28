@@ -1,4 +1,4 @@
-class_name ExplosiveBarrel extends Area3D
+extends Area3D
 
 @onready var explosion = $AnimatedSprite3D
 

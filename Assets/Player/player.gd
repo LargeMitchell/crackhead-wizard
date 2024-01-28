@@ -27,8 +27,8 @@ enum SpellBook {METH = 0, COKE = 1, LSD = 2, PCP = 3}
 @export var max_health : float = 100.0
 @export var mana : float = 100.0
 @export var max_mana : float = 200.0
-@export var meth_fire_rate : float = 1.0
-@export var coke_fire_rate : float = 2.0
+@export var meth_fire_rate : float = 0.33
+@export var coke_fire_rate : float = 1.0
 
 var can_cast_spell = true
 var cast_charge_timer = 999.0
@@ -84,12 +84,42 @@ func _ready():
 	current_spell = 0
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$SubViewportContainer/SubViewport/Telekinesis.hide()
+	
+	$SubViewportContainer/SubViewport/Approach.hide()
+	$SubViewportContainer/SubViewport/ApproachWyvern.hide()
+	$SubViewportContainer/SubViewport/ApproachTroll.hide()
 
 var fire_anim_state: int = 0;
+var cutscene_timer = 0.0
+var reset = false
+
+func play_cutscene(i : int):
+	
+	reset = false
+	
+	print(i)
+	match i:
+		0: 
+			$SubViewportContainer/SubViewport/Approach.show()
+			cutscene_timer = 4.0
+		1: 
+			$SubViewportContainer/SubViewport/ApproachWyvern.show()
+			cutscene_timer = 4.0
+		2: 
+			$SubViewportContainer/SubViewport/ApproachTroll.show()
+			cutscene_timer = 4.0
 
 func _process(delta):
 	cast_charge_timer += delta
 	manage_buffs(delta)
+
+	
+	cutscene_timer -= delta
+	if cutscene_timer <= 0.0 && !reset:
+		$SubViewportContainer/SubViewport/Approach.hide()
+		$SubViewportContainer/SubViewport/ApproachWyvern.hide()
+		$SubViewportContainer/SubViewport/ApproachTroll.hide()
+		reset = true
 
 	if Input.is_action_just_pressed("cast_spell"):
 		fire_anim_state = 1

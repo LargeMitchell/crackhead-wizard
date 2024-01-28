@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ricjbgig76hu"]
+
+[ext_resource type="Script" path="res://Assets/cutsceneStarter/cutscene_starter.gd" id="1_sh5qq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6sk50"]
+
+[node name="Node3D2" type="Node3D"]
+script = ExtResource("1_sh5qq")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+shape = SubResource("BoxShape3D_6sk50")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
