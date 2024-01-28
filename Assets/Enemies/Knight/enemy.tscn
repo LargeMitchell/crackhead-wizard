@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bc4ws14wke85l"]
+[gd_scene load_steps=18 format=3 uid="uid://bc4ws14wke85l"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Knight/enemy.gd" id="1_q0wr6"]
-[ext_resource type="Texture2D" uid="uid://wq621ndkt2kf" path="res://Assets/Enemies/Knight/PoliceSprite.png" id="2_2aprj"]
-[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://Assets/Enemies/Knight/explode.wav" id="2_8jh2m"]
+[ext_resource type="Texture2D" uid="uid://b5ms7hyypr43w" path="res://Assets/Enemies/Knight/PoliceSprite.png" id="2_2aprj"]
+[ext_resource type="AudioStream" uid="uid://3vyhvapkv3up" path="res://Assets/Enemies/Knight/explode.wav" id="2_8jh2m"]
+[ext_resource type="Texture2D" uid="uid://dwvb2mwj0c4lc" path="res://Assets/Enemies/Knight/KnightName.png" id="4_nulpa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j60oq"]
 
@@ -133,3 +134,8 @@ speed_scale = 1.5
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_8jh2m")
 unit_size = 2.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.325522, 0, 0, 0, 0.42995, 0, 0, 0, 1, 0, 2.3676, 0)
+billboard = 1
+texture = ExtResource("4_nulpa")

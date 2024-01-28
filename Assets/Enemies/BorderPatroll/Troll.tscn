@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://covhcd48pkobu"]
+[gd_scene load_steps=18 format=3 uid="uid://covhcd48pkobu"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/BorderPatroll/Troll.gd" id="1_5sfk1"]
 [ext_resource type="Texture2D" uid="uid://drpkyhcj4ftco" path="res://Assets/Enemies/BorderPatroll/TrollSprite.png" id="2_pu22x"]
-[ext_resource type="AudioStream" uid="uid://bsh1q86nqrkqw" path="res://Assets/Enemies/Knight/explode.wav" id="3_b174o"]
+[ext_resource type="AudioStream" uid="uid://3vyhvapkv3up" path="res://Assets/Enemies/Knight/explode.wav" id="3_b174o"]
+[ext_resource type="Texture2D" uid="uid://dlixwm44v3le8" path="res://Assets/Enemies/BorderPatroll/TrollName.png" id="4_waya7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j60oq"]
 
@@ -128,3 +129,8 @@ speed_scale = 1.5
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_b174o")
 unit_size = 2.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.325522, 0, 0, 0, 0.42995, 0, 0, 0, 1, 0, 2.3676, 0)
+billboard = 1
+texture = ExtResource("4_waya7")

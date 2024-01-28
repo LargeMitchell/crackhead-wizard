@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctcmfknl5d24o"]
+[gd_scene load_steps=6 format=3 uid="uid://ctcmfknl5d24o"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Yellow Beast/yellowBeast.gd" id="1_2qn6n"]
-[ext_resource type="AudioStream" uid="uid://chvqcyctj54ic" path="res://Assets/Enemies/Knight/explode.wav" id="2_h53dl"]
-[ext_resource type="PackedScene" uid="uid://bfe8koilidgim" path="res://Assets/Enemies/Yellow Beast/Taxi.glb" id="3_0tl4a"]
+[ext_resource type="AudioStream" uid="uid://3vyhvapkv3up" path="res://Assets/Enemies/Knight/explode.wav" id="2_h53dl"]
+[ext_resource type="PackedScene" uid="uid://fcmhjkr27eld" path="res://Assets/Enemies/Yellow Beast/Taxi.glb" id="3_0tl4a"]
+[ext_resource type="Texture2D" uid="uid://ds8nwhqqxjbx0" path="res://Assets/Enemies/Yellow Beast/BeastName.png" id="3_61k1k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j60oq"]
 
@@ -15,9 +16,14 @@ script = ExtResource("1_2qn6n")
 transform = Transform3D(2.4, -5.67907e-09, 9.56763e-08, -9.5605e-08, 0.0274826, 2.39984, -6.77428e-09, -2.39984, 0.0274826, 0, 0, 0.13)
 shape = SubResource("CapsuleShape3D_j60oq")
 
-[node name="Taxi" parent="CollisionShape3D" instance=ExtResource("3_0tl4a")]
-transform = Transform3D(-0.208333, -8.29299e-09, 0.000159994, 0.000159984, 0.00238565, 0.20832, -1.8404e-06, 0.20832, -0.00238565, 1.73153e-08, 0.0492297, -0.431426)
-
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_h53dl")
 unit_size = 2.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.325522, 0, 0, 0, 0.42995, 0, 0, 0, 1, 0, 2.2023, 0)
+billboard = 1
+texture = ExtResource("3_61k1k")
+
+[node name="Taxi" parent="." instance=ExtResource("3_0tl4a")]
+transform = Transform3D(-0.52, 0, -4.54598e-08, 0, 0.52, 0, 4.54598e-08, 0, -0.52, 0.00574297, -0.816177, -0.0733325)
