@@ -18,7 +18,7 @@ var chase_pos: Vector3 = Vector3(0.0, 0.0, 0.0)
 var rand_height: float = 0.0
 var rand_dist: float = 10.0
 var rand_rot_offset: float = 90.0
-var shot_time: float = 0.5
+var shot_time: float = 0.25
 var shot_timer: float = 0.0
 
 var spawn_time: float = 0.5
@@ -63,9 +63,9 @@ func _process(delta):
 	match state:
 		enemy_state.IDLE:
 			if global_position.distance_to(player.global_position) <= notice_range:
-				set_state(enemy_state.CHASING)
+				set_state(enemy_state.SHOOTING)
 		
-		enemy_state.CHASING:
+		enemy_state.SHOOTING:
 			shot_timer += delta
 			
 			if shot_timer >= shot_time:
