@@ -18,10 +18,10 @@ shape = SubResource("CapsuleShape3D_j60oq")
 stream = ExtResource("2_vsqf1")
 unit_size = 2.0
 
+[node name="Building" parent="." instance=ExtResource("3_sao4n")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, 1.50996e-07, 0, -1.50996e-07, -1, 5.96137, 0, 2.6058e-07)
 use_collision = true
 size = Vector3(6, 24, 1)
-
-[node name="Borderpatrol" parent="." instance=ExtResource("3_3lrjo")]
-transform = Transform3D(2.00728, 0, -0.440265, 0, 2.055, 0, 0.440265, 0, 2.00728, 0.272119, 0, 0.246046)
