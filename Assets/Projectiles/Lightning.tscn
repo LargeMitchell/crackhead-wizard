@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://k4j8tbowhixb"]
 
-[ext_resource type="Texture2D" uid="uid://bqskf2dpoaue7" path="res://Assets/Projectiles/LightningSpriteSheet.png" id="1_akdds"]
+[ext_resource type="Texture2D" uid="uid://b3ys2nurxmufg" path="res://Assets/Projectiles/LightningSpriteSheet.png" id="1_akdds"]
 [ext_resource type="Script" path="res://Assets/Projectiles/Lightning.gd" id="1_wcccy"]
-[ext_resource type="AudioStream" uid="uid://bdmtrcq55bvjx" path="res://Assets/Projectiles/lightning.wav" id="3_vrs0u"]
+[ext_resource type="AudioStream" uid="uid://i7f555ainn78" path="res://Assets/Projectiles/lightning.wav" id="3_vrs0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3cc6"]
 size = Vector3(1.25, 10.523, 1.25)
@@ -80,7 +80,7 @@ sprite_frames = SubResource("SpriteFrames_hpeem")
 
 [node name="lightning" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_vrs0u")
-max_db = 1.0
+max_db = 0.5
 attenuation_filter_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
