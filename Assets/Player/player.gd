@@ -53,8 +53,9 @@ func _input(event):
 
 	if Input.is_action_just_pressed("change_spell"):
 		current_spell += 1
-		current_spell %= 4
-		print(current_spell)
+		if current_spell >= buffs.size():
+			current_spell = 0
+		print(current_spell, buffs.has(current_spell))
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
 		cast_charge_timer = 0.0
@@ -67,6 +68,7 @@ func _input(event):
 
 func _ready():
 	# Locks cursor to game screen
+	current_spell = 0
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$SubViewportContainer/SubViewport/Telekinesis.hide()
 
@@ -140,6 +142,8 @@ func die():
 
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
+		return
+	if !buffs.has(spell): 
 		return
 
 	match spell:

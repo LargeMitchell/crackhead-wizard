@@ -21,6 +21,8 @@ var shot_time: float = 0.05
 var shot_timer: float = 0.0
 var rng = RandomNumberGenerator.new()
 
+var grabbed: bool = false
+
 func reroll_point():
 	rand_height = rng.randf_range(3.0, 5.0)
 	rand_dist = rng.randf_range(7.5, 12.5)
@@ -45,6 +47,8 @@ func set_state(new_state: enemy_state):
 var charge_hit_player = false
 
 func _process(delta):
+	if grabbed: return
+	
 	if health <= 0:
 		global_position += Vector3(0.0, -delta * 6.0, 0.0)
 		global_rotate(Vector3(0.0, 1.0, 0.0), delta)
@@ -120,6 +124,8 @@ func _physics_process(delta):
 		
 	if player == null:
 		return
+		
+	if grabbed: return
 		
 	if state == enemy_state.CHARGING && !charge_hit_player:
 		

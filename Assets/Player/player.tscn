@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://ceb568srikvhy"]
+[gd_scene load_steps=61 format=3 uid="uid://ceb568srikvhy"]
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
@@ -14,8 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://c80vrske667jv" path="res://Assets/Player/lsd.png" id="8_fjgny"]
 [ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
 [ext_resource type="Texture2D" uid="uid://30eo28iaq3o5" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
-[ext_resource type="Texture2D" uid="uid://dp5koifrt4nt4" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
+[ext_resource type="Texture2D" uid="uid://daqy15keffh2" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
 [ext_resource type="Script" path="res://Assets/Player/Telekinesis.gd" id="16_5g2g6"]
+[ext_resource type="Texture2D" uid="uid://b02iqyi82fwuo" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -423,3 +424,8 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_4i3gr")
 autoplay = "default"
 script = ExtResource("16_5g2g6")
+
+[node name="Reticle" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(577, 324)
+scale = Vector2(3.14, 3.14)
+texture = ExtResource("17_er1xk")
