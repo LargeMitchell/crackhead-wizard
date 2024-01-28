@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5l7mqjiqy8lu"]
+[gd_scene load_steps=6 format=3 uid="uid://b5l7mqjiqy8lu"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/Wyvern/wyvern.gd" id="1_8saou"]
-[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://assets/Enemies/Knight/explode.wav" id="4_2hoen"]
+[ext_resource type="PackedScene" uid="uid://dcvyxi6qsfohh" path="res://Assets/Enemies/Wyvern/WyvernBody.glb" id="3_oxa8b"]
+[ext_resource type="AudioStream" uid="uid://cy25w6h68xf3s" path="res://Assets/Enemies/Knight/explode.wav" id="4_2hoen"]
+[ext_resource type="PackedScene" uid="uid://dq7366ysdq865" path="res://Assets/Enemies/Wyvern/WyvernWings.glb" id="4_yh3p0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j60oq"]
 
@@ -17,8 +19,8 @@ shape = SubResource("CapsuleShape3D_j60oq")
 stream = ExtResource("4_2hoen")
 unit_size = 2.0
 
-[node name="WyvernBody" type="Node3D" parent="."]
+[node name="WyvernBody" parent="." instance=ExtResource("3_oxa8b")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
 
-[node name="WyvernWings" type="Node3D" parent="WyvernBody"]
-rotation_order = 0
+[node name="WyvernWings" parent="WyvernBody" instance=ExtResource("4_yh3p0")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.569164, 3.20851, 6.06623e-15)

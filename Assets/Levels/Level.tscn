@@ -2,14 +2,10 @@
 
 [ext_resource type="Shader" path="res://Assets/Shaders/skybox.gdshader" id="1_exwn4"]
 [ext_resource type="PackedScene" uid="uid://ceb568srikvhy" path="res://Assets/Player/player.tscn" id="2_i142k"]
-[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_te412"]
+[ext_resource type="MeshLibrary" uid="uid://dccf0qli5eqin" path="res://Assets/Levels/ModularKit/tileset.tres" id="3_m5c46"]
 [ext_resource type="Script" path="res://Assets/Levels/GridMap.gd" id="4_ii3x8"]
 [ext_resource type="PackedScene" uid="uid://bc4ws14wke85l" path="res://Assets/Enemies/Knight/enemy.tscn" id="5_5tw0y"]
-[ext_resource type="PackedScene" path="res://assets/pick-ups/LSD.tscn" id="6_p7pr7"]
 [ext_resource type="PackedScene" uid="uid://c1425sq80sb80" path="res://Assets/Levels/ModularKit/Skyscraper.glb" id="7_aqk6j"]
-[ext_resource type="PackedScene" path="res://Assets/pick-ups/Coke.tscn" id="9_53cpw"]
-[ext_resource type="PackedScene" path="res://Assets/pick-ups/LSD.tscn" id="9_ja6qo"]
-[ext_resource type="PackedScene" path="res://Assets/pick-ups/Meth.tscn" id="10_yxp0f"]
 [ext_resource type="PackedScene" uid="uid://bopoft1kv0pic" path="res://Assets/copcar/copcar.tscn" id="11_my1wo"]
 [ext_resource type="PackedScene" uid="uid://bmjao113dpmbo" path="res://Assets/Enemies/EnemySpawner/EnemySpawner.tscn" id="12_uclf2"]
 [ext_resource type="PackedScene" uid="uid://b5l7mqjiqy8lu" path="res://Assets/Enemies/Wyvern/wyvern.tscn" id="13_yc4pk"]
@@ -51,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488263, 6.02543, -4.43059)
 current_spell = 2
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_te412")
+mesh_library = ExtResource("3_m5c46")
 cell_size = Vector3(1.3, 1.3, 1.3)
 cell_center_y = false
 data = {
