@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Assets/Projectiles/Lightning.gd" id="1_wcccy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3cc6"]
-size = Vector3(2.50252, 21.4027, 2.68295)
+size = Vector3(1.25, 10.523, 1.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i0u3r"]
 atlas = ExtResource("1_akdds")
@@ -62,16 +62,17 @@ animations = [{
 }]
 
 [node name="Lightning" type="Area3D"]
+collision_mask = 3
 script = ExtResource("1_wcccy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105419, 10.2048, -0.00129509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105419, 5.44326, -0.00129509)
 shape = SubResource("BoxShape3D_y3cc6")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38755, 0)
 pixel_size = 0.029
-billboard = 1
+billboard = 2
 double_sided = false
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_hpeem")

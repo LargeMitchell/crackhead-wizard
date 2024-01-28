@@ -167,7 +167,7 @@ func cast_meth_spell(charge: float):
 	spawn_projectile(fireball, charge)
 
 func cast_coke_spell():
-	spawn_projectile(lightning, 0)
+	spawn_lightning()
 
 
 func cast_lsd_spell():
@@ -211,3 +211,12 @@ func spawn_projectile(proj: PackedScene, charge: float):
 	else:
 		p.direction = -campivot.transform.basis.z
 
+func spawn_lightning():
+	var l = lightning.instantiate()
+	owner.add_child(l)
+	if raycast.is_colliding():
+		l.transform.origin = raycast.get_collision_point()
+	else:
+		l.transform.origin = bulletorigin.global_position
+	
+	l.scale = l.scale * 3.0
