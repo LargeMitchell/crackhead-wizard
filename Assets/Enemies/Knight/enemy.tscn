@@ -113,6 +113,7 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+collision_layer = 2
 script = ExtResource("1_q0wr6")
 move_speed = 5.0
 

@@ -15,9 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://c80vrske667jv" path="res://Assets/Player/lsd.png" id="8_fjgny"]
 [ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
 [ext_resource type="Texture2D" uid="uid://30eo28iaq3o5" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
-[ext_resource type="Texture2D" uid="uid://bf78r5wimmawg" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
+[ext_resource type="Texture2D" uid="uid://oq1b74q8ske4" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
 [ext_resource type="Script" path="res://Assets/Player/Telekinesis.gd" id="16_5g2g6"]
-[ext_resource type="Texture2D" uid="uid://dlb8sp4ny7a1l" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
+[ext_resource type="Texture2D" uid="uid://b77dkvyr4akcc" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -332,6 +332,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 4
 script = ExtResource("1_fpu0r")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
