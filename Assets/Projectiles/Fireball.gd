@@ -2,7 +2,7 @@ extends Area3D
 
 @export var projectile_speed : float = 10.0
 @export var lifetime : float = 2.0
-@export var damage : float = 25.0
+@export var damage : float = 40.0
 
 var direction : Vector3
 var timer : float = 0.0

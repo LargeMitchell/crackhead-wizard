@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcmgcqybsd4p6"]
+[gd_scene load_steps=7 format=3 uid="uid://bcmgcqybsd4p6"]
 
 [ext_resource type="Script" path="res://Assets/Enemies/BorderPatroll/borderpatroll.gd" id="1_6x8ga"]
 [ext_resource type="AudioStream" uid="uid://3vyhvapkv3up" path="res://Assets/Enemies/Knight/explode.wav" id="2_vsqf1"]
+[ext_resource type="PackedScene" uid="uid://dl11ohkw3bq5g" path="res://Assets/Enemies/BorderPatroll/Borderpatrol.glb" id="3_gmyp8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j60oq"]
 
@@ -22,9 +23,6 @@ shape = SubResource("CapsuleShape3D_j60oq")
 stream = ExtResource("2_vsqf1")
 unit_size = 2.0
 
-[node name="Borderpatrol" type="Node3D" parent="."]
-transform = Transform3D(2.00728, 0, -0.440265, 0, 2.055, 0, 0.440265, 0, 2.00728, 0.272119, 0, 0.246046)
-
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(4.46288, 0, 0, 0, 11.9664, 0, 0, 0, 1, 6.55325, 0, 2.86452e-07)
 
@@ -38,3 +36,6 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(1, 0, 1.77636e-15, 0, 1, 0, 7.95808e-13, 0, 1, -0.0169983, 0.541469, 1.7053e-13)
 shape = SubResource("BoxShape3D_ssfbl")
+
+[node name="Borderpatrol" parent="." instance=ExtResource("3_gmyp8")]
+transform = Transform3D(3.095, 0, 0, 0, 3.095, 0, 0, 0, 3.095, 0.085951, -1.47771, 1.08822)

@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc6ptceenwrs8"]
+
+[ext_resource type="Theme" path="res://Assets/Menu's/WizardTheme.tres" id="1_yk3js"]
+[ext_resource type="Script" path="res://Assets/Menu's/openingCrawl.gd" id="2_2tt3d"]
+[ext_resource type="Texture2D" uid="uid://dbeap7xwbi5ic" path="res://Assets/Menu's/Menu.png" id="3_8hesf"]
+
+[sub_resource type="Theme" id="Theme_gsl5j"]
+default_font_size = 0
+
+[sub_resource type="Theme" id="Theme_e53s7"]
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yk3js")
+script = ExtResource("2_2tt3d")
+
+[node name="TextEnding" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 259.0
+offset_top = 132.0
+offset_right = -215.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_gsl5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+text = "thou art a wizard of great renown hailing from New Yorkshire
+
+Thy have recently been procecuted for thine magics 
+(public urination)
+
+The crooked king has banished thee from the main land
+
+Now take flight, young bird"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 489.0
+offset_top = 499.0
+offset_right = -447.0
+offset_bottom = -99.0
+theme = SubResource("Theme_e53s7")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.94902, 0.94902, 0, 1)
+text = "Embark"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(914, 313)
+texture = ExtResource("3_8hesf")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="TextEnding" method="_on_button_pressed"]

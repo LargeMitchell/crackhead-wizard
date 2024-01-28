@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dfl0qpv1c8ord"]
 
 [ext_resource type="Script" path="res://Assets/Projectiles/Fireball.gd" id="1_q6kng"]
-[ext_resource type="Texture2D" uid="uid://c366evh6tffyk" path="res://Assets/Projectiles/PlayerFireballProj.png" id="2_mnxm2"]
+[ext_resource type="Texture2D" uid="uid://d3ujk3qetasq1" path="res://Assets/Projectiles/PlayerFireballProj.png" id="2_mnxm2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oirng"]
 size = Vector3(0.5, 0.5, 0.5)

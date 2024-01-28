@@ -1,6 +1,6 @@
 extends Control
 
-@export var first_level : PackedScene = preload("res://Assets/Levels/Level.tscn")
+@export var first_level : PackedScene = preload("res://Assets/Menu's/openingCrawl.tscn")
 @onready var title : AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():

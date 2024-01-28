@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var health: int = 300
+@export var health: int = 500
 @export var move_speed: float = 5.5
 @export var attack_damage: int = 10
 @export var attack_range: int = 5
@@ -108,7 +108,10 @@ func _process(delta):
 			chase_pos = player.global_position + Vector3(0.0, rand_height, 0.0)
 			
 			if state_timer >= 1.6:
-				set_state(enemy_state.SPAWNING)
+				if player.global_position.distance_to(global_position) <= 5:
+					set_state(enemy_state.SPAWNING)
+				else:
+					set_state(enemy_state.SHOOTING)
 
 		enemy_state.SPAWNING:
 			state_timer += delta
