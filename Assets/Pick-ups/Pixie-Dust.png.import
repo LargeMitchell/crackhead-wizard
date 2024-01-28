@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl0me1avrme3f"
-path.s3tc="res://.godot/imported/Pixie-Dust.png-1b6dde7e58800296ee254190be4c29d7.s3tc.ctex"
+uid="uid://b4fdg25sxvybj"
+path.s3tc="res://.godot/imported/Pixie-Dust.png-c6b1d9336727cc0d9fcc6fda027f2a28.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Pick-ups/Pixie-Dust.png"
-dest_files=["res://.godot/imported/Pixie-Dust.png-1b6dde7e58800296ee254190be4c29d7.s3tc.ctex"]
+source_file="res://assets/Pick-ups/Pixie-Dust.png"
+dest_files=["res://.godot/imported/Pixie-Dust.png-c6b1d9336727cc0d9fcc6fda027f2a28.s3tc.ctex"]
 
 [params]
 
