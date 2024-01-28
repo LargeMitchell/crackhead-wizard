@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
-[ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://Assets/Player/handframes.tres" id="2_rhil4"]
-[ext_resource type="Texture2D" uid="uid://uf00li4uxqkt" path="res://Assets/Player/LeftArm.png" id="3_cisjl"]
-[ext_resource type="PackedScene" uid="uid://bogcjojn7811k" path="res://Assets/Projectiles/Laser/LaserComponent.tscn" id="3_q0f0h"]
-[ext_resource type="Texture2D" uid="uid://dw41fgo3i2qxn" path="res://Assets/Player/UI.png" id="4_lj3qa"]
-[ext_resource type="Texture2D" uid="uid://bxcdqim5h4uqn" path="res://Assets/Player/Face.png" id="5_6hlbd"]
+[ext_resource type="SpriteFrames" path="res://Assets/player/handframes.tres" id="2_rhil4"]
+[ext_resource type="Texture2D" uid="uid://uf00li4uxqkt" path="res://assets/player/LeftArm.png" id="3_cisjl"]
+[ext_resource type="PackedScene" path="res://Assets/Projectiles/Laser/LaserComponent.tscn" id="3_q0f0h"]
+[ext_resource type="Texture2D" uid="uid://dw41fgo3i2qxn" path="res://Assets/player/UI.png" id="4_lj3qa"]
+[ext_resource type="Texture2D" uid="uid://bxcdqim5h4uqn" path="res://assets/player/Face.png" id="5_6hlbd"]
 [ext_resource type="Shader" path="res://assets/shaders/handbobbing_with_color.gdshader" id="5_lviqv"]
-[ext_resource type="Texture2D" uid="uid://1hjcprfxth6u" path="res://Assets/Player/meth_pipe.png" id="6_66mqc"]
+[ext_resource type="Texture2D" uid="uid://1hjcprfxth6u" path="res://assets/player/meth_pipe.png" id="6_66mqc"]
 [ext_resource type="Script" path="res://Assets/Player/HeadAnim.gd" id="6_u877w"]
-[ext_resource type="Texture2D" uid="uid://c6nf2b5553brg" path="res://Assets/Player/coke.png" id="7_3b3qg"]
-[ext_resource type="Texture2D" uid="uid://dyeob7f7q3t61" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
-[ext_resource type="Texture2D" uid="uid://c80vrske667jv" path="res://Assets/Player/lsd.png" id="8_fjgny"]
+[ext_resource type="Texture2D" uid="uid://c6nf2b5553brg" path="res://assets/player/coke.png" id="7_3b3qg"]
+[ext_resource type="Texture2D" uid="uid://dyeob7f7q3t61" path="res://Assets/player/UIBack.png" id="7_8nu1n"]
+[ext_resource type="Texture2D" uid="uid://c80vrske667jv" path="res://assets/player/lsd.png" id="8_fjgny"]
 [ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
-[ext_resource type="Texture2D" uid="uid://30eo28iaq3o5" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
+[ext_resource type="Texture2D" uid="uid://30eo28iaq3o5" path="res://assets/player/pcp.png" id="9_hq8uu"]
 [ext_resource type="Texture2D" uid="uid://oq1b74q8ske4" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
 [ext_resource type="Script" path="res://Assets/Player/Telekinesis.gd" id="16_5g2g6"]
 [ext_resource type="Texture2D" uid="uid://b77dkvyr4akcc" path="res://Assets/Player/Reticle.png" id="17_er1xk"]
@@ -35,7 +35,7 @@ shader_parameter/threshhold = 1.01
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lmkek"]
 resource_local_to_scene = true
 shader = ExtResource("5_lviqv")
-shader_parameter/threshhold = 1.0
+shader_parameter/threshhold = 2.08165e-12
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8wdqo"]
 shader = ExtResource("5_lviqv")
