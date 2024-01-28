@@ -28,7 +28,7 @@ enum SpellBook {METH = 0, COKE = 1, LSD = 2, PCP = 3}
 @export var mana : float = 100.0
 @export var max_mana : float = 200.0
 @export var meth_fire_rate : float = 0.33
-@export var coke_fire_rate : float = 1.0
+@export var coke_fire_rate : float = 0.66
 
 var can_cast_spell = true
 var cast_charge_timer = 999.0
@@ -40,10 +40,7 @@ var fire_timer : float = 0.0
 var killed_enemy = false
 
 var buffs : Dictionary = {
-	SpellBook.METH:{"duration":30.0,"doses":1},
-	SpellBook.COKE:{"duration":30.0,"doses":1},
-	SpellBook.LSD:{"duration":30.0,"doses":1},
-	SpellBook.PCP:{"duration":30.0,"doses":1}
+	SpellBook.METH:{"duration":30.0,"doses":1}
 }
 @onready var book_icons: Dictionary = {
 	SpellBook.METH: {"node": $SubViewportContainer/SubViewport/LeftArm/meth, "offset": Vector2(-4,-29)},
@@ -53,6 +50,18 @@ var buffs : Dictionary = {
 }
 @onready var selected_spell_sparkle: AnimatedSprite2D = $SubViewportContainer/SubViewport/LeftArm/selected_spell
 
+
+func SelectNextSpell():
+	if buffs.is_empty(): return
+	current_spell += 1
+		
+	while !buffs.has(current_spell):
+		if current_spell >= 4:
+			current_spell = 0
+		else:
+			current_spell += 1
+
+	selected_spell_sparkle.offset = book_icons[current_spell]["offset"]
 
 func _input(event):
 
@@ -67,12 +76,9 @@ func _input(event):
 		campivot.rotation.x  = clamp(campivot.rotation.x, deg_to_rad(-80), deg_to_rad(89.9))
 
 	if Input.is_action_just_pressed("change_spell"):
-		current_spell += 1
-		if current_spell >= buffs.size():
-			current_spell = 0
-
-		print(current_spell, buffs.has(current_spell))
-		selected_spell_sparkle.offset = book_icons[current_spell]["offset"]
+		SelectNextSpell()
+		
+		
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
 		cast_charge_timer = 0.0
@@ -87,6 +93,7 @@ func _ready():
 	# Locks cursor to game screen
 	current_spell = 0
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$SubViewportContainer/SubViewport/Death.hide()
 	$SubViewportContainer/SubViewport/Telekinesis.hide()
 	$SubViewportContainer/SubViewport/Approach.hide()
 	$SubViewportContainer/SubViewport/ApproachWyvern.hide()
@@ -113,7 +120,19 @@ func play_cutscene(i : int):
 			$SubViewportContainer/SubViewport/ApproachTroll.show()
 			cutscene_timer = 4.0
 
+var dead = false
+var deadTimer = 0.0
+
 func _process(delta):
+	
+	if dead:
+		deadTimer += delta
+		if deadTimer >= 1.0:
+			$SubViewportContainer/SubViewport/Death.show()
+		if deadTimer >= 2.0:
+			get_tree().reload_current_scene()
+		return
+	
 	cast_charge_timer += delta
 	manage_buffs(delta)
 
@@ -189,7 +208,7 @@ func take_damage(damage: float):
 		die()
 
 func die():
-	pass
+	dead = true
 
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
@@ -221,11 +240,17 @@ func cast_lsd_spell():
 	print("lsd")
 
 func add_to_buffs(buff: int, duration: float, max_duration: float):
+	
+	var empty = buffs.is_empty()
+
 	if buffs.has(buff):
 		buffs[buff]['doses'] += 1
 		buffs[buff]['duration'] += duration / buffs[buff]['doses']
 	else:
 		buffs[buff] = {'duration': duration, 'doses': 1}
+		
+	if empty:
+		SelectNextSpell()
 
 func manage_buffs(delta):
 	if buffs.is_empty():
@@ -238,6 +263,7 @@ func manage_buffs(delta):
 		book_icons[key]["node"].material.set_shader_parameter("threshhold", remap(buffs[key]['duration'], 0.0, 30.0, 0.0, 1.0))
 		if buffs[key]['duration'] <= 0:
 			buffs.erase(key)
+			SelectNextSpell()
 
 func cast_spell_anim_done():
 	can_cast_spell = true
