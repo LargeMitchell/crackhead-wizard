@@ -347,11 +347,16 @@ fov = 100.0
 [node name="SpellSpawn" type="Marker3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642169, -0.517421, -1.01358)
 
+[node name="AimCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0)
+collision_mask = 3
+
 [node name="TelekenesisComponent" parent="." instance=ExtResource("9_6eowr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="LaserComponent" parent="." instance=ExtResource("3_q0f0h")]
+[node name="LaserComponent" parent="." node_paths=PackedStringArray("raycast") instance=ExtResource("3_q0f0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+raycast = NodePath("../AimCast")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1

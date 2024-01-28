@@ -20,6 +20,7 @@ enum SpellBook {METH = 0, COKE = 1, LSD = 2, PCP = 3}
 @onready var lightning : PackedScene = preload("res://Assets/Projectiles/Lightning.tscn")
 
 @onready var animated_sprite : AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
+@onready var raycast = $AimCast
 
 # Player Attributes
 @export var health : float = 100.0
@@ -30,6 +31,8 @@ enum SpellBook {METH = 0, COKE = 1, LSD = 2, PCP = 3}
 var can_cast_spell = true
 var cast_charge_timer = 999.0
 var cast_charge_dur = 3.0
+
+var cast_range : float = 40.0
 
 var killed_enemy = false
 
@@ -101,6 +104,8 @@ func _process(delta):
 
 
 func _physics_process(delta):
+
+	raycast.target_position = -campivot.transform.basis.z * cast_range
 
 	# Add the gravity.
 	if not is_on_floor():
@@ -199,5 +204,8 @@ func spawn_projectile(proj: PackedScene, charge: float):
 
 	# sets projectile position and launch direction
 	p.transform = bulletorigin.global_transform
-	p.direction = -campivot.transform.basis.z
+	if raycast.is_colliding():
+		p.direction = Vector3(raycast.get_collision_point() - bulletorigin.global_position).normalized()
+	else:
+		p.direction = -campivot.transform.basis.z
 
