@@ -9,6 +9,9 @@ extends CharacterBody3D
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 @onready var bullet : PackedScene = preload("res://Assets/Projectiles/Bullet.tscn")
 @onready var enemy : PackedScene = preload("res://Assets/Enemies/Knight/enemy.tscn")
+@onready var explosion : PackedScene = preload("res://Assets/VFX/Explosion/Explosion.tscn")
+
+@onready var troll : PackedScene = preload("res://Assets/Enemies/BorderPatroll/Troll.tscn")
 
 var state_timer: float = 0.0
 @export var attack_cd: float = 2.0
@@ -21,7 +24,7 @@ var rand_rot_offset: float = 90.0
 var shot_time: float = 0.25
 var shot_timer: float = 0.0
 
-var spawn_time: float = 0.5
+var spawn_time: float = 1.0
 var spawn_timer: float = 0.0
 
 var rng = RandomNumberGenerator.new()
@@ -52,9 +55,32 @@ func set_state(new_state: enemy_state):
 
 var charge_hit_player = false
 
+var expl_tmr = 0.0
+var expl_dur = 0.1
+
 func _process(delta):
 	if health <= 0:
+		expl_tmr += delta
+		state_timer += delta
+		
+		if expl_tmr >= expl_dur:
+			print("boom")
+			
+			var explodeanim = explosion.instantiate()
+			get_parent().add_child(explodeanim)
+			explodeanim.global_position = global_position + Vector3(randf_range(-3.0, 3.0), randf_range(-3.0, 3.0), randf_range(-3.0, 3.0))
+			explodeanim.scale = Vector3(3.5, 3.5, 3.5)
+			
+			expl_tmr -= expl_dur
+		
+		if state_timer >= 2.0:
+			var troleo = troll.instantiate()
+			get_parent().add_child(troleo)
+			troleo.global_position = global_position
+			queue_free()
+			
 		return
+			
 		
 	if player == null:
 		return

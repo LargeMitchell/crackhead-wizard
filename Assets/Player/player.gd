@@ -20,6 +20,7 @@ enum SpellBook {METH = 0, COKE = 1, LSD = 2, PCP = 3}
 @onready var lightning : PackedScene = preload("res://Assets/Projectiles/Lightning.tscn")
 
 @onready var animated_sprite : AnimatedSprite2D = $SubViewportContainer/SubViewport/AnimatedSprite2D
+@onready var raycast = $AimCast
 
 # Player Attributes
 @export var health : float = 100.0
@@ -31,13 +32,17 @@ var can_cast_spell = true
 var cast_charge_timer = 999.0
 var cast_charge_dur = 3.0
 
+var cast_range : float = 40.0
+
 var killed_enemy = false
 
 var buffs : Dictionary = { SpellBook.METH:{"duration":20.0,"doses":1} }
-@onready var meth_icon_book : Sprite2D = $SubViewportContainer/SubViewport/LeftArm/meth
-@onready var coke_icon_book : Sprite2D = $SubViewportContainer/SubViewport/LeftArm/coke
-@onready var lsd_icon_book : Sprite2D = $SubViewportContainer/SubViewport/LeftArm/lsd
-@onready var pcp_icon_book : Sprite2D = $SubViewportContainer/SubViewport/LeftArm/pcp
+@onready var book_icons: Dictionary = {
+	SpellBook.METH: $SubViewportContainer/SubViewport/LeftArm/meth,
+	SpellBook.COKE: $SubViewportContainer/SubViewport/LeftArm/coke,
+	SpellBook.LSD: $SubViewportContainer/SubViewport/LeftArm/lsd,
+	SpellBook.PCP: $SubViewportContainer/SubViewport/LeftArm/pcp
+}
 
 func _input(event):
 
@@ -102,6 +107,8 @@ func _process(delta):
 
 func _physics_process(delta):
 
+	raycast.target_position = -campivot.transform.basis.z * cast_range
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -131,7 +138,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_damage(damage: float):
-	print('health', health)
+	#print('health', health)
 	health -= damage
 	if health <= 0:
 		health = 0
@@ -143,7 +150,7 @@ func die():
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
 		return
-	if !buffs.has(spell): 
+	if !buffs.has(spell):
 		return
 
 	match spell:
@@ -160,7 +167,7 @@ func cast_meth_spell(charge: float):
 	spawn_projectile(fireball, charge)
 
 func cast_coke_spell():
-	spawn_projectile(lightning, 0)
+	spawn_lightning()
 
 
 func cast_lsd_spell():
@@ -179,9 +186,9 @@ func manage_buffs(delta):
 		return
 	can_cast_spell = true
 	for key in buffs:
-		#print (key," - ", buffs[key]['duration'])
+		print (key," - ", buffs[key]['duration'])
 		buffs[key]['duration'] -= delta
-		meth_icon_book.material.set_shader_parameter("threshhold", remap(buffs[key]['duration'], 0.0, 30.0, 0.0, 1.0))
+		book_icons[key].material.set_shader_parameter("threshhold", remap(buffs[key]['duration'], 0.0, 30.0, 0.0, 1.0))
 		if buffs[key]['duration'] <= 0:
 			buffs.erase(key)
 
@@ -199,5 +206,17 @@ func spawn_projectile(proj: PackedScene, charge: float):
 
 	# sets projectile position and launch direction
 	p.transform = bulletorigin.global_transform
-	p.direction = -campivot.transform.basis.z
+	if raycast.is_colliding():
+		p.direction = Vector3(raycast.get_collision_point() - bulletorigin.global_position).normalized()
+	else:
+		p.direction = -campivot.transform.basis.z
 
+func spawn_lightning():
+	var l = lightning.instantiate()
+	owner.add_child(l)
+	if raycast.is_colliding():
+		l.transform.origin = raycast.get_collision_point()
+	else:
+		l.transform.origin = bulletorigin.global_position
+	
+	l.scale = l.scale * 3.0

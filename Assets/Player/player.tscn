@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
-[ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://Assets/Player/handframes.tres" id="2_rhil4"]
+[ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://Assets/player/handframes.tres" id="2_rhil4"]
 [ext_resource type="Texture2D" uid="uid://uf00li4uxqkt" path="res://Assets/Player/LeftArm.png" id="3_cisjl"]
 [ext_resource type="PackedScene" uid="uid://bogcjojn7811k" path="res://Assets/Projectiles/Laser/LaserComponent.tscn" id="3_q0f0h"]
 [ext_resource type="Texture2D" uid="uid://dw41fgo3i2qxn" path="res://Assets/Player/UI.png" id="4_lj3qa"]
@@ -35,7 +35,7 @@ shader_parameter/threshhold = 1.01
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lmkek"]
 resource_local_to_scene = true
 shader = ExtResource("5_lviqv")
-shader_parameter/threshhold = 1.0
+shader_parameter/threshhold = 2.08165e-12
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8wdqo"]
 shader = ExtResource("5_lviqv")
@@ -347,11 +347,16 @@ fov = 100.0
 [node name="SpellSpawn" type="Marker3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642169, -0.517421, -1.01358)
 
+[node name="AimCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0)
+collision_mask = 3
+
 [node name="TelekenesisComponent" parent="." instance=ExtResource("9_6eowr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="LaserComponent" parent="." instance=ExtResource("3_q0f0h")]
+[node name="LaserComponent" parent="." node_paths=PackedStringArray("raycast") instance=ExtResource("3_q0f0h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+raycast = NodePath("../AimCast")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
