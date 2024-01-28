@@ -41,7 +41,8 @@ enum enemy_state
 	SPAWNING,
 	SHOOTING,
 	IDLE,
-	CRASHING
+	CRASHING,
+	OPENING
 }
 var state: enemy_state = enemy_state.CRASHING
 
@@ -53,8 +54,6 @@ var charge_hit_player = false
 
 func _process(delta):
 	if health <= 0:
-		global_position += Vector3(0.0, -delta * 6.0, 0.0)
-		global_rotate(Vector3(0.0, 1.0, 0.0), delta)
 		return
 		
 	if player == null:
@@ -108,10 +107,26 @@ func _process(delta):
 		enemy_state.CRASHING:
 			state_timer += delta
 			
-			$CSGBox3D.rotate(Vector3(1.0, 0.0, 0.0), -delta * 5.0)
+			$Node3D.rotate(Vector3(1.0, 0.0, 0.0), -delta * 5.0)
 			
+			$Node3D.rotation.x = clampf($Node3D.rotation.x, -(PI / 2.0), 0.0)
 			
+			if $Node3D.rotation.x <= -(PI / 2.0):
+				set_state(enemy_state.OPENING)
+				for body in $Node3D/Area3D.get_overlapping_bodies():
+					if body.is_in_group("player"):
+						body.take_damage(9999.0)
+						
 				
+		enemy_state.OPENING:
+			state_timer += delta
+			
+			$Node3D.rotate(Vector3(1.0, 0.0, 0.0), delta * 5.0)
+			
+			$Node3D.rotation.x = clampf($Node3D.rotation.x, -(PI / 2.0), 0.0)
+			
+			if $Node3D.rotation.x >= 0.0:
+				set_state(enemy_state.SHOOTING)
 
 func _physics_process(delta):
 	if !grabbed:
