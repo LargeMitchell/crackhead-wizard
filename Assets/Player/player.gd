@@ -58,13 +58,17 @@ func _input(event):
 		#current_spell = Spells.new().SpellBook.COKE
 	if Input.is_action_just_pressed("cast_spell"):
 		cast_charge_timer = 0.0
+		if current_spell == SpellBook.PCP:
+			$SubViewportContainer/SubViewport/Telekinesis.show()
 
 	if Input.is_action_just_released("cast_spell"):
 		cast_spell(current_spell, cast_charge_timer)
+		$SubViewportContainer/SubViewport/Telekinesis.hide()
 
 func _ready():
 	# Locks cursor to game screen
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$SubViewportContainer/SubViewport/Telekinesis.hide()
 
 var fire_anim_state: int = 0;
 
@@ -137,8 +141,6 @@ func die():
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
 		return
-
-	print("")
 
 	match spell:
 		SpellBook.METH:

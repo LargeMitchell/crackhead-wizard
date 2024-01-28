@@ -1,20 +1,21 @@
-[gd_scene load_steps=50 format=3 uid="uid://ceb568srikvhy"]
+[gd_scene load_steps=60 format=3 uid="uid://ceb568srikvhy"]
 
 [ext_resource type="Script" path="res://Assets/Player/player.gd" id="1_fpu0r"]
 [ext_resource type="Shader" path="res://Assets/Shaders/handbobbing.gdshader" id="2_ndqck"]
-[ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://assets/player/handframes.tres" id="2_rhil4"]
-[ext_resource type="Texture2D" uid="uid://uf00li4uxqkt" path="res://assets/player/LeftArm.png" id="3_cisjl"]
-[ext_resource type="Texture2D" uid="uid://dw41fgo3i2qxn" path="res://assets/player/UI.png" id="4_lj3qa"]
-[ext_resource type="Texture2D" uid="uid://bxcdqim5h4uqn" path="res://assets/player/Face.png" id="5_6hlbd"]
+[ext_resource type="SpriteFrames" uid="uid://qaemgg3cw0gx" path="res://Assets/Player/handframes.tres" id="2_rhil4"]
+[ext_resource type="Texture2D" uid="uid://uf00li4uxqkt" path="res://Assets/Player/LeftArm.png" id="3_cisjl"]
+[ext_resource type="Texture2D" uid="uid://dw41fgo3i2qxn" path="res://Assets/Player/UI.png" id="4_lj3qa"]
+[ext_resource type="Texture2D" uid="uid://bxcdqim5h4uqn" path="res://Assets/Player/Face.png" id="5_6hlbd"]
 [ext_resource type="Shader" path="res://assets/shaders/handbobbing_with_color.gdshader" id="5_lviqv"]
-[ext_resource type="Texture2D" uid="uid://1hjcprfxth6u" path="res://Assets/player/meth_pipe.png" id="6_66mqc"]
+[ext_resource type="Texture2D" uid="uid://1hjcprfxth6u" path="res://Assets/Player/meth_pipe.png" id="6_66mqc"]
 [ext_resource type="Script" path="res://Assets/Player/HeadAnim.gd" id="6_u877w"]
+[ext_resource type="Texture2D" uid="uid://c6nf2b5553brg" path="res://Assets/Player/coke.png" id="7_3b3qg"]
 [ext_resource type="Texture2D" uid="uid://dyeob7f7q3t61" path="res://Assets/Player/UIBack.png" id="7_8nu1n"]
+[ext_resource type="Texture2D" uid="uid://c80vrske667jv" path="res://Assets/Player/lsd.png" id="8_fjgny"]
 [ext_resource type="PackedScene" uid="uid://c628spjccw3fi" path="res://Assets/Projectiles/Telekenesis/TelekenesisComponent.tscn" id="9_6eowr"]
-[ext_resource type="Texture2D" uid="uid://c6nf2b5553brg" path="res://Assets/player/coke.png" id="7_3b3qg"]
-[ext_resource type="Texture2D" uid="uid://dyeob7f7q3t61" path="res://assets/player/UIBack.png" id="7_8nu1n"]
-[ext_resource type="Texture2D" uid="uid://c80vrske667jv" path="res://assets/player/lsd.png" id="8_fjgny"]
-[ext_resource type="Texture2D" uid="uid://30eo28iaq3o5" path="res://assets/player/pcp.png" id="9_hq8uu"]
+[ext_resource type="Texture2D" uid="uid://30eo28iaq3o5" path="res://Assets/Player/pcp.png" id="9_hq8uu"]
+[ext_resource type="Texture2D" uid="uid://dp5koifrt4nt4" path="res://Assets/Player/telekinesis.png" id="15_0ypeh"]
+[ext_resource type="Script" path="res://Assets/Player/Telekinesis.gd" id="16_5g2g6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v8j3f"]
 
@@ -277,6 +278,56 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_frc2j"]
+atlas = ExtResource("15_0ypeh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqfh8"]
+atlas = ExtResource("15_0ypeh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wotlt"]
+atlas = ExtResource("15_0ypeh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkduq"]
+atlas = ExtResource("15_0ypeh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sywac"]
+atlas = ExtResource("15_0ypeh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41pkq"]
+atlas = ExtResource("15_0ypeh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4i3gr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frc2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqfh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wotlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkduq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sywac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41pkq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_fpu0r")
@@ -365,3 +416,10 @@ z_index = -1
 position = Vector2(105.5, 95.5)
 scale = Vector2(2.6125, 2.32927)
 texture = ExtResource("7_8nu1n")
+
+[node name="Telekinesis" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(577, 324)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_4i3gr")
+autoplay = "default"
+script = ExtResource("16_5g2g6")
