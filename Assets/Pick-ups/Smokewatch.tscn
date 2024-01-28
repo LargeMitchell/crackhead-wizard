@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://brx1ldn02r8h"]
+
+[ext_resource type="Script" path="res://Assets/Pick-ups/Smokewatch.gd" id="1_6m0uv"]
+[ext_resource type="Texture2D" uid="uid://dx7d4j6ylu7ht" path="res://Assets/Pick-ups/Smokewatch.png" id="2_4ooe0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jyfvg"]
+
+[node name="Smokewatch" type="Area3D"]
+collision_mask = 4
+script = ExtResource("1_6m0uv")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("2_4ooe0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jyfvg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
