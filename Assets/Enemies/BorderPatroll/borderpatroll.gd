@@ -17,7 +17,7 @@ var chase_pos: Vector3 = Vector3(0.0, 0.0, 0.0)
 var rand_height: float = 0.0
 var rand_dist: float = 10.0
 var rand_rot_offset: float = 90.0
-var shot_time: float = 0.05
+var shot_time: float = 0.5
 var shot_timer: float = 0.0
 var rng = RandomNumberGenerator.new()
 
@@ -57,9 +57,22 @@ func _process(delta):
 		
 	match state:
 		enemy_state.IDLE:
-			pass
+			if global_position.distance_to(player.global_position) <= notice_range:
+				set_state(enemy_state.CHASING)
 		
 		enemy_state.CHASING:
+			shot_timer += delta
+			
+			if shot_timer >= shot_time:
+				
+				shot_timer -= shot_time
+				
+				var p = bullet.instantiate()
+				add_child(p)
+				p.global_transform.origin = global_transform.origin + Vector3.UP
+				p.direction = Vector3((player.global_position + (-Vector3.UP)) - global_position) + Vector3(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
+				p.direction = p.direction.normalized()
+			
 			state_timer += delta
 			
 			chase_pos = player.global_position + Vector3(0.0, rand_height, 0.0)

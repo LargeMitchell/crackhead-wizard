@@ -6,6 +6,12 @@ extends Area3D
 @onready var collision : BoxShape3D = $CollisionShape3D.shape
 @onready var explosion : PackedScene = preload("res://Assets/VFX/Explosion/Explosion.tscn")
 
+@onready var charge_value: float = 0.0
+@onready var direction: Vector3 = Vector3(0.0, 0.0, 0.0)
+
+func set_charge_scale():
+	pass
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite.play("default")
