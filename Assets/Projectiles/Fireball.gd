@@ -24,11 +24,11 @@ func _physics_process(delta):
 
 func set_charge_scale():
 	scaling_value = remap(clamp(charge_value, 0.0, 1.0), 0.0, 1.0, 1.0, 4.0)
+	var collision_scaling : float = clamp(scaling_value, 1.0, 2.0)
 	
 	sprite.pixel_size = sprite.pixel_size * scaling_value
 	collision.size = Vector3(0.5,0.5,0.5)
-	collision.size.x = collision.size.x * scaling_value
-	collision.size.y = collision.size.y * scaling_value
+	collision.size = collision.size * collision_scaling
 
 func _on_body_entered(body):
 	
