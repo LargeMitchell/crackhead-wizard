@@ -27,12 +27,15 @@ enum SpellBook {METH = 0, COKE = 1, LSD = 2, PCP = 3}
 @export var max_health : float = 100.0
 @export var mana : float = 100.0
 @export var max_mana : float = 200.0
+@export var meth_fire_rate : float = 1.0
+@export var coke_fire_rate : float = 2.0
 
 var can_cast_spell = true
 var cast_charge_timer = 999.0
 var cast_charge_dur = 3.0
 
 var cast_range : float = 40.0
+var fire_timer : float = 0.0
 
 var killed_enemy = false
 
@@ -112,6 +115,8 @@ func _process(delta):
 
 func _physics_process(delta):
 
+	weapon_cooldown(delta)
+
 	raycast.target_position = -campivot.transform.basis.z * cast_range
 
 	# Add the gravity.
@@ -154,6 +159,7 @@ func die():
 
 func cast_spell(spell, charge: float):
 	if !can_cast_spell:
+		print(can_cast_spell)
 		return
 	if !buffs.has(spell):
 		return
@@ -161,9 +167,11 @@ func cast_spell(spell, charge: float):
 	match spell:
 		SpellBook.METH:
 			cast_meth_spell(charge)
+			can_cast_spell = false
 
 		SpellBook.COKE:
 			cast_coke_spell()
+			can_cast_spell = false
 
 		SpellBook.LSD:
 			cast_lsd_spell()
@@ -189,14 +197,13 @@ func manage_buffs(delta):
 	if buffs.is_empty():
 		can_cast_spell = false
 		return
-	can_cast_spell = true
+	#can_cast_spell = true
 	for key in buffs:
 		#print (key," - ", buffs[key]['duration'])
 		buffs[key]['duration'] -= delta
 		book_icons[key].material.set_shader_parameter("threshhold", remap(buffs[key]['duration'], 0.0, 30.0, 0.0, 1.0))
 		if buffs[key]['duration'] <= 0:
 			buffs.erase(key)
-
 
 func cast_spell_anim_done():
 	can_cast_spell = true
@@ -225,3 +232,22 @@ func spawn_lightning():
 		l.transform.origin = bulletorigin.global_position
 	
 	l.scale = l.scale * 3.0
+
+func weapon_cooldown(delta):
+	if !can_cast_spell:
+		match current_spell:
+			SpellBook.METH:
+				if fire_timer < meth_fire_rate:
+					fire_timer += delta
+				else:
+					fire_timer = 0.0
+					can_cast_spell = true
+			
+			
+			SpellBook.COKE:
+				if fire_timer < coke_fire_rate:
+					fire_timer += delta
+				else:
+					fire_timer = 0.0
+					can_cast_spell = true
+
