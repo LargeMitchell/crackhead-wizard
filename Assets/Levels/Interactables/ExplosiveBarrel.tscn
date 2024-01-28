@@ -1,12 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsud71yo853gr"]
 
 [ext_resource type="Script" path="res://Assets/Levels/Interactables/ExplosiveBarrel.gd" id="1_asp25"]
-[ext_resource type="Texture2D" uid="uid://d2subh3v6rcic" path="res://Assets/Levels/Interactables/barrel.png" id="2_rpcyh"]
+[ext_resource type="Texture2D" uid="uid://cud6ts3t8nmm" path="res://Assets/Levels/Interactables/barrel.png" id="2_rpcyh"]
 [ext_resource type="SpriteFrames" uid="uid://cyrh2p7nma7ex" path="res://Assets/VFX/Explosion/explosionframes.tres" id="3_y2keo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjh0x"]
 
 [node name="ExplosiveBarrel" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_asp25")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

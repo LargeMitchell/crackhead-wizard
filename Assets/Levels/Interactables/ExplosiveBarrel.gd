@@ -6,8 +6,7 @@ func _ready():
 	explosion.pause()
 
 func _on_area_entered(area):
-	if area is Fireball:
-		explode()
+	explode()
 
 func explode():
 	$Sprite3D.visible = false
