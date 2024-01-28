@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dvmmmdr2cj5bi"]
+
+[ext_resource type="FontFile" uid="uid://csqv10ky0yaar" path="res://Assets/Menu's/font/LadyRadical2Regular-0yAz.ttf" id="1_pc5kd"]
+
+[resource]
+default_font = ExtResource("1_pc5kd")

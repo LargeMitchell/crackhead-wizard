@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://chqls0wpyest7"]
+[gd_scene load_steps=6 format=3 uid="uid://chqls0wpyest7"]
 
+[ext_resource type="Theme" uid="uid://dvmmmdr2cj5bi" path="res://Assets/Menu's/WizardTheme.tres" id="1_rj0rd"]
 [ext_resource type="Script" path="res://Assets/Menu's/ending.gd" id="1_ruugh"]
+[ext_resource type="Texture2D" uid="uid://cy1fim0rn50b5" path="res://Assets/Menu's/Menu.png" id="2_ir3ie"]
 
 [sub_resource type="Theme" id="Theme_gsl5j"]
 default_font_size = 0
@@ -14,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_rj0rd")
 script = ExtResource("1_ruugh")
 
 [node name="TextEnding" type="Label" parent="."]
@@ -28,6 +31,9 @@ offset_bottom = -210.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_gsl5j")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
 text = "Thou hath completed thine quest for freedom and escapeth from the swines
 
 Thou got past the bridge troll and can now flee to the promised land of Mexico.
@@ -52,6 +58,11 @@ theme = SubResource("Theme_e53s7")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.94902, 0.94902, 0, 1)
 text = "End The Quest"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(914, 313)
+texture = ExtResource("2_ir3ie")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button" to="TextEnding" method="_on_button_pressed"]
