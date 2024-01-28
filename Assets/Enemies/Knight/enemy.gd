@@ -11,6 +11,14 @@ extends CharacterBody3D
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 @onready var bullet : PackedScene = preload("res://Assets/Projectiles/Bullet.tscn")
 
+@onready var coke : PackedScene = preload("res://Assets/Pick-ups/Coke.tscn")
+@onready var lsd : PackedScene = preload("res://Assets/Pick-ups/LSD.tscn")
+@onready var meth : PackedScene = preload("res://Assets/Pick-ups/Meth.tscn")
+
+var drug_offset: Array = [Vector3(1, 0, 0), Vector3(0, 0, 0), Vector3(-1, 0, 0)]
+
+var dead : bool = false
+
 var state_timer: float = 0.0
 var grabbed : bool = false
 @export var attack_cd: float = 1.0
@@ -85,11 +93,24 @@ func attack_player():
 func take_damage(damage_amount:float):
 	health -= damage_amount
 	
-	if health <= 0:
-		print("dead knight!")
-		animated_sprite_3d.play("Death")
-		$DeathSound.play()
-		$CollisionShape3D.disabled = true
-		player.killed_enemy = true
-
-
+	if dead == false:
+		if health <= 0:
+			animated_sprite_3d.play("Death")
+			$DeathSound.play()
+			$CollisionShape3D.disabled = true
+			player.killed_enemy = true
+			var c = coke.instantiate()
+			var m = meth.instantiate()
+			var l = lsd.instantiate()
+			var dead_times: int = 0
+			add_child(c)
+			add_child(m)
+			add_child(l)
+			drug_offset.shuffle()
+			c.global_position = global_position + drug_offset[0]
+			m.global_position = global_position + drug_offset[1]
+			l.global_position = global_position + drug_offset[2]
+			dead_times += 1
+			if dead_times > 3:
+				dead = true
+		
