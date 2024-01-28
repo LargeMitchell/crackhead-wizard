@@ -1,6 +1,10 @@
 extends Control
 
 @export var first_level : PackedScene = preload("res://Assets/Levels/Level.tscn")
+@onready var title : AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready():
+	title.play("default")
 
 func _on_start_button_down():
 	get_tree().change_scene_to_packed(first_level)
