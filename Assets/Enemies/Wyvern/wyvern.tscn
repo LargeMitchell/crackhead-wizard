@@ -24,7 +24,6 @@ unit_size = 2.0
 transform = Transform3D(-2.18557e-08, -3.81454e-11, -0.5, -0.000872664, 0.499999, 0, 0.499999, 0.000872664, -2.18557e-08, -0.247927, 0.0576121, 0.144222)
 
 [node name="WyvernWings" type="Node3D" parent="WyvernBody"]
-transform = Transform3D(-1.09278e-09, -3.63798e-12, -0.025, -1.33241e-18, 0.025, -3.63798e-12, 0.025, 3.59782e-21, -1.09278e-09, 0.155771, 3.8499, -0.321818)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.325522, 0, 0, 0, 0.42995, 0, 0, 0, 1, 0, 3.25575, 0)

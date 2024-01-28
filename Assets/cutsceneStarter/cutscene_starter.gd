@@ -17,4 +17,5 @@ func _process(delta):
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("player"):
-			player.play_cutscene(0)
+			player.play_cutscene(type)
+			played = true
